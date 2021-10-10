@@ -1,5 +1,5 @@
 export const backgroundsCount = 4
-export const backgroundsPath = 'images/backgrounds/'
+export const backgroundsPath = '/images/backgrounds/'
 export const backgroundsExtension = '.jpg'
 
 export function getRandomBackgroundImage(

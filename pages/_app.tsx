@@ -1,14 +1,28 @@
 import type { AppProps } from 'next/app'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 import theme from '../theme'
+import { getFetcher, showError } from '../requests'
+import { SWRConfig } from 'swr'
+import RootLayout from '../components/RootLayout'
 import 'focus-visible/dist/focus-visible'
 
 function App({ Component, pageProps }: AppProps) {
     return (
-        <ChakraProvider theme={theme}>
-            <CSSReset />
-            <Component {...pageProps} />
-        </ChakraProvider>
+        <SWRConfig
+            value={{
+                revalidateOnFocus: false,
+                onError: showError,
+                fetcher: getFetcher,
+                provider: () => new Map(),
+            }}
+        >
+            <ChakraProvider theme={theme}>
+                <CSSReset />
+                <RootLayout>
+                    <Component {...pageProps} />
+                </RootLayout>
+            </ChakraProvider>
+        </SWRConfig>
     )
 }
 
