@@ -6,9 +6,10 @@ import {
     backgroundsExtension,
     backgroundsPath,
     getRandomBackgroundImage,
-} from '../utils/backgrounds'
-import { FullScreenBackground } from './FullScreenBackground'
+} from '../../utils/backgrounds'
+import { PageBackground } from './PageBackground'
 import { useRouter } from 'next/router'
+import { HOMEPAGE } from '../../consts/client-routes'
 
 type Props = {
     children: ReactNode
@@ -26,9 +27,9 @@ const RootLayout: React.FC<Props> = ({ children, isHomePage = false }) => {
 
     return (
         <Box>
-            <FullScreenBackground
+            <PageBackground
                 src={backgroundImageUri}
-                isVisible={router.pathname === '/'}
+                isVisible={router.pathname === HOMEPAGE}
             />
 
             <Flex flexDir="column">
@@ -37,7 +38,7 @@ const RootLayout: React.FC<Props> = ({ children, isHomePage = false }) => {
                 </header>
 
                 <main>
-                    <Box px={6} pb={6}>
+                    <Box px={{ base: 6, md: 9 }} pb={{ base: 6, md: 9 }}>
                         {children}
                     </Box>
                 </main>

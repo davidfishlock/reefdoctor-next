@@ -1,40 +1,45 @@
 import type { NextPage } from 'next'
-import { Box, SimpleGrid } from '@chakra-ui/react'
-import MainMenuItem from '../components/MainMenuItem'
+import { SimpleGrid } from '@chakra-ui/react'
+import MainMenuItem from '../components/main-menu/MainMenuItem'
 import Head from 'next/head'
+import { strings } from '../consts/strings'
+import { Category } from '@prisma/client'
 
 const menuItems = [
     {
         image: '/images/menu-items/catalog.png',
-        title: 'Species Catalog',
+        title: strings.SPECIES_CATALOG,
         isCatalog: true,
     },
-    { image: '/images/menu-items/fish.jpg', title: 'Fish', categoryId: 1 },
+    {
+        image: '/images/menu-items/fish.jpg',
+        title: strings.CATEGORY_FISH,
+        category: Category.Fish,
+    },
     {
         image: '/images/menu-items/invertebrate.jpg',
-        title: 'Invertebrate',
-        categoryId: 2,
+        title: strings.CATEGORY_INVERTEBRATE,
+        category: Category.Invertebrate,
     },
     {
         image: '/images/menu-items/benthic.jpg',
-        title: 'Benthic',
-        categoryId: 3,
+        title: strings.CATEGORY_BENTHIC,
+        category: Category.Benthic,
     },
     {
         image: '/images/menu-items/fish-families.jpg',
-        title: 'Fish Families',
-        categoryId: 4,
+        title: strings.CATEGORY_FISH_FAMILIES,
+        category: Category.FishFamily,
     },
-    { image: '/images/menu-items/coral.jpg', title: 'Coral', categoryId: 5 },
+    {
+        image: '/images/menu-items/coral.jpg',
+        title: strings.CATEGORY_CORAL,
+        category: Category.Coral,
+    },
     {
         image: '/images/menu-items/seagrass.jpg',
-        title: 'Seagrass',
-        categoryId: 6,
-    },
-    {
-        image: '/images/menu-items/juvenile.jpg',
-        title: 'Juvenile Fish',
-        categoryId: 7,
+        title: strings.CATEGORY_SEAGRASS,
+        category: Category.Seagrass,
     },
 ]
 
@@ -42,20 +47,20 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>ReefDoctor | UVC Training - Main Menu</title>
+                <title>{strings.HOMEPAGE_TITLE}</title>
                 <meta
                     name="description"
-                    content="The main menu for ReefDoctor's UVC training. Browse information and images in the marine species catalog, or start an identification training workshop for each of the species categories."
+                    content={strings.HOMEPAGE_DESCRIPTION}
                 />
             </Head>
-            <SimpleGrid columns={[1, 1, 2, 2, 3]} spacing={3} mt={3}>
+            <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing={3} mt={3}>
                 {menuItems.map((item) => {
                     return (
                         <MainMenuItem
                             key={item.title}
                             image={item.image}
                             title={item.title}
-                            categoryId={item.categoryId}
+                            category={item.category}
                             isCatalog={item.isCatalog}
                         />
                     )

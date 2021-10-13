@@ -9,8 +9,9 @@ import {
     Text,
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
-import { useAllSpecies } from '../requests'
-import { isUVCCategory } from '../utils/uvcDefinitions'
+import { useAllSpecies } from '../../requests'
+import { isUVCCategory } from '../../utils/uvcDefinitions'
+import { strings } from '../../consts/strings'
 
 type Props = {
     onSpeciesSelected?: (species: Species) => void
@@ -59,14 +60,24 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
                         }}
                         value={selectedCategory}
                     >
-                        <option value={Category.Fish}>Fish</option>
-                        <option value={Category.Benthic}>Benthic</option>
-                        <option value={Category.Invertebrate}>
-                            Invertebrate
+                        <option value={Category.Fish}>
+                            {strings.CATEGORY_FISH}
                         </option>
-                        <option value={Category.Coral}>Coral</option>
-                        <option value={Category.Seagrass}>Seagrass</option>
-                        <option value={Category.FishFamily}>Fish Family</option>
+                        <option value={Category.Benthic}>
+                            {strings.CATEGORY_BENTHIC}
+                        </option>
+                        <option value={Category.Invertebrate}>
+                            {strings.CATEGORY_INVERTEBRATE}
+                        </option>
+                        <option value={Category.Coral}>
+                            {strings.CATEGORY_CORAL}
+                        </option>
+                        <option value={Category.Seagrass}>
+                            {strings.CATEGORY_SEAGRASS}
+                        </option>
+                        <option value={Category.FishFamily}>
+                            {strings.CATEGORY_FISH_FAMILIES}
+                        </option>
                     </Select>
                 </FormControl>
 
@@ -85,8 +96,12 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
                             setSelectedUVCLevel(uvcLevel)
                         }}
                     >
-                        <option value={UVCLevel.Indicator}>Indicator</option>
-                        <option value={UVCLevel.Expert}>Expert</option>
+                        <option value={UVCLevel.Indicator}>
+                            {strings.UVC_LEVEL_INDICATOR}
+                        </option>
+                        <option value={UVCLevel.Expert}>
+                            {strings.UVC_LEVEL_EXPERT}
+                        </option>
                     </Select>
                 </FormControl>
             </HStack>
