@@ -10,8 +10,8 @@ import {
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
 import { useAllSpecies } from '../../requests'
-import { isUVCCategory } from '../../utils/uvcDefinitions'
-import { strings } from '../../consts/strings'
+import { isUVCCategory } from '../../utils/UvcDefinitions'
+import { strings } from '../../consts/Strings'
 
 type Props = {
     onSpeciesSelected?: (species: Species) => void

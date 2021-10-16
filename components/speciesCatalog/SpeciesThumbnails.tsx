@@ -1,35 +1,19 @@
 import React, { useState } from 'react'
-import { Grid, useBreakpointValue } from '@chakra-ui/react'
+import { Grid } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
-import { isUVCCategory } from '../../utils/uvcDefinitions'
 import urljoin from 'url-join'
 import ImageGallery from './ImageGallery'
 import usePortal from 'react-useportal'
-import useLockBodyViewport from '../../hooks/useLockBodyViewPort'
+import useLockBodyScroll from '../../hooks/UseLockBodyScroll'
 import SpeciesThumbnailItem from './SpeciesThumbnailItem'
+import { getImagePathForSpecies } from '../../utils/Species'
 
 type Props = {
     species?: Species
 }
 
-const baseImagePath = '/images/species/'
-
-function getPathForSpecies(species: Species) {
-    let pathFragments = [baseImagePath]
-
-    pathFragments.push(species.category.toString())
-
-    if (isUVCCategory(species.category) && species.uvcLevel) {
-        pathFragments.push(species.uvcLevel.toString())
-    }
-
-    pathFragments.push(species.name)
-
-    return urljoin(pathFragments)
-}
-
 function createImageSources(species: Species) {
-    const speciesPath = getPathForSpecies(species)
+    const speciesPath = getImagePathForSpecies(species)
     const imagesArray: string[] = Array(species.imageCount)
         .fill('')
         .map((item, index) => {
@@ -47,11 +31,7 @@ const SpeciesThumbnails: React.FC<Props> = ({ species }) => {
         isOpen: isGalleryOpen,
     } = usePortal()
 
-    const heroImageGridSpan = useBreakpointValue({
-        base: undefined,
-        xl: '1 / span 2',
-    })
-    useLockBodyViewport(isGalleryOpen)
+    useLockBodyScroll(isGalleryOpen)
 
     if (!species) return null
 

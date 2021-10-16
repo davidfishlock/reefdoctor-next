@@ -1,7 +1,10 @@
 import useSWR from 'swr'
 import { Category, Species, UVCLevel } from '@prisma/client'
 import { createStandaloneToast } from '@chakra-ui/toast'
-import { getSortedSpeciesByName } from '../utils/array'
+import { getSortedSpeciesByName } from '../utils/Array'
+import { Question, Tutorial } from '../types/Tutorial'
+import { useFetch } from '../hooks/UseFetch'
+import {isCategory, isUVCLevel} from "../types/Guards";
 
 const fetchConfig = {
     method: 'GET',
@@ -35,5 +38,27 @@ export function useAllSpecies(category: Category, uvcLevel: UVCLevel) {
         speciesList: data ? getSortedSpeciesByName(data) : [],
         isLoading: !error && !data,
         error: error,
+    }
+}
+
+export function useTutorial(
+    category: Category,
+    uvcLevel: UVCLevel,
+    isReady: boolean
+) {
+    if (isReady && (!isCategory(category) || !isUVCLevel(uvcLevel))) {
+        throw new Error('useTutorial parameters were invalid')
+    }
+
+    const { data, isLoading, error } = useFetch<Tutorial>(
+        `/api/tutorial?${new URLSearchParams({ category, uvcLevel })}`,
+        undefined,
+        isReady
+    )
+
+    return {
+        tutorial: data,
+        isLoading,
+        error,
     }
 }

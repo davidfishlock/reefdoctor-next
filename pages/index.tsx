@@ -1,16 +1,12 @@
-import type { NextPage } from 'next'
-import { SimpleGrid } from '@chakra-ui/react'
-import MainMenuItem from '../components/main-menu/MainMenuItem'
 import Head from 'next/head'
-import { strings } from '../consts/strings'
+import { strings } from '../consts/Strings'
 import { Category } from '@prisma/client'
+import SpeciesCatalogMenuItem from '../components/mainMenu/SpeciesCatalogMenuItem'
+import CategoryMenuItem from '../components/mainMenu/CategoryMenuItem'
+import { Page } from '../types/Page'
+import { AnimatedSimpleGrid } from '../components/common/Animation'
 
-const menuItems = [
-    {
-        image: '/images/menu-items/catalog.png',
-        title: strings.SPECIES_CATALOG,
-        isCatalog: true,
-    },
+const categoryItems = [
     {
         image: '/images/menu-items/fish.jpg',
         title: strings.CATEGORY_FISH,
@@ -43,7 +39,7 @@ const menuItems = [
     },
 ]
 
-const Home: NextPage = () => {
+const Home: Page = () => {
     return (
         <>
             <Head>
@@ -53,19 +49,24 @@ const Home: NextPage = () => {
                     content={strings.HOMEPAGE_DESCRIPTION}
                 />
             </Head>
-            <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing={3} mt={3}>
-                {menuItems.map((item) => {
+            <AnimatedSimpleGrid
+                initial="hidden"
+                animate="show"
+                columns={{ base: 1, md: 2, xl: 3 }}
+                spacing={{ base: 4, xl: 4 }}
+            >
+                <SpeciesCatalogMenuItem />
+                {categoryItems.map((item) => {
                     return (
-                        <MainMenuItem
-                            key={item.title}
+                        <CategoryMenuItem
+                            key={item.category}
                             image={item.image}
                             title={item.title}
                             category={item.category}
-                            isCatalog={item.isCatalog}
                         />
                     )
                 })}
-            </SimpleGrid>
+            </AnimatedSimpleGrid>
         </>
     )
 }

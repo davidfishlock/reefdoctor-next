@@ -1,14 +1,14 @@
-import type { NextPage } from 'next'
 import { Flex, Box } from '@chakra-ui/react'
-import SpeciesSelector from '../components/species-catalog/SpeciesSelector'
+import SpeciesSelector from '../components/speciesCatalog/SpeciesSelector'
 import { useState } from 'react'
 import { Species } from '@prisma/client'
-import SpeciesDetails from '../components/species-catalog/SpeciesDetails'
+import SpeciesDetails from '../components/speciesCatalog/SpeciesDetails'
 import Head from 'next/head'
-import SpeciesThumbnails from '../components/species-catalog/SpeciesThumbnails'
-import { strings } from '../consts/strings'
+import SpeciesThumbnails from '../components/speciesCatalog/SpeciesThumbnails'
+import { strings } from '../consts/Strings'
+import { Page } from '../types/Page'
 
-const Catalog: NextPage = () => {
+const Catalog: Page = () => {
     const [selectedSpecies, setSelectedSpecies] = useState<Species>()
 
     return (

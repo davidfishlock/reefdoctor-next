@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import { Box, Text, Image, Center } from '@chakra-ui/react'
-import GalleryNavigateButton from './GalleryNavigateButton'
-import { AnimatedFlex } from '../common/Animation'
 import { Species } from '@prisma/client'
 import FocusLock from '@chakra-ui/focus-lock'
-import { useHotkeys } from 'react-hotkeys-hook'
+import Carousel from '../common/Carousel'
 
 type GalleryProps = {
     species: Species
@@ -19,19 +17,7 @@ const ImageGallery: React.FC<GalleryProps> = ({
     startIndex,
     onCloseRequested,
 }) => {
-    const [currentSlide, setCurrentSlide] = useState(startIndex)
-
-    const slidesCount = images.length
-
-    const movePrevious = () => {
-        setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1))
-    }
-    const moveNext = () => {
-        setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1))
-    }
-
-    useHotkeys('left', movePrevious, { keydown: true })
-    useHotkeys('right', moveNext, { keydown: true })
+    const [selectedIndex, setSelectedIndex] = useState(startIndex)
 
     return (
         <FocusLock>
@@ -44,15 +30,12 @@ const ImageGallery: React.FC<GalleryProps> = ({
                 height="100vh"
                 width="100vw"
                 bg="black.75"
-                overflow="hidden"
             >
-                <AnimatedFlex
-                    boxSize="full"
-                    initial={{ translateX: `-${currentSlide * 100}%` }}
-                    animate={{ translateX: `-${currentSlide * 100}%` }}
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                >
-                    {images.map((image, index) => (
+                <Carousel<string>
+                    items={images}
+                    selectedIndex={selectedIndex}
+                    onSelectedIndexChanged={(index) => setSelectedIndex(index)}
+                    onRenderItem={(image, index) => (
                         <Center
                             key={`image-${index}`}
                             boxSize="full"
@@ -72,21 +55,7 @@ const ImageGallery: React.FC<GalleryProps> = ({
                                 src={image}
                             />
                         </Center>
-                    ))}
-                </AnimatedFlex>
-
-                <GalleryNavigateButton
-                    icon="&#10094;"
-                    onClick={movePrevious}
-                    left={0}
-                    isDisabled={currentSlide === 0}
-                />
-
-                <GalleryNavigateButton
-                    icon="&#10095;"
-                    onClick={moveNext}
-                    right={0}
-                    isDisabled={currentSlide === images.length - 1}
+                    )}
                 />
 
                 <Center pos="absolute" w="full" bottom="0" p={5}>
@@ -97,7 +66,7 @@ const ImageGallery: React.FC<GalleryProps> = ({
                         color="white"
                         fontSize="xs"
                     >
-                        {currentSlide + 1} / {slidesCount}
+                        {selectedIndex + 1} / {images.length}
                     </Text>
                 </Center>
             </Box>

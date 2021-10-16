@@ -1,12 +1,6 @@
-import React, { useState } from 'react'
-import { AspectRatio, Grid, useBreakpointValue } from '@chakra-ui/react'
-import { Species } from '@prisma/client'
-import { isUVCCategory } from '../../utils/uvcDefinitions'
-import urljoin from 'url-join'
+import React from 'react'
+import { AspectRatio, useBreakpointValue } from '@chakra-ui/react'
 import { NextImage } from '../common/NextImage'
-import ImageGallery from './ImageGallery'
-import usePortal from 'react-useportal'
-import useLockBodyViewport from '../../hooks/useLockBodyViewPort'
 import { useClickable } from '@chakra-ui/clickable'
 
 type Props = {
