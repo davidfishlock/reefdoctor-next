@@ -20,19 +20,25 @@ const Catalog: Page = () => {
                     content={strings.SPECIES_CATALOG_DESCRIPTION}
                 />
             </Head>
-            <Flex flexDir={{ base: 'column', md: 'row' }}>
+            <Flex
+                flexDir={{ base: 'column', md: 'row' }}
+                width='100%'
+                height={{ base: 'auto', md: '100%' }}
+            >
                 <Box width={{ base: '100%', md: 300, lg: 350 }} flexShrink={0}>
                     <SpeciesSelector onSpeciesSelected={setSelectedSpecies} />
                 </Box>
                 <Flex
                     flexDir={{ base: 'column', xl: 'row' }}
                     flexGrow={1}
-                    alignItems="flex-start"
+                    overflowY="auto"
+                    justifyItems={'flex-start'}
+                    paddingBottom={{ base: 6, md: 0 }}
                 >
                     <Box
                         paddingLeft={{ base: 0, md: 12 }}
                         paddingTop={{ base: 12, md: 0 }}
-                        flexGrow={1}
+                        flexGrow={{ base: 0, xl: 1 }}
                     >
                         <SpeciesDetails species={selectedSpecies} />
                     </Box>
@@ -49,5 +55,7 @@ const Catalog: Page = () => {
         </>
     )
 }
+
+Catalog.layout = 'full'
 
 export default Catalog

@@ -1,12 +1,12 @@
-import React, {useState} from 'react'
-import {Button, useDisclosure} from '@chakra-ui/react'
-import {Category, UVCLevel} from '@prisma/client'
-import {strings} from '../../consts/Strings'
+import React, { useState } from 'react'
+import { Button, useDisclosure } from '@chakra-ui/react'
+import { Category, UVCLevel } from '@prisma/client'
+import { strings } from '../../consts/Strings'
 import MainMenuItem from './MainMenuItem'
-import {TUTORIAL} from '../../consts/ClientRoutes'
-import {useRouter} from 'next/router'
-import {isUVCCategory} from '../../utils/UvcDefinitions'
-import {TutorialSessionType} from '../../types/Tutorial'
+import { TUTORIAL } from '../../consts/ClientRoutes'
+import { useRouter } from 'next/router'
+import { isUVCCategory } from '../../utils/UvcDefinitions'
+import { TutorialSessionType } from '../../types/Tutorial'
 import UVCLevelModal from './UVCLevelModal'
 
 type Props = {
@@ -21,8 +21,9 @@ const smallButtonStyle = {
 }
 
 const CategoryMenuItem: React.FC<Props> = ({ image, title, category }) => {
-    const [sessionType, setSessionType] =
-        useState<TutorialSessionType>(TutorialSessionType.Workshop)
+    const [sessionType, setSessionType] = useState<TutorialSessionType>(
+        TutorialSessionType.Workshop
+    )
 
     const router = useRouter()
     const {
@@ -64,13 +65,19 @@ const CategoryMenuItem: React.FC<Props> = ({ image, title, category }) => {
                     <>
                         <Button
                             {...smallButtonStyle}
-                            onClick={() => onSessionTypeSelected(TutorialSessionType.Workshop)}
+                            onClick={() =>
+                                onSessionTypeSelected(
+                                    TutorialSessionType.Workshop
+                                )
+                            }
                         >
                             {strings.BUTTON_WORKSHOP}
                         </Button>
                         <Button
                             {...smallButtonStyle}
-                            onClick={() => onSessionTypeSelected(TutorialSessionType.Quiz)}
+                            onClick={() =>
+                                onSessionTypeSelected(TutorialSessionType.Quiz)
+                            }
                         >
                             {strings.BUTTON_QUIZ}
                         </Button>

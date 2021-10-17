@@ -4,7 +4,7 @@ import { createStandaloneToast } from '@chakra-ui/toast'
 import { getSortedSpeciesByName } from '../utils/Array'
 import { Question, Tutorial } from '../types/Tutorial'
 import { useFetch } from '../hooks/UseFetch'
-import {isCategory, isUVCLevel} from "../types/Guards";
+import { isCategory, isUVCLevel } from '../types/Guards'
 
 const fetchConfig = {
     method: 'GET',

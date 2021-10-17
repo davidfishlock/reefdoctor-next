@@ -20,7 +20,7 @@ import TutorialAnswers from '../components/tutorial/TutorialAnswers'
 import { formatString } from '../utils/Strings'
 import { strings } from '../consts/Strings'
 import { isTutorialSessionType } from '../types/Guards'
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 type Props = {
     sessionType: TutorialSessionType
@@ -65,8 +65,7 @@ const Tutorial: Page<Props> = () => {
     if (!tutorial || error || !isTutorialSessionType(sessionType)) {
         return (
             <Center boxSize="full">
-                <Text>{strings.TUTORIAL_LOAD_ERROR}
-                </Text>
+                <Text>{strings.TUTORIAL_LOAD_ERROR}</Text>
             </Center>
         )
     }

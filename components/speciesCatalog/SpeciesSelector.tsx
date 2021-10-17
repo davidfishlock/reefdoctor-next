@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import {
     FormLabel,
     FormControl,
@@ -7,11 +7,13 @@ import {
     Stack,
     HStack,
     Text,
+    useBreakpointValue,
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
 import { useAllSpecies } from '../../requests'
 import { isUVCCategory } from '../../utils/UvcDefinitions'
 import { strings } from '../../consts/Strings'
+import SelectableList from '../common/SelectableList'
 
 type Props = {
     onSpeciesSelected?: (species: Species) => void
@@ -31,6 +33,11 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
         isUVCCategory(selectedCategory) ? selectedUVCLevel : UVCLevel.NA
     )
 
+    const isMobileView = useBreakpointValue({
+        base: true,
+        md: false,
+    })
+
     React.useEffect(() => {
         if (selectedSpecies) {
             onSpeciesSelected?.(selectedSpecies)
@@ -46,7 +53,7 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
     }
 
     return (
-        <Stack spacing={3} w={'100%'}>
+        <Stack spacing={3} w={'100%'} boxSize="full">
             <HStack spacing={3}>
                 <FormControl id="category">
                     <FormLabel>Category</FormLabel>
@@ -106,7 +113,7 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
                 </FormControl>
             </HStack>
 
-            {speciesList.length ? (
+            {isMobileView ? (
                 <FormControl id="species" width="100%">
                     <FormLabel>Species</FormLabel>
                     <Select
@@ -132,9 +139,14 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
                         ))}
                     </Select>
                 </FormControl>
-            ) : null}
-
-            {isLoading && <Spinner />}
+            ) : (
+                <SelectableList<Species>
+                    items={speciesList}
+                    selectedItem={selectedSpecies}
+                    onSelectedItemChanged={setSelectedSpecies}
+                    onRenderItem={(species) => <Text>{species.name}</Text>}
+                ></SelectableList>
+            )}
         </Stack>
     )
 }
