@@ -25,6 +25,7 @@ export const strings = {
     TUTORIAL_QUESTION_NUMBER: 'Question {0} of {1}',
     TUTORIAL_QUESTION_IMAGE: 'Question {0} Image',
     TUTORIAL_LOAD_ERROR: 'There was an error loading this tutorial session.',
+    TUTORIAL_SPECIES_NA: 'This species is not a part of the UVC study.',
     COMMAND_SHOW_ANSWER: 'Show answer',
     COMMAND_SPECIES_INFO: 'Species info',
     COMMAND_GO_TO_ANSWERS: 'Go to answers',

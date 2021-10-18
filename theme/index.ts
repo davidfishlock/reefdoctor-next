@@ -14,21 +14,21 @@ const globalStyles = {
         boxShadow: 'none',
     },
     ':not(select)::-webkit-scrollbar': {
-        width: 2
+        width: 2,
     },
     ':not(select)::-webkit-scrollbar-track': {
         background: 'blackAlpha.200',
         '-webkit-border-radius': 2,
-        'border-radius': 2
+        'border-radius': 2,
     },
     ':not(select)::-webkit-scrollbar-thumb': {
         '-webkit-border-radius': 2,
         'border-radius': 2,
-        'background': 'whiteAlpha.200',
+        background: 'whiteAlpha.200',
     },
     ':not(select)::-webkit-scrollbar-thumb:hover': {
-        'background': 'whiteAlpha.300',
-    }
+        background: 'whiteAlpha.300',
+    },
 }
 
 const index = extendTheme({

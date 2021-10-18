@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, HStack, Icon, Tooltip } from '@chakra-ui/react'
 import { formatString } from '../../utils/Strings'
 import { strings } from '../../consts/Strings'
-import { Tutorial, TutorialSessionType } from '../../types/Tutorial'
 import {
     FaCheck,
     FaArrowLeft,
@@ -13,15 +12,12 @@ import {
 import { HOMEPAGE } from '../../consts/ClientRoutes'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
+import {
+    TutorialContext,
+    TutorialContextProps,
+} from '../../contexts/TutorialContext'
 type Props = {
-    tutorial: Tutorial
-    sessionType: TutorialSessionType
-    currentQuestionIndex: number
-    onShowCurrentAnswer: () => void
     onShowSpeciesInfo: () => void
-    onShowAllAnswers: () => void
-    onHideAllAnswers: () => void
-    isAnswersScreenVisible: boolean
 }
 
 const commandButton = {
@@ -35,17 +31,19 @@ const commandTooltip = {
     openDelay: 500,
 }
 
-const TutorialCommands: React.FC<Props> = ({
-    tutorial,
-    sessionType,
-    currentQuestionIndex,
-    onShowCurrentAnswer,
-    onShowSpeciesInfo,
-    onShowAllAnswers,
-    onHideAllAnswers,
-    isAnswersScreenVisible,
-}) => {
+const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
     const router = useRouter()
+
+    const {
+        tutorial,
+        sessionType,
+        setIsCurrentAnswerVisible,
+        isAnswersScreenVisible,
+        setIsAnswersScreenVisible,
+        selectedQuestionIndex,
+    } = useContext(TutorialContext) as TutorialContextProps
+
+    if (!tutorial || !sessionType) return null
 
     return (
         <>
@@ -59,7 +57,9 @@ const TutorialCommands: React.FC<Props> = ({
                             >
                                 <Button
                                     {...commandButton}
-                                    onClick={onShowCurrentAnswer}
+                                    onClick={() =>
+                                        setIsCurrentAnswerVisible(true)
+                                    }
                                 >
                                     <Icon as={FaQuestion} />
                                 </Button>
@@ -79,14 +79,15 @@ const TutorialCommands: React.FC<Props> = ({
                         </>
                     )}
 
-                    {currentQuestionIndex === tutorial.questions.length - 1 && (
+                    {selectedQuestionIndex ===
+                        tutorial.questions.length - 1 && (
                         <Tooltip
                             {...commandTooltip}
                             label={strings.COMMAND_GO_TO_ANSWERS}
                         >
                             <Button
                                 {...commandButton}
-                                onClick={onShowAllAnswers}
+                                onClick={() => setIsAnswersScreenVisible(true)}
                             >
                                 <Icon as={FaCheckDouble} />
                             </Button>
@@ -101,7 +102,10 @@ const TutorialCommands: React.FC<Props> = ({
                         {...commandTooltip}
                         label={strings.COMMAND_BACK_TO_QUESTIONS}
                     >
-                        <Button {...commandButton} onClick={onHideAllAnswers}>
+                        <Button
+                            {...commandButton}
+                            onClick={() => setIsAnswersScreenVisible(false)}
+                        >
                             <Icon as={FaArrowLeft} />
                         </Button>
                     </Tooltip>

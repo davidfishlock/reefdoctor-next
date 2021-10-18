@@ -1,25 +1,17 @@
 import React from 'react'
 import {
-    Box,
-    Button,
-    Flex,
-    HStack,
     Modal,
     ModalBody,
     ModalCloseButton,
     ModalContent,
-    ModalFooter,
     ModalHeader,
     ModalOverlay,
     Text,
 } from '@chakra-ui/react'
-import { NextImage } from '../common/NextImage'
-import { Species, UVCLevel } from '@prisma/client'
-import { strings } from '../../consts/Strings'
-import { formatString } from '../../utils/Strings'
-import { TutorialSessionType } from '../../types/Tutorial'
+import { Species } from '@prisma/client'
 import SpeciesDetailsList from '../common/SpeciesDetailsList'
-import { getSpeciesDetails } from '../../utils/Species'
+import { getSpeciesDetails, isNASpecies } from '../../utils/Species'
+import {strings} from "../../consts/Strings";
 
 type Props = {
     isOpen: boolean
@@ -39,8 +31,16 @@ const SpeciesInfoModal: React.FC<Props> = ({ isOpen, onClose, species }) => {
             <ModalContent>
                 <ModalHeader>{species.name}</ModalHeader>
                 <ModalCloseButton />
-                <ModalBody>
-                    <SpeciesDetailsList details={getSpeciesDetails(species)} />
+                <ModalBody marginBottom={3}>
+                    {isNASpecies(species) ? (
+                        <Text>
+                            {strings.TUTORIAL_SPECIES_NA}
+                        </Text>
+                    ) : (
+                        <SpeciesDetailsList
+                            details={getSpeciesDetails(species)}
+                        />
+                    )}
                 </ModalBody>
             </ModalContent>
         </Modal>

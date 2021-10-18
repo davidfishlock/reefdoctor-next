@@ -47,7 +47,7 @@ function SelectableList<ItemType>({
 
     return (
         <Box
-            boxSize='full'
+            boxSize="full"
             tabIndex={0}
             overflowY={'auto'}
             borderRadius={6}

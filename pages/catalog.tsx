@@ -22,7 +22,7 @@ const Catalog: Page = () => {
             </Head>
             <Flex
                 flexDir={{ base: 'column', md: 'row' }}
-                width='100%'
+                width="100%"
                 height={{ base: 'auto', md: '100%' }}
             >
                 <Box width={{ base: '100%', md: 300, lg: 350 }} flexShrink={0}>

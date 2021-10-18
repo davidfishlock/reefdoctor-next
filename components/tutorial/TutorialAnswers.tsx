@@ -1,20 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
     Heading,
     ListItem,
     OrderedList,
     Flex,
-    Wrap,
     HStack,
-    Button,
+    Text,
 } from '@chakra-ui/react'
-import { Tutorial } from '../../types/Tutorial'
+import { isNASpecies } from '../../utils/Species'
+import NABadge from './NABadge'
+import {
+    TutorialContext,
+    TutorialContextProps,
+} from '../../contexts/TutorialContext'
 
-type Props = {
-    tutorial: Tutorial
-}
+const TutorialAnswers: React.FC = () => {
+    const { tutorial } = useContext(TutorialContext) as TutorialContextProps
 
-const TutorialAnswers: React.FC<Props> = ({ tutorial }) => {
+    if (!tutorial) return null
+
     return (
         <Flex flexDirection="column" boxSize="full">
             <Heading>Answers</Heading>
@@ -29,8 +33,17 @@ const TutorialAnswers: React.FC<Props> = ({ tutorial }) => {
                 flexGrow={1}
             >
                 {tutorial.questions.map((question, index) => (
-                    <ListItem fontSize="lg" key={`answer-${index}`}>
-                        {question.species.name}
+                    <ListItem
+                        fontSize="xl"
+                        key={`answer-${index}`}
+                        marginRight={6}
+                    >
+                        <HStack>
+                            {isNASpecies(question.species) && (
+                                <NABadge fontSize="sm" />
+                            )}
+                            <Text>{question.species.name}</Text>
+                        </HStack>
                     </ListItem>
                 ))}
             </OrderedList>

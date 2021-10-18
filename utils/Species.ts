@@ -1,4 +1,4 @@
-import { Species } from '@prisma/client'
+import { Category, Species, UVCLevel } from '@prisma/client'
 import { isUVCCategory } from './UvcDefinitions'
 import urljoin from 'url-join'
 
@@ -20,4 +20,12 @@ export function getImagePathForSpecies(species: Species) {
 
 export function getSpeciesDetails(species: Species) {
     return species.details?.split('~') || []
+}
+
+export function isNASpecies(species: Species) {
+    return (
+        species.uvcLevel === UVCLevel.NA &&
+        (species.category === Category.Fish ||
+            species.category === Category.Invertebrate)
+    )
 }

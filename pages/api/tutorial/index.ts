@@ -2,10 +2,16 @@ import { Species } from '.prisma/client'
 import prisma from '../../../prisma/client'
 import { Category, Prisma, UVCLevel } from '@prisma/client'
 import { shuffle } from '../../../utils/Array'
-import { QUESTION_COUNT } from '../../../consts/TutorialSession'
-import { Question, Tutorial } from '../../../types/Tutorial'
+import {
+    Question,
+    Tutorial,
+    TutorialSessionType,
+} from '../../../types/Tutorial'
 import urljoin from 'url-join'
 import { getImagePathForSpecies } from '../../../utils/Species'
+
+const QUESTION_COUNT = 25
+const MAX_NA_ITEMS_COUNT = 5
 
 function getTutorialSpeciesQuery(
     category: Category,
@@ -45,15 +51,38 @@ function getQuestion(species: Species) {
 }
 
 export default async function handle(
-    req: { method: string; query: { category: Category; uvcLevel: UVCLevel } },
+    req: {
+        method: string
+        query: {
+            category: Category
+            uvcLevel: UVCLevel
+            sessionType: TutorialSessionType
+        }
+    },
     res: { json: (tutorial: Tutorial) => void }
 ) {
     if (req.method === 'GET') {
         const { category, uvcLevel } = req.query
         const speciesQuery = getTutorialSpeciesQuery(category, uvcLevel)
-        const eligibleSpecies = await prisma.species.findMany(speciesQuery)
+        let species = (await prisma.species.findMany(speciesQuery)).slice(
+            0,
+            QUESTION_COUNT
+        )
 
-        const questions: Question[] = shuffle(eligibleSpecies)
+        if (category === Category.Fish || category === Category.Invertebrate) {
+            const naItems = (
+                await prisma.species.findMany({
+                    where: {
+                        category: category,
+                        uvcLevel: UVCLevel.NA,
+                    },
+                })
+            ).slice(0, MAX_NA_ITEMS_COUNT)
+
+            species = [...species, ...naItems]
+        }
+
+        const questions: Question[] = shuffle(species)
             .slice(0, QUESTION_COUNT)
             .map(getQuestion)
 

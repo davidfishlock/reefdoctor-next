@@ -8,7 +8,7 @@ type Props = {
 
 const SpeciesDetailsList: React.FC<Props> = ({ details }) => {
     return (
-        <List spacing={6} marginBottom={3}>
+        <List spacing={6}>
             {details.map((text, index) => (
                 <ListItem key={index} marginBottom={6}>
                     <ListIcon
