@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import { Box, BoxProps } from '@chakra-ui/react'
 import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
 import { AnimatedBox } from './Animation'
 
 export const NextImage = (

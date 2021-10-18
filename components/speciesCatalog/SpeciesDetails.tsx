@@ -1,21 +1,23 @@
-import React from 'react'
-import { Heading, List, ListIcon, ListItem, Stack } from '@chakra-ui/react'
-import { Species } from '@prisma/client'
-import { InfoIcon } from '@chakra-ui/icons'
+import { Heading, Stack } from '@chakra-ui/react'
+import React, { useContext } from 'react'
+import {
+    CatalogContext,
+    CatalogContextProps,
+} from '../../contexts/CatalogContext'
 import { getSpeciesDetails } from '../../utils/Species'
 import SpeciesDetailsList from '../common/SpeciesDetailsList'
 
-type Props = {
-    species?: Species
-}
+const SpeciesDetails: React.FC = () => {
+    const { selectedSpecies } = useContext(
+        CatalogContext
+    ) as CatalogContextProps
 
-const SpeciesDetails: React.FC<Props> = ({ species }) => {
-    const details = species ? getSpeciesDetails(species) : []
+    const details = selectedSpecies ? getSpeciesDetails(selectedSpecies) : []
 
     return (
         <Stack spacing={3}>
             <Heading as="h2" size="lg" marginBottom={3}>
-                {species?.name}
+                {selectedSpecies?.name}
             </Heading>
             <SpeciesDetailsList details={details} />
         </Stack>

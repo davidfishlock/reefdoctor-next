@@ -1,6 +1,6 @@
-import React from 'react'
-import { List, ListIcon, ListItem } from '@chakra-ui/react'
 import { InfoIcon } from '@chakra-ui/icons'
+import { List, ListIcon, ListItem } from '@chakra-ui/react'
+import React from 'react'
 
 type Props = {
     details: string[]

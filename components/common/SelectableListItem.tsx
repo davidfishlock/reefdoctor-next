@@ -1,5 +1,5 @@
-import React, { ReactNode, useEffect, useRef } from 'react'
 import { Box, ListItem } from '@chakra-ui/react'
+import React, { ReactNode, useEffect, useRef } from 'react'
 
 type Props<ItemType> = {
     item: ItemType

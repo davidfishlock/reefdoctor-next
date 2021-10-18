@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { Box, Text, Image, Center } from '@chakra-ui/react'
-import { Species } from '@prisma/client'
 import FocusLock from '@chakra-ui/focus-lock'
+import { Box, Center, Image, Text } from '@chakra-ui/react'
+import { Species } from '@prisma/client'
+import React, { useState } from 'react'
 import Carousel from '../common/Carousel'
 
 type GalleryProps = {

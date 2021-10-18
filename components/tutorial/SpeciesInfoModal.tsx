@@ -1,4 +1,3 @@
-import React from 'react'
 import {
     Modal,
     ModalBody,
@@ -9,9 +8,10 @@ import {
     Text,
 } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
-import SpeciesDetailsList from '../common/SpeciesDetailsList'
+import React from 'react'
+import { strings } from '../../consts/Strings'
 import { getSpeciesDetails, isNASpecies } from '../../utils/Species'
-import {strings} from "../../consts/Strings";
+import SpeciesDetailsList from '../common/SpeciesDetailsList'
 
 type Props = {
     isOpen: boolean
@@ -33,9 +33,7 @@ const SpeciesInfoModal: React.FC<Props> = ({ isOpen, onClose, species }) => {
                 <ModalCloseButton />
                 <ModalBody marginBottom={3}>
                     {isNASpecies(species) ? (
-                        <Text>
-                            {strings.TUTORIAL_SPECIES_NA}
-                        </Text>
+                        <Text>{strings.TUTORIAL_SPECIES_NA}</Text>
                     ) : (
                         <SpeciesDetailsList
                             details={getSpeciesDetails(species)}

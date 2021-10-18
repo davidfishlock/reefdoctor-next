@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import { strings } from '../consts/Strings'
 import { Category } from '@prisma/client'
-import SpeciesCatalogMenuItem from '../components/mainMenu/SpeciesCatalogMenuItem'
-import CategoryMenuItem from '../components/mainMenu/CategoryMenuItem'
-import { Page } from '../types/Page'
+import Head from 'next/head'
 import { AnimatedSimpleGrid } from '../components/common/Animation'
+import CategoryMenuItem from '../components/mainMenu/CategoryMenuItem'
+import SpeciesCatalogMenuItem from '../components/mainMenu/SpeciesCatalogMenuItem'
+import { strings } from '../consts/Strings'
+import { Page } from '../types/Page'
 
 const categoryItems = [
     {

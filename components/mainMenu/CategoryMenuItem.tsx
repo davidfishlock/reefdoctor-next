@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
 import { Button, useDisclosure } from '@chakra-ui/react'
 import { Category, UVCLevel } from '@prisma/client'
-import { strings } from '../../consts/Strings'
-import MainMenuItem from './MainMenuItem'
-import { TUTORIAL } from '../../consts/ClientRoutes'
 import { useRouter } from 'next/router'
-import { isUVCCategory } from '../../utils/UvcDefinitions'
+import React, { useState } from 'react'
+import { TUTORIAL } from '../../consts/ClientRoutes'
+import { strings } from '../../consts/Strings'
 import { TutorialSessionType } from '../../types/Tutorial'
+import { isUVCCategory } from '../../utils/UvcDefinitions'
+import MainMenuItem from './MainMenuItem'
 import UVCLevelModal from './UVCLevelModal'
 
 type Props = {

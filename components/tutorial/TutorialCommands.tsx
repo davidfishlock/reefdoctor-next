@@ -1,21 +1,21 @@
-import React, { useContext } from 'react'
 import { Button, HStack, Icon, Tooltip } from '@chakra-ui/react'
-import { formatString } from '../../utils/Strings'
-import { strings } from '../../consts/Strings'
+import NextLink from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useContext } from 'react'
 import {
-    FaCheck,
     FaArrowLeft,
+    FaCheck,
     FaCheckDouble,
     FaInfo,
     FaQuestion,
 } from 'react-icons/fa'
 import { HOMEPAGE } from '../../consts/ClientRoutes'
-import NextLink from 'next/link'
-import { useRouter } from 'next/router'
+import { strings } from '../../consts/Strings'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
+import { formatString } from '../../utils/Strings'
 type Props = {
     onShowSpeciesInfo: () => void
 }

@@ -1,11 +1,11 @@
+import { Box, chakra, Flex } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
-import Header from './Header'
-import { Flex, Box, chakra } from '@chakra-ui/react'
-import { getRandomBackgroundImage } from '../../utils/ImageSelectors'
-import { PageBackground } from './PageBackground'
 import { HOMEPAGE } from '../../consts/ClientRoutes'
 import { PageLayout } from '../../types/Page'
-import { useRouter } from 'next/router'
+import { getRandomBackgroundImage } from '../../utils/ImageSelectors'
+import Header from './Header'
+import { PageBackground } from './PageBackground'
 
 type Props = {
     children: ReactNode

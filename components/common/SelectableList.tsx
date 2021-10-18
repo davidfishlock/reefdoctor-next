@@ -1,7 +1,7 @@
-import React, { ReactNode, useCallback, useState } from 'react'
 import { Box, List } from '@chakra-ui/react'
-import SelectableListItem from './SelectableListItem'
+import React, { ReactNode, useCallback, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
+import SelectableListItem from './SelectableListItem'
 
 type Props<ItemType> = {
     items: ItemType[]

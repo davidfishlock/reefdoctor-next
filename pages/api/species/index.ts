@@ -1,6 +1,6 @@
 import { Species } from '.prisma/client'
-import prisma from '../../../prisma/client'
 import { Category, UVCLevel } from '@prisma/client'
+import prisma from '../../../prisma/client'
 
 export default async function handle(
     req: { method: string; query: { category: Category; uvcLevel: UVCLevel } },

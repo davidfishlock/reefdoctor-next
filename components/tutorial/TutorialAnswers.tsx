@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
 import {
+    Flex,
     Heading,
+    HStack,
     ListItem,
     OrderedList,
-    Flex,
-    HStack,
     Text,
 } from '@chakra-ui/react'
-import { isNASpecies } from '../../utils/Species'
-import NABadge from './NABadge'
+import React, { useContext } from 'react'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
+import { isNASpecies } from '../../utils/Species'
+import NABadge from './NABadge'
 
 const TutorialAnswers: React.FC = () => {
     const { tutorial } = useContext(TutorialContext) as TutorialContextProps

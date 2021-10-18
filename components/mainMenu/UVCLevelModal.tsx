@@ -1,8 +1,5 @@
-import React from 'react'
 import {
-    Box,
     Button,
-    Flex,
     HStack,
     Modal,
     ModalBody,
@@ -13,11 +10,11 @@ import {
     ModalOverlay,
     Text,
 } from '@chakra-ui/react'
-import { NextImage } from '../common/NextImage'
 import { UVCLevel } from '@prisma/client'
+import React from 'react'
 import { strings } from '../../consts/Strings'
-import { formatString } from '../../utils/Strings'
 import { TutorialSessionType } from '../../types/Tutorial'
+import { formatString } from '../../utils/Strings'
 
 type Props = {
     isOpen: boolean

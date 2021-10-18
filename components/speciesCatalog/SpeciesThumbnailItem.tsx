@@ -1,7 +1,7 @@
-import React from 'react'
-import { AspectRatio, useBreakpointValue } from '@chakra-ui/react'
-import { NextImage } from '../common/NextImage'
 import { useClickable } from '@chakra-ui/clickable'
+import { AspectRatio, useBreakpointValue } from '@chakra-ui/react'
+import React from 'react'
+import { NextImage } from '../common/NextImage'
 
 type Props = {
     src: string

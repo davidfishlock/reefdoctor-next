@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
 import { Box, Center, HStack, Image, Text } from '@chakra-ui/react'
-import { formatString } from '../../utils/Strings'
+import React, { useContext } from 'react'
 import { strings } from '../../consts/Strings'
-import { AnimatedCenter } from '../common/Animation'
-import { Question } from '../../types/Tutorial'
-import { isNASpecies } from '../../utils/Species'
-import NABadge from './NABadge'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
+import { Question } from '../../types/Tutorial'
+import { isNASpecies } from '../../utils/Species'
+import { formatString } from '../../utils/Strings'
+import { AnimatedCenter } from '../common/Animation'
+import NABadge from './NABadge'
 
 type Props = {
     question: Question

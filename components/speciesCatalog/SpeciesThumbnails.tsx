@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
 import { Grid } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
-import urljoin from 'url-join'
-import ImageGallery from './ImageGallery'
+import React, { useContext, useState } from 'react'
 import usePortal from 'react-useportal'
+import urljoin from 'url-join'
+import {
+    CatalogContext,
+    CatalogContextProps,
+} from '../../contexts/CatalogContext'
 import useLockBodyScroll from '../../hooks/UseLockBodyScroll'
-import SpeciesThumbnailItem from './SpeciesThumbnailItem'
 import { getImagePathForSpecies } from '../../utils/Species'
-
-type Props = {
-    species?: Species
-}
+import ImageGallery from './ImageGallery'
+import SpeciesThumbnailItem from './SpeciesThumbnailItem'
 
 function createImageSources(species: Species) {
     const speciesPath = getImagePathForSpecies(species)
@@ -22,7 +22,11 @@ function createImageSources(species: Species) {
     return imagesArray
 }
 
-const SpeciesThumbnails: React.FC<Props> = ({ species }) => {
+const SpeciesThumbnails: React.FC = () => {
+    const { selectedSpecies } = useContext(
+        CatalogContext
+    ) as CatalogContextProps
+
     const [galleryStartIndex, setGalleryStartIndex] = useState(0)
     const {
         openPortal: openGallery,
@@ -33,16 +37,16 @@ const SpeciesThumbnails: React.FC<Props> = ({ species }) => {
 
     useLockBodyScroll(isGalleryOpen)
 
-    if (!species) return null
+    if (!selectedSpecies) return null
 
-    const imageSources = createImageSources(species)
+    const imageSources = createImageSources(selectedSpecies)
 
     return (
         <>
             {isGalleryOpen && (
                 <Portal>
                     <ImageGallery
-                        species={species}
+                        species={selectedSpecies}
                         images={imageSources}
                         startIndex={galleryStartIndex}
                         onCloseRequested={() => closeGallery()}
@@ -64,7 +68,7 @@ const SpeciesThumbnails: React.FC<Props> = ({ species }) => {
                     <SpeciesThumbnailItem
                         key={`thumbnail-${index}`}
                         src={uri}
-                        alt={`${species.name} - Thumbnail ${index + 1}`}
+                        alt={`${selectedSpecies.name} - Thumbnail ${index + 1}`}
                         isHeroImage={index === 0}
                         onClick={(e) => {
                             setGalleryStartIndex(index)

@@ -1,7 +1,7 @@
+import { Flex, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
-import { Box, Flex, HStack, Text } from '@chakra-ui/react'
-import { NextImage } from '../common/NextImage'
 import { AnimatedBox } from '../common/Animation'
+import { NextImage } from '../common/NextImage'
 
 type Props = {
     image: string

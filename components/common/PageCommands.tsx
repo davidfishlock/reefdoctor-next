@@ -1,6 +1,6 @@
+import React, { ReactNode } from 'react'
 import ReactDOM from 'react-dom'
 import { PAGE_COMMANDS_MOUNT_POINT } from '../frame/Header'
-import React, { ReactNode } from 'react'
 
 type Props = {
     children: ReactNode

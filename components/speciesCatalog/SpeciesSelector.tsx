@@ -1,48 +1,37 @@
-import React, { useState } from 'react'
 import {
-    FormLabel,
     FormControl,
-    Select,
-    Spinner,
-    Stack,
+    FormLabel,
     HStack,
+    Select,
+    Stack,
     Text,
     useBreakpointValue,
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
-import { useAllSpecies } from '../../requests'
-import { isUVCCategory } from '../../utils/UvcDefinitions'
+import React, { useContext } from 'react'
 import { strings } from '../../consts/Strings'
+import {
+    CatalogContext,
+    CatalogContextProps,
+} from '../../contexts/CatalogContext'
+import { isUVCCategory } from '../../utils/UvcDefinitions'
 import SelectableList from '../common/SelectableList'
 
-type Props = {
-    onSpeciesSelected?: (species: Species) => void
-}
-
-const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
-    const [selectedCategory, setSelectedCategory] = useState<Category>(
-        Category.Fish
-    )
-    const [selectedUVCLevel, setSelectedUVCLevel] = useState<UVCLevel>(
-        UVCLevel.Indicator
-    )
-    const [selectedSpecies, setSelectedSpecies] = useState<Species>()
-
-    const { speciesList, isLoading } = useAllSpecies(
+const SpeciesSelector: React.FC = () => {
+    const {
+        speciesList,
+        selectedSpecies,
+        setSelectedSpecies,
         selectedCategory,
-        isUVCCategory(selectedCategory) ? selectedUVCLevel : UVCLevel.NA
-    )
+        setSelectedCategory,
+        selectedUVCLevel,
+        setSelectedUVCLevel,
+    } = useContext(CatalogContext) as CatalogContextProps
 
     const isMobileView = useBreakpointValue({
         base: true,
         md: false,
     })
-
-    React.useEffect(() => {
-        if (selectedSpecies) {
-            onSpeciesSelected?.(selectedSpecies)
-        }
-    }, [selectedSpecies, onSpeciesSelected])
 
     // After a new category is loaded, auto select the first item
     if (
@@ -113,9 +102,9 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
                 </FormControl>
             </HStack>
 
-            {isMobileView ? (
-                <FormControl id="species" width="100%">
-                    <FormLabel>Species</FormLabel>
+            {isMobileView === true && speciesList && (
+                <FormControl width="100%">
+                    <FormLabel marginTop={1}>Species</FormLabel>
                     <Select
                         value={selectedSpecies?.id}
                         onChange={(event) => {
@@ -139,13 +128,15 @@ const SpeciesSelector: React.FC<Props> = ({ onSpeciesSelected }) => {
                         ))}
                     </Select>
                 </FormControl>
-            ) : (
+            )}
+
+            {isMobileView === false && speciesList && (
                 <SelectableList<Species>
                     items={speciesList}
                     selectedItem={selectedSpecies}
                     onSelectedItemChanged={setSelectedSpecies}
                     onRenderItem={(species) => <Text>{species.name}</Text>}
-                ></SelectableList>
+                />
             )}
         </Stack>
     )

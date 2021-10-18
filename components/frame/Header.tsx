@@ -1,11 +1,11 @@
-import React from 'react'
+import { useClickable } from '@chakra-ui/clickable'
 import { Box, Flex } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import { NextImage } from '../common/NextImage'
-import { useClickable } from '@chakra-ui/clickable'
 import { useRouter } from 'next/router'
+import React from 'react'
 import { HOMEPAGE } from '../../consts/ClientRoutes'
 import { strings } from '../../consts/Strings'
+import { NextImage } from '../common/NextImage'
 
 export const PAGE_COMMANDS_MOUNT_POINT = 'page-commands'
 

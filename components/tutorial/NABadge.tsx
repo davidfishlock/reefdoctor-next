@@ -1,5 +1,5 @@
-import React from 'react'
 import { forwardRef, Text, TextProps } from '@chakra-ui/react'
+import React from 'react'
 
 const NABadge: React.FC<TextProps> = forwardRef<TextProps, 'div'>((props) => {
     return (

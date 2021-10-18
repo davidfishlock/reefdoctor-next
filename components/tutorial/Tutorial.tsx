@@ -1,27 +1,27 @@
 import {
-    Spinner,
+    Box,
     Center,
+    Flex,
+    Spinner,
     Text,
     useDisclosure,
-    Box,
-    Flex,
 } from '@chakra-ui/react'
+import { Category, UVCLevel } from '@prisma/client'
 import React, { useContext, useEffect } from 'react'
+import { strings } from '../../consts/Strings'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
-import { Question, TutorialSessionType } from '../../types/Tutorial'
 import { isTutorialSessionType } from '../../types/Guards'
-import { strings } from '../../consts/Strings'
-import PageCommands from '../common/PageCommands'
-import TutorialCommands from './TutorialCommands'
-import SpeciesInfoModal from './SpeciesInfoModal'
-import Carousel from '../common/Carousel'
-import TutorialItem from './TutorialItem'
+import { Question, TutorialSessionType } from '../../types/Tutorial'
 import { formatString } from '../../utils/Strings'
+import Carousel from '../common/Carousel'
+import PageCommands from '../common/PageCommands'
+import SpeciesInfoModal from './SpeciesInfoModal'
 import TutorialAnswers from './TutorialAnswers'
-import { Category, UVCLevel } from '@prisma/client'
+import TutorialCommands from './TutorialCommands'
+import TutorialItem from './TutorialItem'
 
 type Props = {
     category: Category

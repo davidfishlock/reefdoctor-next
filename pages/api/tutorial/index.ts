@@ -1,13 +1,13 @@
 import { Species } from '.prisma/client'
-import prisma from '../../../prisma/client'
 import { Category, Prisma, UVCLevel } from '@prisma/client'
-import { shuffle } from '../../../utils/Array'
+import urljoin from 'url-join'
+import prisma from '../../../prisma/client'
 import {
     Question,
     Tutorial,
     TutorialSessionType,
 } from '../../../types/Tutorial'
-import urljoin from 'url-join'
+import { shuffle } from '../../../utils/Array'
 import { getImagePathForSpecies } from '../../../utils/Species'
 
 const QUESTION_COUNT = 25

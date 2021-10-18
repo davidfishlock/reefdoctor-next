@@ -1,10 +1,9 @@
-import React, { ReactNode, useCallback, useEffect, useState } from 'react'
-import { Box } from '@chakra-ui/react'
-import { AnimatedFlex } from '../common/Animation'
+import { Box, Icon } from '@chakra-ui/react'
+import React, { ReactNode, useCallback, useEffect } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
-import CarouselNavigateButton from './CarouselNavigateButton'
-import { Icon } from '@chakra-ui/react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { AnimatedFlex } from '../common/Animation'
+import CarouselNavigateButton from './CarouselNavigateButton'
 
 type Props<ItemType> = {
     items: ItemType[]

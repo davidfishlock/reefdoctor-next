@@ -1,6 +1,6 @@
+import { AnimatePresence } from 'framer-motion'
 import React from 'react'
 import { AnimatedBox } from '../common/Animation'
-import { AnimatePresence } from 'framer-motion'
 import { NextImage } from '../common/NextImage'
 
 type Props = {

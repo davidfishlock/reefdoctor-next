@@ -1,9 +1,9 @@
 import { Category, UVCLevel } from '@prisma/client'
-import React from 'react'
-import { Page } from '../types/Page'
 import { useRouter } from 'next/router'
+import React from 'react'
 import Tutorial from '../components/tutorial/Tutorial'
 import { TutorialProvider } from '../contexts/TutorialContext'
+import { Page } from '../types/Page'
 import { TutorialSessionType } from '../types/Tutorial'
 
 const TutorialPage: Page = () => {

@@ -1,11 +1,11 @@
-import type { AppProps } from 'next/app'
 import { ChakraProvider, CSSReset } from '@chakra-ui/react'
-import theme from '../theme'
-import { getFetcher, showError } from '../requests'
+import 'focus-visible/dist/focus-visible'
+import type { AppProps } from 'next/app'
+import React from 'react'
 import { SWRConfig } from 'swr'
 import RootLayout from '../components/frame/RootLayout'
-import 'focus-visible/dist/focus-visible'
-import React from 'react'
+import { getFetcher, showError } from '../requests'
+import theme from '../theme'
 import { Page } from '../types/Page'
 
 function App({ Component, pageProps }: AppProps) {

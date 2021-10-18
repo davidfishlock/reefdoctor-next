@@ -1,6 +1,5 @@
+import { Button } from '@chakra-ui/react'
 import React, { ReactNode } from 'react'
-import { Text, Box, Button } from '@chakra-ui/react'
-import { useClickable } from '@chakra-ui/clickable'
 
 type CarouselNavigateButtonProps = {
     icon: ReactNode
