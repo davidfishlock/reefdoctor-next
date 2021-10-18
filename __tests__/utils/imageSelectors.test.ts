@@ -1,4 +1,4 @@
-import { getRandomBackgroundImage } from '../../utils/ImageSelectors'
+import { getRandomBackgroundImage } from '../../utils/imageSelectors'
 
 describe('ImageSelectors', () => {
     describe('getRandomBackgroundImage', () => {

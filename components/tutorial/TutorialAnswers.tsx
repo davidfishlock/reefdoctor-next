@@ -11,7 +11,7 @@ import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
-import { isNASpecies } from '../../utils/Species'
+import { isNASpecies } from '../../utils/species'
 import NABadge from './NABadge'
 
 const TutorialAnswers: React.FC = () => {

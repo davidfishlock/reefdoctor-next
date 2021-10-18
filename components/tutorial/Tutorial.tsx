@@ -8,14 +8,14 @@ import {
 } from '@chakra-ui/react'
 import { Category, UVCLevel } from '@prisma/client'
 import React, { useContext, useEffect } from 'react'
-import { strings } from '../../consts/Strings'
+import { strings } from '../../constants/strings'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
-import { isTutorialSessionType } from '../../types/Guards'
-import { Question, TutorialSessionType } from '../../types/Tutorial'
-import { formatString } from '../../utils/Strings'
+import { isTutorialSessionType } from '../../types/guards'
+import { Question, TutorialSessionType } from '../../types/tutorial'
+import { formatString } from '../../utils/strings'
 import Carousel from '../common/Carousel'
 import PageCommands from '../common/PageCommands'
 import SpeciesInfoModal from './SpeciesInfoModal'

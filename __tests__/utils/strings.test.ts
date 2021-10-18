@@ -1,4 +1,4 @@
-import { formatString } from '../../utils/Strings'
+import { formatString } from '../../utils/strings'
 
 describe('strings', () => {
     describe('formatString', () => {

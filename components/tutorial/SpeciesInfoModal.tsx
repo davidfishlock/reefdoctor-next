@@ -9,8 +9,8 @@ import {
 } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
 import React from 'react'
-import { strings } from '../../consts/Strings'
-import { getSpeciesDetails, isNASpecies } from '../../utils/Species'
+import { strings } from '../../constants/strings'
+import { getSpeciesDetails, isNASpecies } from '../../utils/species'
 import SpeciesDetailsList from '../common/SpeciesDetailsList'
 
 type Props = {

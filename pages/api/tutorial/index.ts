@@ -6,9 +6,9 @@ import {
     Question,
     Tutorial,
     TutorialSessionType,
-} from '../../../types/Tutorial'
-import { shuffle } from '../../../utils/Array'
-import { getImagePathForSpecies } from '../../../utils/Species'
+} from '../../../types/tutorial'
+import { shuffle } from '../../../utils/array'
+import { getImagePathForSpecies } from '../../../utils/species'
 
 const QUESTION_COUNT = 25
 const MAX_NA_ITEMS_COUNT = 5

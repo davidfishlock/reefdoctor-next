@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import SpeciesCatalog from '../components/speciesCatalog/SpeciesCatalog'
-import { strings } from '../consts/Strings'
+import SpeciesCatalog from '../components/species_catalog/SpeciesCatalog'
+import { strings } from '../constants/strings'
 import { CatalogProvider } from '../contexts/CatalogContext'
-import { Page } from '../types/Page'
+import { Page } from '../types/page'
 
 const Catalog: Page = () => {
     return (

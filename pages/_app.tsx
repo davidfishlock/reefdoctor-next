@@ -6,7 +6,7 @@ import { SWRConfig } from 'swr'
 import RootLayout from '../components/frame/RootLayout'
 import { getFetcher, showError } from '../requests'
 import theme from '../theme'
-import { Page } from '../types/Page'
+import { Page } from '../types/page'
 
 function App({ Component, pageProps }: AppProps) {
     return (

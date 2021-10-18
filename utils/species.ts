@@ -1,6 +1,6 @@
 import { Category, Species, UVCLevel } from '@prisma/client'
 import urljoin from 'url-join'
-import { isUVCCategory } from './UvcDefinitions'
+import { isUVCCategory } from './uvcDefinitions'
 
 const baseSpeciesPath = '/images/species/'
 

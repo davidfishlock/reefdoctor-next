@@ -9,12 +9,12 @@ import {
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
 import React, { useContext } from 'react'
-import { strings } from '../../consts/Strings'
+import { strings } from '../../constants/strings'
 import {
     CatalogContext,
     CatalogContextProps,
 } from '../../contexts/CatalogContext'
-import { isUVCCategory } from '../../utils/UvcDefinitions'
+import { isUVCCategory } from '../../utils/uvcDefinitions'
 import SelectableList from '../common/SelectableList'
 
 const SpeciesSelector: React.FC = () => {

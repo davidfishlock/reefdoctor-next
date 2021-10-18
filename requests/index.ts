@@ -1,10 +1,10 @@
 import { createStandaloneToast } from '@chakra-ui/toast'
 import { Category, Species, UVCLevel } from '@prisma/client'
 import useSWR from 'swr'
-import { useFetch } from '../hooks/UseFetch'
-import { isCategory, isUVCLevel } from '../types/Guards'
-import { Tutorial } from '../types/Tutorial'
-import { getSortedSpeciesByName } from '../utils/Array'
+import { useFetch } from '../hooks/useFetch'
+import { isCategory, isUVCLevel } from '../types/guards'
+import { Tutorial } from '../types/tutorial'
+import { getSortedSpeciesByName } from '../utils/array'
 
 const fetchConfig = {
     method: 'GET',

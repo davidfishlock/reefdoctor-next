@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import Tutorial from '../components/tutorial/Tutorial'
 import { TutorialProvider } from '../contexts/TutorialContext'
-import { Page } from '../types/Page'
-import { TutorialSessionType } from '../types/Tutorial'
+import { Page } from '../types/page'
+import { TutorialSessionType } from '../types/tutorial'
 
 const TutorialPage: Page = () => {
     const router = useRouter()

@@ -1,5 +1,5 @@
 import { Category, UVCLevel } from '@prisma/client'
-import { TutorialSessionType } from './Tutorial'
+import { TutorialSessionType } from './tutorial'
 
 export function isTutorialSessionType(
     value: unknown

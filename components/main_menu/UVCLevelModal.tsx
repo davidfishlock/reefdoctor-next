@@ -12,9 +12,9 @@ import {
 } from '@chakra-ui/react'
 import { UVCLevel } from '@prisma/client'
 import React from 'react'
-import { strings } from '../../consts/Strings'
-import { TutorialSessionType } from '../../types/Tutorial'
-import { formatString } from '../../utils/Strings'
+import { strings } from '../../constants/strings'
+import { TutorialSessionType } from '../../types/tutorial'
+import { formatString } from '../../utils/strings'
 
 type Props = {
     isOpen: boolean

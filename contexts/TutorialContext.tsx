@@ -1,7 +1,7 @@
 import { Category, UVCLevel } from '@prisma/client'
 import React, { createContext, useState } from 'react'
 import { useTutorial } from '../requests'
-import { Question, Tutorial, TutorialSessionType } from '../types/Tutorial'
+import { Question, Tutorial, TutorialSessionType } from '../types/tutorial'
 
 export type TutorialContextProps = {
     initialize: (

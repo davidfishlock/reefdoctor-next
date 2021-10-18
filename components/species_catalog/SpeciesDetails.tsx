@@ -4,7 +4,7 @@ import {
     CatalogContext,
     CatalogContextProps,
 } from '../../contexts/CatalogContext'
-import { getSpeciesDetails } from '../../utils/Species'
+import { getSpeciesDetails } from '../../utils/species'
 import SpeciesDetailsList from '../common/SpeciesDetailsList'
 
 const SpeciesDetails: React.FC = () => {

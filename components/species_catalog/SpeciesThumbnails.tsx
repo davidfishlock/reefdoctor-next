@@ -7,8 +7,8 @@ import {
     CatalogContext,
     CatalogContextProps,
 } from '../../contexts/CatalogContext'
-import useLockBodyScroll from '../../hooks/UseLockBodyScroll'
-import { getImagePathForSpecies } from '../../utils/Species'
+import useLockBodyScroll from '../../hooks/useLockBodyScroll'
+import { getImagePathForSpecies } from '../../utils/species'
 import ImageGallery from './ImageGallery'
 import SpeciesThumbnailItem from './SpeciesThumbnailItem'
 

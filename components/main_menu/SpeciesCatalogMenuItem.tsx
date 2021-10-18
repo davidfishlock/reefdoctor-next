@@ -1,8 +1,8 @@
 import { Button } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
-import { CATALOG } from '../../consts/ClientRoutes'
-import { strings } from '../../consts/Strings'
+import { CATALOG } from '../../constants/clientRoutes'
+import { strings } from '../../constants/strings'
 import MainMenuItem from './MainMenuItem'
 
 const SpeciesCatalogMenuItem: React.FC = () => {

@@ -9,13 +9,13 @@ import {
     FaInfo,
     FaQuestion,
 } from 'react-icons/fa'
-import { HOMEPAGE } from '../../consts/ClientRoutes'
-import { strings } from '../../consts/Strings'
+import { HOMEPAGE } from '../../constants/clientRoutes'
+import { strings } from '../../constants/strings'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
-import { formatString } from '../../utils/Strings'
+import { formatString } from '../../utils/strings'
 type Props = {
     onShowSpeciesInfo: () => void
 }
