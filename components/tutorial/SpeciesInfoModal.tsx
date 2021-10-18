@@ -26,6 +26,7 @@ const SpeciesInfoModal: React.FC<Props> = ({ isOpen, onClose, species }) => {
             onClose={onClose}
             isOpen={isOpen}
             motionPreset="scale"
+            scrollBehavior="inside"
         >
             <ModalOverlay />
             <ModalContent>

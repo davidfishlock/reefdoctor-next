@@ -44,7 +44,7 @@ const TutorialItem: React.FC<Props> = ({ question, index }) => {
                     top="0"
                     boxSize="full"
                 >
-                    <HStack bgColor="black.75" borderRadius={6} p={3}>
+                    <HStack bgColor="blackAlpha.800" borderRadius={6} p={3}>
                         {isNASpecies(question.species) && (
                             <NABadge marginRight={1} />
                         )}

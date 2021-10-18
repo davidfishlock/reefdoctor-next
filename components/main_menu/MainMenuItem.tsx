@@ -32,7 +32,7 @@ const MainMenuItem: React.FC<Props> = ({
     return (
         <AnimatedBox
             position="relative"
-            bgColor="black.50"
+            bgColor="blackAlpha.600"
             variants={menuItemAnimations}
             initial="hidden"
             animate="show"
@@ -52,7 +52,7 @@ const MainMenuItem: React.FC<Props> = ({
 
             <Flex flexDir="column" justifyContent="flex-end" minHeight={60}>
                 <Flex
-                    bgColor="black.50"
+                    bgColor="blackAlpha.600"
                     zIndex="1"
                     p={3}
                     justifyContent="space-between"

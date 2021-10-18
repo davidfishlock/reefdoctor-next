@@ -29,7 +29,7 @@ const ImageGallery: React.FC<GalleryProps> = ({
                 bottom={0}
                 height="100vh"
                 width="100vw"
-                bg="black.75"
+                bg="blackAlpha.800"
             >
                 <Carousel<string>
                     items={images}
@@ -61,7 +61,7 @@ const ImageGallery: React.FC<GalleryProps> = ({
                 <Center pos="absolute" w="full" bottom="0" p={5}>
                     <Text
                         borderRadius={3}
-                        bg="black.50"
+                        bg="blackAlpha.600"
                         p={3}
                         color="white"
                         fontSize="xs"

@@ -19,11 +19,11 @@ const globalStyles = {
     ':not(select)::-webkit-scrollbar-track': {
         background: 'blackAlpha.200',
         '-webkit-border-radius': 2,
-        'border-radius': 2,
+        borderRadius: 2,
     },
     ':not(select)::-webkit-scrollbar-thumb': {
         '-webkit-border-radius': 2,
-        'border-radius': 2,
+        borderRadius: 2,
         background: 'whiteAlpha.200',
     },
     ':not(select)::-webkit-scrollbar-thumb:hover': {
@@ -35,14 +35,6 @@ const index = extendTheme({
     config,
     styles: {
         global: globalStyles,
-    },
-    colors: {
-        black: {
-            25: 'rgba(0,0,0, .25)',
-            50: 'rgba(0,0,0, .5)',
-            75: 'rgba(0,0,0, .75)',
-            100: 'rgba(0,0,0, 1)',
-        },
     },
 })
 export default index
