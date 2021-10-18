@@ -70,16 +70,18 @@ export default async function handle(
         )
 
         if (category === Category.Fish || category === Category.Invertebrate) {
-            const naItems = (
+            const allNAItems = (
                 await prisma.species.findMany({
                     where: {
                         category: category,
                         uvcLevel: UVCLevel.NA,
                     },
                 })
-            ).slice(0, MAX_NA_ITEMS_COUNT)
+            )
 
-            species = [...species, ...naItems]
+            const selectedNAItems = shuffle(allNAItems).slice(0, MAX_NA_ITEMS_COUNT)
+
+            species = [...species, ...selectedNAItems]
         }
 
         const questions: Question[] = shuffle(species)
