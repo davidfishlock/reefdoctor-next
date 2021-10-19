@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import React from 'react'
 import SpeciesCatalog from '../components/species_catalog/SpeciesCatalog'
 import { strings } from '../constants/strings'
 import { CatalogProvider } from '../contexts/CatalogContext'

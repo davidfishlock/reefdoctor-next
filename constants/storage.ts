@@ -1,1 +1,3 @@
 export const HAS_SEEN_FTU_KEY = 'HAS_SEEN_FTU'
+export const HAS_SEEN_WORKSHOP_KEY = 'HAS_SEEN_WORKSHOP'
+export const HAS_SEEN_QUIZ_KEY = 'HAS_SEEN_QUIZ'

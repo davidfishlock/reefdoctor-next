@@ -28,7 +28,7 @@ const Dialog: React.FC<Props> = ({ isOpen, onClose, header, body, footer }) => {
         >
             <ModalOverlay />
             <ModalContent>
-                <ModalHeader>{header}</ModalHeader>
+                <ModalHeader fontSize='2xl'>{header}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody marginBottom={3}>{body}</ModalBody>
                 {footer && <ModalFooter>{footer}</ModalFooter>}

@@ -3,12 +3,12 @@ import React from 'react'
 import { AnimatedSimpleGrid } from '../components/common/Animation'
 import OneTimeDialog from '../components/common/OneTimeDialog'
 import CategoryMenuItem from '../components/main_menu/CategoryMenuItem'
+import FTUDialogContent from '../components/main_menu/FTUDialogContent'
 import SpeciesCatalogMenuItem from '../components/main_menu/SpeciesCatalogMenuItem'
 import { mainMenuItems } from '../constants/menuItems'
 import { HAS_SEEN_FTU_KEY } from '../constants/storage'
 import { strings } from '../constants/strings'
 import { Page } from '../types/page'
-import FTUDialogContent from "../components/main_menu/FTUDialogContent";
 
 const Home: Page = () => {
     return (

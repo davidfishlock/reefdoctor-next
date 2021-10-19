@@ -1,11 +1,10 @@
-import {Button, useDisclosure} from '@chakra-ui/react'
+import { Button, useDisclosure } from '@chakra-ui/react'
 import React, { ReactNode, useEffect } from 'react'
 import {
     getLocalStorageValue,
     setLocalStorageValue,
 } from '../../utils/localStorageHelper'
 import Dialog from '../common/Dialog'
-import {strings} from "../../constants/strings";
 
 type Props = {
     storageKey: string
@@ -18,7 +17,7 @@ const OneTimeDialog: React.FC<Props> = ({
     storageKey,
     header,
     body,
-                                            closeButtonLabel,
+    closeButtonLabel,
 }) => {
     const { isOpen, onClose, onOpen } = useDisclosure()
 
@@ -40,7 +39,11 @@ const OneTimeDialog: React.FC<Props> = ({
             onClose={handleClose}
             header={header}
             body={body}
-            footer={<Button onClick={handleClose}>{closeButtonLabel}</Button>}
+            footer={
+                <Button colorScheme="blue" onClick={handleClose}>
+                    {closeButtonLabel}
+                </Button>
+            }
             isOpen={isOpen}
         />
     ) : null
