@@ -5,10 +5,5 @@ export function getSortedSpeciesByName(array: Species[]) {
 }
 
 export function shuffle<T>(array: T[]) {
-    const items = [...array]
-    for (let i = items.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1))
-        ;[items[i], items[j]] = [items[j], items[i]]
-    }
-    return items
+    return [...array].sort(() => 0.5 - Math.random())
 }

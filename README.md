@@ -11,5 +11,5 @@ View the live version at: https://reefdoctor.vercel.com
 -   [Chakra UI](https://chakra-ui.com/)
 -   [Prisma](https://www.prisma.io/)
 -   [PostgreSQL](https://www.postgresql.org/)
--   [Framer Motion](https://www.framer.com/motion/)
+-   [Framer Motion](https://github.com/framer/motion/)
 -   [Vercel Hosting](https://vercel.com/)
