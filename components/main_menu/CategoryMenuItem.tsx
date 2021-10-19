@@ -7,7 +7,7 @@ import { strings } from '../../constants/strings'
 import { TutorialSessionType } from '../../types/tutorial'
 import { isUVCCategory } from '../../utils/uvcDefinitions'
 import MainMenuItem from './MainMenuItem'
-import UVCLevelModal from './UVCLevelModal'
+import UVCLevelDialog from './UVCLevelDialog'
 
 type Props = {
     image: string
@@ -84,7 +84,7 @@ const CategoryMenuItem: React.FC<Props> = ({ image, title, category }) => {
                     </>
                 }
             />
-            <UVCLevelModal
+            <UVCLevelDialog
                 isOpen={isLevelDialogOpen}
                 onClose={closeLevelDialog}
                 sessionType={sessionType}

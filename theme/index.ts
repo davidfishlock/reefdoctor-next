@@ -18,11 +18,11 @@ const globalStyles = {
     },
     ':not(select)::-webkit-scrollbar-track': {
         background: 'blackAlpha.200',
-        '-webkit-border-radius': 2,
+        WebkitBorderRadius: 2,
         borderRadius: 2,
     },
     ':not(select)::-webkit-scrollbar-thumb': {
-        '-webkit-border-radius': 2,
+        WebkitBorderRadius: 2,
         borderRadius: 2,
         background: 'whiteAlpha.200',
     },

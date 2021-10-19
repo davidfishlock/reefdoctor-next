@@ -19,7 +19,7 @@ type Props = {
     species: Species
 }
 
-const SpeciesInfoModal: React.FC<Props> = ({ isOpen, onClose, species }) => {
+const SpeciesInfoDialog: React.FC<Props> = ({ isOpen, onClose, species }) => {
     return (
         <Modal
             isCentered
@@ -46,4 +46,4 @@ const SpeciesInfoModal: React.FC<Props> = ({ isOpen, onClose, species }) => {
     )
 }
 
-export default SpeciesInfoModal
+export default SpeciesInfoDialog

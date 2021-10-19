@@ -15,10 +15,12 @@ import {
 } from '../../contexts/TutorialContext'
 import { isTutorialSessionType } from '../../types/guards'
 import { Question, TutorialSessionType } from '../../types/tutorial'
+import { getSpeciesDetails, isNASpecies } from '../../utils/species'
 import { formatString } from '../../utils/strings'
 import Carousel from '../common/Carousel'
+import Dialog from '../common/Dialog'
 import PageCommands from '../common/PageCommands'
-import SpeciesInfoModal from './SpeciesInfoModal'
+import SpeciesDetailsList from '../common/SpeciesDetailsList'
 import TutorialAnswers from './TutorialAnswers'
 import TutorialCommands from './TutorialCommands'
 import TutorialItem from './TutorialItem'
@@ -86,10 +88,21 @@ const Tutorial: React.FC<Props> = ({
             </PageCommands>
 
             {selectedQuestion?.species && (
-                <SpeciesInfoModal
+                <Dialog
                     isOpen={isInfoDialogOpen}
                     onClose={closeInfoDialog}
-                    species={selectedQuestion.species}
+                    header={selectedQuestion.species.name}
+                    body={
+                        isNASpecies(selectedQuestion.species) ? (
+                            <Text>{strings.TUTORIAL_SPECIES_NA}</Text>
+                        ) : (
+                            <SpeciesDetailsList
+                                details={getSpeciesDetails(
+                                    selectedQuestion.species
+                                )}
+                            />
+                        )
+                    }
                 />
             )}
 

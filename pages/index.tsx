@@ -1,43 +1,14 @@
-import { Category } from '@prisma/client'
 import Head from 'next/head'
+import React from 'react'
 import { AnimatedSimpleGrid } from '../components/common/Animation'
+import OneTimeDialog from '../components/common/OneTimeDialog'
 import CategoryMenuItem from '../components/main_menu/CategoryMenuItem'
 import SpeciesCatalogMenuItem from '../components/main_menu/SpeciesCatalogMenuItem'
+import { mainMenuItems } from '../constants/menuItems'
+import { HAS_SEEN_FTU_KEY } from '../constants/storage'
 import { strings } from '../constants/strings'
 import { Page } from '../types/page'
-
-const categoryItems = [
-    {
-        image: '/images/menu-items/fish.jpg',
-        title: strings.CATEGORY_FISH,
-        category: Category.Fish,
-    },
-    {
-        image: '/images/menu-items/invertebrate.jpg',
-        title: strings.CATEGORY_INVERTEBRATE,
-        category: Category.Invertebrate,
-    },
-    {
-        image: '/images/menu-items/benthic.jpg',
-        title: strings.CATEGORY_BENTHIC,
-        category: Category.Benthic,
-    },
-    {
-        image: '/images/menu-items/fish-families.jpg',
-        title: strings.CATEGORY_FISH_FAMILIES,
-        category: Category.FishFamily,
-    },
-    {
-        image: '/images/menu-items/coral.jpg',
-        title: strings.CATEGORY_CORAL,
-        category: Category.Coral,
-    },
-    {
-        image: '/images/menu-items/seagrass.jpg',
-        title: strings.CATEGORY_SEAGRASS,
-        category: Category.Seagrass,
-    },
-]
+import FTUDialogContent from "../components/main_menu/FTUDialogContent";
 
 const Home: Page = () => {
     return (
@@ -56,7 +27,7 @@ const Home: Page = () => {
                 spacing={{ base: 4, xl: 4 }}
             >
                 <SpeciesCatalogMenuItem />
-                {categoryItems.map((item) => {
+                {mainMenuItems.map((item) => {
                     return (
                         <CategoryMenuItem
                             key={item.category}
@@ -67,6 +38,13 @@ const Home: Page = () => {
                     )
                 })}
             </AnimatedSimpleGrid>
+
+            <OneTimeDialog
+                storageKey={HAS_SEEN_FTU_KEY}
+                header={strings.FTU_DIALOG_TITLE}
+                body={<FTUDialogContent />}
+                closeButtonLabel={strings.FTU_DIALOG_CLOSE_BUTTON}
+            />
         </>
     )
 }

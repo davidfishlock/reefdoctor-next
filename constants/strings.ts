@@ -31,4 +31,13 @@ export const strings = {
     COMMAND_GO_TO_ANSWERS: 'Go to answers',
     COMMAND_BACK_TO_QUESTIONS: 'Back to questions',
     COMMAND_FINISH: 'Finish {0}',
+    FTU_DIALOG_TITLE: 'Welcome',
+    FTU_DIALOG_INTRO: 'Welcome to UVC training! Here we\'ll teach you to identify each of the species present in the UVC surveys through a series of tutorial exercises.',
+    FTU_DIALOG_CATALOG_TITLE: 'Species Catalog',
+    FTU_DIALOG_CATALOG_DESCRIPTION: 'The species catalog contains samples images for all species within the UVC categories. You can also find details on how to visually identify these species and the environments where the species are likely to be found.',
+    FTU_DIALOG_WORKSHOP_TITLE: 'Workshop',
+    FTU_DIALOG_WORKSHOP_DESCRIPTION: 'Start learning with Indicator level workshops on the Fish, Invertebrate, and Benthic categories. These will show you a series of images of each species and provide you with identification tips as you go.',
+    FTU_DIALOG_QUIZ_TITLE: 'Quiz',
+    FTU_DIALOG_QUIZ_DESCRIPTION: 'As you approach exam standard, quiz mode will allow you to try a mock exam. Unlike workshop mode, you won\'t be able to view the answers until you finish and we\'ll throw in some red herrings to try and throw you off!',
+    FTU_DIALOG_CLOSE_BUTTON: 'Got it!',
 }
