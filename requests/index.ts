@@ -55,7 +55,7 @@ export function useTutorial(
             category,
             uvcLevel,
         })}`,
-        undefined,
+        fetchConfig,
         isReady
     )
 
