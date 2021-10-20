@@ -10,8 +10,8 @@
         "lint:check": "next lint",
         "format:fix": "npx prettier --ignore-path .gitignore --write \"./**/*.{ts,tsx,json,md,html,scss}\"",
         "format:check": "npx prettier --ignore-path .gitignore \"./**/*.{ts,tsx,json,md,html,scss}\"",
-        "test": "jest",
-        "types:check": "tsc"
+        "types:check": "npx tsc -p tsconfig.json",
+        "test": "jest"
     },
     "dependencies": {
         "@chakra-ui/focus-lock": "^1.1.10",
