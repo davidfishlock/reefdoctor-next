@@ -20,7 +20,13 @@ export const PageBackground: React.FC<Props> = ({ src, isVisible }) => {
                     position="fixed"
                     boxSize="full"
                 >
-                    <NextImage src={src} alt="" boxSize="full" isAnimated />
+                    <NextImage
+                        data-testid="page-background-image"
+                        src={src}
+                        alt=""
+                        boxSize="full"
+                        isAnimated
+                    />
                 </AnimatedBox>
             )}
         </AnimatePresence>

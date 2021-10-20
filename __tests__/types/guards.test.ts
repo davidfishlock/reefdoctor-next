@@ -1,18 +1,16 @@
 import { Category, UVCLevel } from '@prisma/client'
 import {
-    getImagePathForSpecies,
-    getSpeciesDetails,
-    isNASpecies,
-} from '../../utils/species'
-import { defaultSpecies } from '../testDefaults'
-import {TutorialSessionType} from "../../types/tutorial";
-import {isCategory, isTutorialSessionType, isUVCLevel} from "../../types/guards";
+    isCategory,
+    isTutorialSessionType,
+    isUVCLevel,
+} from '../../types/guards'
+import { TutorialSessionType } from '../../types/tutorial'
 
 const invalidTypeTheories = [
     [0, false],
-    ["NOT_A_VALID_VALUE", false],
-    [() => ("something"), false],
-    [[1,2,3], false],
+    ['NOT_A_VALID_VALUE', false],
+    [() => 'something', false],
+    [[1, 2, 3], false],
     [undefined, false],
     [null, false],
 ] as const
@@ -71,5 +69,4 @@ describe('guards', () => {
             }
         )
     })
-
 })
