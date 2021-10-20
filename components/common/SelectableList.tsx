@@ -47,6 +47,7 @@ function SelectableList<ItemType>({
 
     return (
         <Box
+            data-testid="selectable-list-root"
             boxSize="full"
             tabIndex={0}
             overflowY={'auto'}

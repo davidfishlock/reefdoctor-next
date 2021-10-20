@@ -25,6 +25,7 @@ const RootLayout: React.FC<Props> = ({ children, layout }) => {
             />
 
             <Flex
+                data-testid="rootlayout-root"
                 id="content"
                 flexDir="column"
                 height={layout === 'full' ? '100%' : 'auto'}

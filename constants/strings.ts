@@ -31,6 +31,8 @@ export const strings = {
     COMMAND_GO_TO_ANSWERS: 'Go to answers',
     COMMAND_BACK_TO_QUESTIONS: 'Back to questions',
     COMMAND_FINISH: 'Finish {0}',
+    CAROUSEL_NEXT_BUTTON: 'Next',
+    CAROUSEL_PREVIOUS_BUTTON: 'Previous',
     FTU_DIALOG_TITLE: 'Welcome',
     FTU_DIALOG_INTRO:
         "Welcome to UVC training! Here we'll teach you to identify each of the species present in the UVC surveys through a series of tutorial exercises.",

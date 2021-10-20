@@ -5,6 +5,7 @@ type CarouselNavigateButtonProps = {
     icon: ReactNode
     onClick: () => void
     isDisabled: boolean
+    label: string
     left?: number
     right?: number
 }
@@ -13,12 +14,13 @@ const CarouselNavigateButton: React.FC<CarouselNavigateButtonProps> = ({
     icon,
     onClick,
     isDisabled,
+    label,
     left,
     right,
 }) => {
     return (
         <Button
-            fontSize="2xl"
+            aria-label={label}
             disabled={isDisabled}
             onClick={onClick}
             left={left}

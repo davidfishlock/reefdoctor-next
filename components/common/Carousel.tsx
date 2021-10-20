@@ -2,6 +2,7 @@ import { Box, Icon } from '@chakra-ui/react'
 import React, { ReactNode, useCallback, useEffect } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { strings } from '../../constants/strings'
 import { AnimatedFlex } from '../common/Animation'
 import CarouselNavigateButton from './CarouselNavigateButton'
 
@@ -38,7 +39,12 @@ function Carousel<ItemType>({
     useHotkeys('right', moveNext, { keydown: true }, [moveNext])
 
     return (
-        <Box position="relative" overflow="hidden" boxSize="full">
+        <Box
+            data-testid="carousel-root"
+            position="relative"
+            overflow="hidden"
+            boxSize="full"
+        >
             <AnimatedFlex
                 boxSize="full"
                 initial={{ translateX: `-${selectedIndex * 100}%` }}
@@ -53,6 +59,7 @@ function Carousel<ItemType>({
                 onClick={movePrevious}
                 left={0}
                 isDisabled={selectedIndex === 0}
+                label={strings.CAROUSEL_PREVIOUS_BUTTON}
             />
 
             <CarouselNavigateButton
@@ -60,6 +67,7 @@ function Carousel<ItemType>({
                 onClick={moveNext}
                 right={0}
                 isDisabled={selectedIndex === items.length - 1}
+                label={strings.CAROUSEL_NEXT_BUTTON}
             />
         </Box>
     )

@@ -23,7 +23,11 @@ function SelectableListItem<ItemType>({
     }, [isSelected])
 
     return (
-        <Box ref={boxRef} background={isSelected ? 'blue.400' : undefined}>
+        <Box
+            data-testid="selectable-list-item-root"
+            ref={boxRef}
+            background={isSelected ? 'blue.400' : undefined}
+        >
             <ListItem
                 userSelect="none"
                 px={4}
