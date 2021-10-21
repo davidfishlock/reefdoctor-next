@@ -38,6 +38,7 @@ export const TutorialProvider: React.FC = ({ children }) => {
     const { tutorial, isLoading, error } = useTutorial(
         category as Category,
         uvcLevel as UVCLevel,
+        sessionType as TutorialSessionType,
         isReady
     )
 

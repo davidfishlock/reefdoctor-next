@@ -62,4 +62,6 @@ export const strings = {
     QUIZ_DIALOG_BODY_3:
         "Watch out! We'll include some 'N/A' species here that are not included in the survey to make things more difficult. You'll need to correctly identify that they are not included by answering 'N/A'",
     QUIZ_DIALOG_CLOSE_BUTTON: "Let's go!",
+    API_ERROR_METHOD_UNSUPPORTED: 'The requested HTTP method is not supported.',
+    API_ERROR_INVALID_QUERY: 'The provided query values were invalid.',
 }

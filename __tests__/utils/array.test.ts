@@ -1,5 +1,5 @@
 import { getSortedSpeciesByName, shuffle } from '../../utils/array'
-import { defaultSpecies } from '../testDefaults'
+import { defaultSpecies } from '../testData'
 
 const species = [
     { ...defaultSpecies, id: 3, name: 'Species D' },

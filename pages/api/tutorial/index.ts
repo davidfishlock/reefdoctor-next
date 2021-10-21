@@ -1,17 +1,19 @@
 import { Species } from '.prisma/client'
 import { Category, Prisma, UVCLevel } from '@prisma/client'
+import { constants } from 'http2'
+import { NextApiRequest, NextApiResponse } from 'next'
 import urljoin from 'url-join'
+import { strings } from '../../../constants/strings'
 import prisma from '../../../prisma/client'
-import {
-    Question,
-    Tutorial,
-    TutorialSessionType,
-} from '../../../types/tutorial'
+import { isTutorialQuery } from '../../../types/queries'
+import { TutorialSessionType } from '../../../types/tutorial'
 import { shuffle } from '../../../utils/array'
+import { validateHttpMethod } from '../../../utils/requestHandlers'
 import { getImagePathForSpecies } from '../../../utils/species'
+import { hasNAItems } from '../../../utils/uvcDefinitions'
 
-const QUESTION_COUNT = 25
-const MAX_NA_ITEMS_COUNT = 5
+export const QUESTION_COUNT = 25
+export const MAX_NA_ITEMS_COUNT = 5
 
 function getTutorialSpeciesQuery(
     category: Category,
@@ -50,49 +52,62 @@ function getQuestion(species: Species) {
     }
 }
 
-export default async function handle(
-    req: {
-        method: string
-        query: {
-            category: Category
-            uvcLevel: UVCLevel
-            sessionType: TutorialSessionType
-        }
-    },
-    res: { json: (tutorial: Tutorial) => void }
+function areNAItemsRequired(
+    sessionType: TutorialSessionType,
+    category: Category
 ) {
-    if (req.method === 'GET') {
-        const { category, uvcLevel } = req.query
-        const speciesQuery = getTutorialSpeciesQuery(category, uvcLevel)
-        let species = (await prisma.species.findMany(speciesQuery)).slice(
-            0,
-            QUESTION_COUNT
-        )
+    return sessionType == TutorialSessionType.Quiz && hasNAItems(category)
+}
 
-        if (category === Category.Fish || category === Category.Invertebrate) {
-            const allNAItems = await prisma.species.findMany({
-                where: {
-                    category: category,
-                    uvcLevel: UVCLevel.NA,
-                },
-            })
+function selectSpecies(
+    normalSpecies: Species[],
+    naSpecies: Species[],
+    maxQuestions: number,
+    maxNAItems: number
+): Species[] {
+    const selectedNASpecies = shuffle(naSpecies).slice(0, maxNAItems)
+    const selectedNormalSpecies = shuffle(normalSpecies).slice(
+        0,
+        maxQuestions - selectedNASpecies.length
+    )
+    return shuffle([...selectedNASpecies, ...selectedNormalSpecies])
+}
 
-            const selectedNAItems = shuffle(allNAItems).slice(
-                0,
-                MAX_NA_ITEMS_COUNT
-            )
-
-            species = [...species, ...selectedNAItems]
-        }
-
-        const questions: Question[] = shuffle(species)
-            .slice(0, QUESTION_COUNT)
-            .map(getQuestion)
-
-        res.json({ questions })
-    } else {
-        throw new Error(
-            `The HTTP ${req.method} method is not supported at this route.`
-        )
+export default async function handler(
+    request: NextApiRequest,
+    response: NextApiResponse
+) {
+    if (!validateHttpMethod(request.method, ['GET'])) {
+        response.status(constants.HTTP_STATUS_METHOD_NOT_ALLOWED)
+        response.send(strings.API_ERROR_METHOD_UNSUPPORTED)
+        return
     }
+
+    if (!isTutorialQuery(request.query)) {
+        response.status(constants.HTTP_STATUS_BAD_REQUEST)
+        response.send(strings.API_ERROR_INVALID_QUERY)
+        return
+    }
+
+    const { category, uvcLevel, sessionType } = request.query
+
+    const speciesQuery = getTutorialSpeciesQuery(category, uvcLevel)
+    const normalSpecies = await prisma.species.findMany(speciesQuery)
+    const naSpecies = areNAItemsRequired(sessionType, category)
+        ? await prisma.species.findMany({
+              where: {
+                  category,
+                  uvcLevel: UVCLevel.NA,
+              },
+          })
+        : []
+
+    const questions = selectSpecies(
+        normalSpecies,
+        naSpecies,
+        QUESTION_COUNT,
+        MAX_NA_ITEMS_COUNT
+    ).map(getQuestion)
+
+    response.json({ questions })
 }

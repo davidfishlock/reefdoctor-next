@@ -2,7 +2,7 @@ import {
     getLocalStorageValue,
     setLocalStorageValue,
 } from '../../utils/localStorageHelper'
-import { defaultSpecies } from '../testDefaults'
+import { defaultSpecies } from '../testData'
 
 describe('localStorageHelper', () => {
     describe('setLocalStorageValue', () => {
