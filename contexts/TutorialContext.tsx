@@ -1,6 +1,8 @@
 import { Category, UVCLevel } from '@prisma/client'
 import React, { createContext, ReactNode, useState } from 'react'
-import { useTutorial } from '../hooks/useTutorial'
+import { TUTORIAL } from '../constants/apiRoutes'
+import { DEFAULT_FETCH_CONFIG } from '../constants/fetchConfig'
+import { useFetch } from '../hooks/useFetch'
 import { Question, Tutorial, TutorialSessionType } from '../types/tutorial'
 
 export type TutorialContextProps = {
@@ -38,10 +40,17 @@ export const TutorialProvider: React.FC<ProviderProps> = ({
     const [isCurrentAnswerVisible, setIsCurrentAnswerVisible] = useState(false)
     const [isAnswersScreenVisible, setIsAnswersScreenVisible] = useState(false)
 
-    const { tutorial, isLoading, error } = useTutorial(
-        category,
-        uvcLevel,
-        sessionType
+    const {
+        responseData: tutorial,
+        isLoading,
+        error,
+    } = useFetch<Tutorial>(
+        `${TUTORIAL}?${new URLSearchParams({
+            category,
+            uvcLevel,
+            sessionType,
+        })}`,
+        DEFAULT_FETCH_CONFIG
     )
 
     return (

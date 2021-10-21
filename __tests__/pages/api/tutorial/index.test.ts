@@ -145,7 +145,7 @@ describe('tutorial api handler', () => {
     })
 
     test.each(tutorialTheories)(
-        'requests correct species from database for UVCLevel %p',
+        'returns correct questions for query %p',
         async ({ category, uvcLevel, sessionType }) => {
             await handler(
                 {
