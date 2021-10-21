@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react'
+import { Icon, Text } from '@chakra-ui/react'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
@@ -29,7 +29,7 @@ describe('CarouselNavigateButton', () => {
     test('applies disabled state', () => {
         render(
             <CarouselNavigateButton
-                icon={FaArrowLeft}
+                icon={<Icon as={FaArrowLeft} />}
                 onClick={mockOnClick}
                 isDisabled={true}
                 label={strings.CAROUSEL_NEXT_BUTTON}
@@ -44,7 +44,7 @@ describe('CarouselNavigateButton', () => {
     test('fires handler on click', () => {
         render(
             <CarouselNavigateButton
-                icon={FaArrowLeft}
+                icon={<Icon as={FaArrowLeft} />}
                 onClick={mockOnClick}
                 isDisabled={false}
                 label={strings.CAROUSEL_NEXT_BUTTON}

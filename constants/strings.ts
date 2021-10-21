@@ -58,7 +58,7 @@ export const strings = {
     QUIZ_DIALOG_BODY_1:
         "Welcome to your first quiz! Here you'll carry out a mock exam exercise.",
     QUIZ_DIALOG_BODY_2:
-        "Note down your answers for each question and see how many you had correct at the end. For the final exam you'll need at least 90% correct join the survey dives.",
+        "Note down your answers for each question and see how many you had correct at the end. For the final exam you'll need at least 90% correct to join the survey dives.",
     QUIZ_DIALOG_BODY_3:
         "Watch out! We'll include some 'N/A' species here that are not included in the survey to make things more difficult. You'll need to correctly identify that they are not included by answering 'N/A'",
     QUIZ_DIALOG_CLOSE_BUTTON: "Let's go!",
