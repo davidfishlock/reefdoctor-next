@@ -1,6 +1,6 @@
 import { Category, Species, UVCLevel } from '@prisma/client'
 import React, { createContext, useState } from 'react'
-import { useAllSpecies } from '../requests'
+import { useAllSpecies } from '../hooks/useAllSpecies'
 import { isUVCCategory } from '../utils/uvcDefinitions'
 
 export type CatalogContextProps = {

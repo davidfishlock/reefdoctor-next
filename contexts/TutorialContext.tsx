@@ -1,14 +1,9 @@
 import { Category, UVCLevel } from '@prisma/client'
-import React, { createContext, useState } from 'react'
-import { useTutorial } from '../requests'
+import React, { createContext, ReactNode, useState } from 'react'
+import { useTutorial } from '../hooks/useTutorial'
 import { Question, Tutorial, TutorialSessionType } from '../types/tutorial'
 
 export type TutorialContextProps = {
-    initialize: (
-        category: Category,
-        uvcLevel: UVCLevel,
-        sessionType: TutorialSessionType
-    ) => void
     tutorial?: Tutorial
     isLoading: boolean
     error?: Error
@@ -25,38 +20,33 @@ export type TutorialContextProps = {
 
 export const TutorialContext = createContext<TutorialContextProps | null>(null)
 
-export const TutorialProvider: React.FC = ({ children }) => {
-    const [isReady, setIsReady] = React.useState(false)
-    const [category, setCategory] = React.useState<Category>()
-    const [sessionType, setSessionType] = React.useState<TutorialSessionType>()
-    const [uvcLevel, setUvcLevel] = React.useState<UVCLevel>()
+type ProviderProps = {
+    category: Category
+    uvcLevel: UVCLevel
+    sessionType: TutorialSessionType
+    children: ReactNode
+}
+
+export const TutorialProvider: React.FC<ProviderProps> = ({
+    category,
+    uvcLevel,
+    sessionType,
+    children,
+}) => {
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0)
     const [selectedQuestion, setSelectedQuestion] = useState<Question>()
     const [isCurrentAnswerVisible, setIsCurrentAnswerVisible] = useState(false)
     const [isAnswersScreenVisible, setIsAnswersScreenVisible] = useState(false)
 
     const { tutorial, isLoading, error } = useTutorial(
-        category as Category,
-        uvcLevel as UVCLevel,
-        sessionType as TutorialSessionType,
-        isReady
+        category,
+        uvcLevel,
+        sessionType
     )
-
-    const initialize = (
-        category: Category,
-        uvcLevel: UVCLevel,
-        sessionType: TutorialSessionType
-    ) => {
-        setCategory(category)
-        setUvcLevel(uvcLevel)
-        setSessionType(sessionType)
-        setIsReady(true)
-    }
 
     return (
         <TutorialContext.Provider
             value={{
-                initialize,
                 tutorial,
                 isLoading,
                 error,

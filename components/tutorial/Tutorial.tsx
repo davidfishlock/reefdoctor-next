@@ -6,14 +6,13 @@ import {
     Text,
     useDisclosure,
 } from '@chakra-ui/react'
-import { Category, UVCLevel } from '@prisma/client'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { strings } from '../../constants/strings'
 import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
-import { Question, TutorialSessionType } from '../../types/tutorial'
+import { Question } from '../../types/tutorial'
 import { getSpeciesDetails, isNASpecies } from '../../utils/species'
 import { formatString } from '../../utils/strings'
 import Carousel from '../common/Carousel'
@@ -24,19 +23,8 @@ import TutorialAnswers from './TutorialAnswers'
 import TutorialCommands from './TutorialCommands'
 import TutorialItem from './TutorialItem'
 
-type Props = {
-    category: Category
-    uvcLevel: UVCLevel
-    tutorialSessionType: TutorialSessionType
-}
-
-const Tutorial: React.FC<Props> = ({
-    category,
-    uvcLevel,
-    tutorialSessionType,
-}) => {
+const Tutorial: React.FC = () => {
     const {
-        initialize,
         tutorial,
         isLoading,
         error,
@@ -47,10 +35,6 @@ const Tutorial: React.FC<Props> = ({
         setSelectedQuestion,
         selectedQuestionIndex,
     } = useContext(TutorialContext) as TutorialContextProps
-
-    useEffect(() => {
-        initialize(category, uvcLevel, tutorialSessionType)
-    }, [initialize, category, uvcLevel, tutorialSessionType])
 
     const {
         isOpen: isInfoDialogOpen,

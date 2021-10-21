@@ -11,11 +11,7 @@ type RequestAction<T> =
     | { type: 'completed'; data: T }
     | { type: 'error'; error: Error }
 
-export function useFetch<T>(
-    request: RequestInfo,
-    init?: RequestInit,
-    isReady: boolean = true
-) {
+export function useFetch<T>(request: RequestInfo, init?: RequestInit) {
     const initialRequestState: RequestState<T> = {
         isLoading: true,
         responseData: undefined,
@@ -52,8 +48,6 @@ export function useFetch<T>(
     )
 
     useEffect(() => {
-        if (!isReady) return
-
         const abortController = new AbortController()
         dispatch({ type: 'initialized' })
         ;(async () => {
@@ -77,7 +71,7 @@ export function useFetch<T>(
         return () => {
             abortController.abort()
         }
-    }, [init, request, isReady])
+    }, [init, request])
 
     return requestState
 }

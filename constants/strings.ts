@@ -64,4 +64,6 @@ export const strings = {
     QUIZ_DIALOG_CLOSE_BUTTON: "Let's go!",
     API_ERROR_METHOD_UNSUPPORTED: 'The requested HTTP method is not supported.',
     API_ERROR_INVALID_QUERY: 'The provided query values were invalid.',
+    TOAST_REQUEST_ERROR_TITLE: 'Error loading data',
+    TOAST_REQUEST_ERROR_DESCRIPTION: 'Please check your network connection.',
 }

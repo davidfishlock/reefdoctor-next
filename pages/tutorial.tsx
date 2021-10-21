@@ -26,12 +26,12 @@ const TutorialPage: Page = () => {
 
     return (
         <>
-            <TutorialProvider>
-                <Tutorial
-                    category={category}
-                    uvcLevel={uvcLevel}
-                    tutorialSessionType={sessionType}
-                />
+            <TutorialProvider
+                category={category}
+                uvcLevel={uvcLevel}
+                sessionType={sessionType}
+            >
+                <Tutorial />
             </TutorialProvider>
 
             {sessionType == TutorialSessionType.Workshop && <WorkshopDialog />}

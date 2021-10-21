@@ -16,15 +16,9 @@ const fetchMock = jest.fn(() => Promise.resolve(mockResponse))
 global.fetch = fetchMock
 
 describe('useFetch', () => {
-    test("shouldn't do anything if not ready", () => {
-        renderHook(() => useFetch(mockRequest, mockInit, false))
-
-        expect(fetch).not.toBeCalled()
-    })
-
-    test('calls fetch with expected values when ready', async () => {
+    test('calls fetch with expected values', async () => {
         const { waitForNextUpdate } = renderHook(() =>
-            useFetch(mockRequest, mockInit, true)
+            useFetch(mockRequest, mockInit)
         )
 
         await waitForNextUpdate()
@@ -38,7 +32,7 @@ describe('useFetch', () => {
 
     test('applies relevant loading states and returns response from fetch', async () => {
         const { result, waitForNextUpdate } = renderHook(() =>
-            useFetch(mockRequest, mockInit, true)
+            useFetch(mockRequest, mockInit)
         )
 
         expect(result.current.isLoading).toEqual(true)
@@ -55,7 +49,7 @@ describe('useFetch', () => {
         fetchMock.mockImplementationOnce(() => Promise.reject(mockError))
 
         const { result, waitForNextUpdate } = renderHook(() =>
-            useFetch(mockRequest, mockInit, true)
+            useFetch(mockRequest, mockInit)
         )
 
         await waitForNextUpdate()
