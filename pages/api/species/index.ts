@@ -1,25 +1,34 @@
-import { Species } from '.prisma/client'
-import { Category, UVCLevel } from '@prisma/client'
+import { constants } from 'http2'
+import { NextApiRequest, NextApiResponse } from 'next'
+import { strings } from '../../../constants/strings'
 import prisma from '../../../prisma/client'
+import { isSpeciesQuery } from '../../../types/queries'
+import { validateHttpMethod } from '../../../utils/requestHandlers'
 
-export default async function handle(
-    req: { method: string; query: { category: Category; uvcLevel: UVCLevel } },
-    res: { json: (species: Species[]) => void }
+export default async function handler(
+    request: NextApiRequest,
+    response: NextApiResponse
 ) {
-    if (req.method === 'GET') {
-        const { category, uvcLevel } = req.query
-
-        const species = await prisma.species.findMany({
-            where: {
-                category: category,
-                uvcLevel: uvcLevel,
-            },
-        })
-
-        res.json(species)
-    } else {
-        throw new Error(
-            `The HTTP ${req.method} method is not supported at this route.`
-        )
+    if (!validateHttpMethod(request.method, ['GET'])) {
+        response.status(constants.HTTP_STATUS_METHOD_NOT_ALLOWED)
+        response.send(strings.API_ERROR_METHOD_UNSUPPORTED)
+        return
     }
+
+    if (!isSpeciesQuery(request.query)) {
+        response.status(constants.HTTP_STATUS_BAD_REQUEST)
+        response.send(strings.API_ERROR_INVALID_QUERY)
+        return
+    }
+
+    const { category, uvcLevel } = request.query
+
+    const species = await prisma.species.findMany({
+        where: {
+            category,
+            uvcLevel,
+        },
+    })
+
+    response.json(species)
 }

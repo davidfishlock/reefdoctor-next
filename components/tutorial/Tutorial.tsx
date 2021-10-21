@@ -13,7 +13,6 @@ import {
     TutorialContext,
     TutorialContextProps,
 } from '../../contexts/TutorialContext'
-import { isTutorialSessionType } from '../../types/guards'
 import { Question, TutorialSessionType } from '../../types/tutorial'
 import { getSpeciesDetails, isNASpecies } from '../../utils/species'
 import { formatString } from '../../utils/strings'
@@ -41,7 +40,6 @@ const Tutorial: React.FC<Props> = ({
         tutorial,
         isLoading,
         error,
-        sessionType,
         isAnswersScreenVisible,
         setIsCurrentAnswerVisible,
         setSelectedQuestionIndex,
@@ -73,7 +71,7 @@ const Tutorial: React.FC<Props> = ({
         )
     }
 
-    if (!tutorial || error || !isTutorialSessionType(sessionType)) {
+    if (!tutorial || error) {
         return (
             <Center boxSize="full">
                 <Text>{strings.TUTORIAL_LOAD_ERROR}</Text>

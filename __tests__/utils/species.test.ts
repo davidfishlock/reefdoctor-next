@@ -4,7 +4,7 @@ import {
     getSpeciesDetails,
     isNASpecies,
 } from '../../utils/species'
-import { defaultSpecies } from '../testDefaults'
+import { defaultSpecies } from '../testData'
 
 describe('species', () => {
     describe('getSpeciesDetails', () => {

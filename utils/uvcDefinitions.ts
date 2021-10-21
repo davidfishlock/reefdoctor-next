@@ -8,3 +8,8 @@ export function isUVCCategory(category: Category) {
     ]
     return uvcCategories.includes(category)
 }
+
+export function hasNAItems(category: Category) {
+    const naItemsCategories: Category[] = [Category.Fish, Category.Invertebrate]
+    return naItemsCategories.includes(category)
+}

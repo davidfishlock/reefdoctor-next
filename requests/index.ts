@@ -3,7 +3,7 @@ import { Category, Species, UVCLevel } from '@prisma/client'
 import useSWR from 'swr'
 import { useFetch } from '../hooks/useFetch'
 import { isCategory, isUVCLevel } from '../types/guards'
-import { Tutorial } from '../types/tutorial'
+import { Tutorial, TutorialSessionType } from '../types/tutorial'
 import { getSortedSpeciesByName } from '../utils/array'
 
 const fetchConfig = {
@@ -44,23 +44,25 @@ export function useAllSpecies(category: Category, uvcLevel: UVCLevel) {
 export function useTutorial(
     category: Category,
     uvcLevel: UVCLevel,
+    sessionType: TutorialSessionType,
     isReady: boolean
 ) {
     if (isReady && (!isCategory(category) || !isUVCLevel(uvcLevel))) {
         throw new Error('useTutorial parameters were invalid')
     }
 
-    const { data, isLoading, error } = useFetch<Tutorial>(
+    const { responseData, isLoading, error } = useFetch<Tutorial>(
         `/api/tutorial?${new URLSearchParams({
             category,
             uvcLevel,
+            sessionType,
         })}`,
         fetchConfig,
         isReady
     )
 
     return {
-        tutorial: data,
+        tutorial: responseData,
         isLoading,
         error,
     }
