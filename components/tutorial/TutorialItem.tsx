@@ -1,10 +1,7 @@
 import { Box, Center, HStack, Image, Text } from '@chakra-ui/react'
-import React, { useContext } from 'react'
+import React from 'react'
 import { strings } from '../../constants/strings'
-import {
-    TutorialContext,
-    TutorialContextProps,
-} from '../../contexts/TutorialContext'
+import { useTutorialContext } from '../../contexts/TutorialContext'
 import { Question } from '../../types/tutorial'
 import { isNASpecies } from '../../utils/species'
 import { formatString } from '../../utils/strings'
@@ -17,9 +14,7 @@ type Props = {
 }
 
 const TutorialItem: React.FC<Props> = ({ question, index }) => {
-    const { isCurrentAnswerVisible } = useContext(
-        TutorialContext
-    ) as TutorialContextProps
+    const { isCurrentAnswerVisible } = useTutorialContext()
 
     return (
         <Box boxSize="full" flex="none" position="relative">

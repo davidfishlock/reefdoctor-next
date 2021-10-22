@@ -8,12 +8,9 @@ import {
     useBreakpointValue,
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
-import React, { useContext } from 'react'
+import React from 'react'
 import { strings } from '../../constants/strings'
-import {
-    CatalogContext,
-    CatalogContextProps,
-} from '../../contexts/CatalogContext'
+import { useCatalogContext } from '../../contexts/CatalogContext'
 import { isUVCCategory } from '../../utils/uvcDefinitions'
 import SelectableList from '../common/SelectableList'
 
@@ -21,25 +18,15 @@ const SpeciesSelector: React.FC = () => {
     const {
         speciesList,
         selectedSpecies,
-        setSelectedSpecies,
         selectedCategory,
-        setSelectedCategory,
         selectedUVCLevel,
-        setSelectedUVCLevel,
-    } = useContext(CatalogContext) as CatalogContextProps
+        dispatch,
+    } = useCatalogContext()
 
     const isMobileView = useBreakpointValue({
         base: true,
         md: false,
     })
-
-    // After a new category is loaded, auto select the first item
-    if (
-        speciesList?.length &&
-        !speciesList.find((species) => species === selectedSpecies)
-    ) {
-        setSelectedSpecies(speciesList[0])
-    }
 
     return (
         <Stack spacing={3} w={'100%'} boxSize="full">
@@ -52,7 +39,7 @@ const SpeciesSelector: React.FC = () => {
                                 Category[
                                     event.target.value as keyof typeof Category
                                 ]
-                            setSelectedCategory(category)
+                            dispatch({ type: 'selectCategory', category })
                         }}
                         value={selectedCategory}
                     >
@@ -89,7 +76,7 @@ const SpeciesSelector: React.FC = () => {
                                 UVCLevel[
                                     event.target.value as keyof typeof UVCLevel
                                 ]
-                            setSelectedUVCLevel(uvcLevel)
+                            dispatch({ type: 'selectUVCLevel', uvcLevel })
                         }}
                     >
                         <option value={UVCLevel.Indicator}>
@@ -118,7 +105,7 @@ const SpeciesSelector: React.FC = () => {
                                 )
                             }
 
-                            setSelectedSpecies(species)
+                            dispatch({ type: 'selectSpecies', species })
                         }}
                     >
                         {speciesList.map((species) => (
@@ -134,7 +121,9 @@ const SpeciesSelector: React.FC = () => {
                 <SelectableList<Species>
                     items={speciesList}
                     selectedItem={selectedSpecies}
-                    onSelectedItemChanged={setSelectedSpecies}
+                    onSelectedItemChanged={(species) =>
+                        dispatch({ type: 'selectSpecies', species })
+                    }
                     onRenderItem={(species) => <Text>{species.name}</Text>}
                 />
             )}

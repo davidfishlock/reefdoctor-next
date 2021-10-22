@@ -6,16 +6,13 @@ import {
     OrderedList,
     Text,
 } from '@chakra-ui/react'
-import React, { useContext } from 'react'
-import {
-    TutorialContext,
-    TutorialContextProps,
-} from '../../contexts/TutorialContext'
+import React from 'react'
+import { useTutorialContext } from '../../contexts/TutorialContext'
 import { isNASpecies } from '../../utils/species'
 import NABadge from './NABadge'
 
 const TutorialAnswers: React.FC = () => {
-    const { tutorial } = useContext(TutorialContext) as TutorialContextProps
+    const { tutorial } = useTutorialContext()
 
     if (!tutorial) return null
 

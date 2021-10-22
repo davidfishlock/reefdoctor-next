@@ -1,12 +1,9 @@
 import { Grid } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import usePortal from 'react-useportal'
 import urljoin from 'url-join'
-import {
-    CatalogContext,
-    CatalogContextProps,
-} from '../../contexts/CatalogContext'
+import { useCatalogContext } from '../../contexts/CatalogContext'
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
 import { getImagePathForSpecies } from '../../utils/species'
 import ImageGallery from './ImageGallery'
@@ -23,9 +20,7 @@ function createImageSources(species: Species) {
 }
 
 const SpeciesThumbnails: React.FC = () => {
-    const { selectedSpecies } = useContext(
-        CatalogContext
-    ) as CatalogContextProps
+    const { selectedSpecies } = useCatalogContext()
 
     const [galleryStartIndex, setGalleryStartIndex] = useState(0)
     const {
