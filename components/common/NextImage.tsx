@@ -1,6 +1,7 @@
 import { Box, BoxProps } from '@chakra-ui/react'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
+import { useIsMounted } from '../../hooks/useIsMounted'
 import { AnimatedBox } from './Animation'
 
 export const NextImage = (
@@ -22,6 +23,8 @@ export const NextImage = (
         objectFit = 'cover',
         ...rest
     } = props
+
+    const isMounted = useIsMounted()
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
@@ -46,6 +49,7 @@ export const NextImage = (
                     alt={alt}
                     loading={loading}
                     onLoadingComplete={() => {
+                        if (!isMounted()) return
                         setIsLoaded(true)
                     }}
                 />
