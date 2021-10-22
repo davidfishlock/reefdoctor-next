@@ -1,7 +1,7 @@
 import { Button, HStack, Icon, Tooltip } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useContext } from 'react'
+import React from 'react'
 import {
     FaArrowLeft,
     FaCheck,
@@ -11,10 +11,7 @@ import {
 } from 'react-icons/fa'
 import { HOMEPAGE } from '../../constants/clientRoutes'
 import { strings } from '../../constants/strings'
-import {
-    TutorialContext,
-    TutorialContextProps,
-} from '../../contexts/TutorialContext'
+import { useTutorialContext } from '../../contexts/TutorialContext'
 import { formatString } from '../../utils/strings'
 type Props = {
     onShowSpeciesInfo: () => void
@@ -37,11 +34,10 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
     const {
         tutorial,
         sessionType,
-        setIsCurrentAnswerVisible,
         isAnswersScreenVisible,
-        setIsAnswersScreenVisible,
         selectedQuestionIndex,
-    } = useContext(TutorialContext) as TutorialContextProps
+        dispatch,
+    } = useTutorialContext()
 
     if (!tutorial || !sessionType) return null
 
@@ -58,7 +54,10 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                                 <Button
                                     {...commandButton}
                                     onClick={() =>
-                                        setIsCurrentAnswerVisible(true)
+                                        dispatch({
+                                            type: 'setIsCurrentAnswerVisible',
+                                            isVisible: true,
+                                        })
                                     }
                                 >
                                     <Icon as={FaQuestion} />
@@ -87,7 +86,12 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                         >
                             <Button
                                 {...commandButton}
-                                onClick={() => setIsAnswersScreenVisible(true)}
+                                onClick={() =>
+                                    dispatch({
+                                        type: 'setIsAnswersScreenVisible',
+                                        isVisible: true,
+                                    })
+                                }
                             >
                                 <Icon as={FaCheckDouble} />
                             </Button>
@@ -104,7 +108,12 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                     >
                         <Button
                             {...commandButton}
-                            onClick={() => setIsAnswersScreenVisible(false)}
+                            onClick={() =>
+                                dispatch({
+                                    type: 'setIsAnswersScreenVisible',
+                                    isVisible: false,
+                                })
+                            }
                         >
                             <Icon as={FaArrowLeft} />
                         </Button>

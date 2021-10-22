@@ -14,7 +14,6 @@ const mockRenderFunction = jest
     ))
 
 const mockOnSelectedIndexChanged = jest.fn()
-const mockOnSelectedItemChanged = jest.fn()
 
 describe('Carousel', () => {
     test('renders children items according to render function', () => {
@@ -24,7 +23,6 @@ describe('Carousel', () => {
                 selectedIndex={0}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 
@@ -41,7 +39,6 @@ describe('Carousel', () => {
                 selectedIndex={0}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 
@@ -60,7 +57,6 @@ describe('Carousel', () => {
                 selectedIndex={items.length - 1}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 
@@ -81,7 +77,6 @@ describe('Carousel', () => {
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 
@@ -102,7 +97,6 @@ describe('Carousel', () => {
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 
@@ -123,7 +117,6 @@ describe('Carousel', () => {
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 
@@ -144,7 +137,6 @@ describe('Carousel', () => {
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
                 onSelectedIndexChanged={mockOnSelectedIndexChanged}
-                onSelectedItemChanged={mockOnSelectedItemChanged}
             />
         )
 

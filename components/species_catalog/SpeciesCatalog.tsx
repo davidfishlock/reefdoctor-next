@@ -1,15 +1,12 @@
 import { Box, Center, Flex, Spinner } from '@chakra-ui/react'
-import React, { useContext } from 'react'
-import {
-    CatalogContext,
-    CatalogContextProps,
-} from '../../contexts/CatalogContext'
+import React from 'react'
+import { useCatalogContext } from '../../contexts/CatalogContext'
 import SpeciesDetails from './SpeciesDetails'
 import SpeciesSelector from './SpeciesSelector'
 import SpeciesThumbnails from './SpeciesThumbnails'
 
 const SpeciesCatalog: React.FC = ({}) => {
-    const { isLoading } = useContext(CatalogContext) as CatalogContextProps
+    const { isLoading } = useCatalogContext()
 
     return (
         <Flex

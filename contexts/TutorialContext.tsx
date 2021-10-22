@@ -1,26 +1,74 @@
 import { Category, UVCLevel } from '@prisma/client'
-import React, { createContext, ReactNode, useState } from 'react'
+import React, { createContext, ReactNode, useEffect, useReducer } from 'react'
 import { TUTORIAL } from '../constants/apiRoutes'
 import { DEFAULT_FETCH_CONFIG } from '../constants/fetchConfig'
 import { useFetch } from '../hooks/useFetch'
 import { Question, Tutorial, TutorialSessionType } from '../types/tutorial'
 
-export type TutorialContextProps = {
+type ReducerState = {
+    selectedQuestionIndex: number
+    selectedQuestion?: Question
+    isCurrentAnswerVisible: boolean
+    isAnswersScreenVisible: boolean
+}
+
+export type TutorialState = ReducerState & {
     tutorial?: Tutorial
     isLoading: boolean
     error?: Error
     sessionType?: TutorialSessionType
-    selectedQuestionIndex: number
-    setSelectedQuestionIndex: (index: number) => void
-    selectedQuestion?: Question
-    setSelectedQuestion: (question: Question) => void
-    isCurrentAnswerVisible: boolean
-    setIsCurrentAnswerVisible: (isVisible: boolean) => void
-    isAnswersScreenVisible: boolean
-    setIsAnswersScreenVisible: (isVisible: boolean) => void
+    dispatch: React.Dispatch<TutorialAction>
 }
 
-export const TutorialContext = createContext<TutorialContextProps | null>(null)
+export const TutorialContext = createContext<TutorialState | undefined>(
+    undefined
+)
+
+const initialState: ReducerState = {
+    selectedQuestionIndex: 0,
+    isCurrentAnswerVisible: false,
+    isAnswersScreenVisible: false,
+}
+
+type TutorialAction =
+    | { type: 'setSelectedQuestionIndex'; index: number }
+    | { type: 'setSelectedQuestion'; question: Question | undefined }
+    | { type: 'setIsCurrentAnswerVisible'; isVisible: boolean }
+    | { type: 'setIsAnswersScreenVisible'; isVisible: boolean }
+
+const reducer = (state: ReducerState, action: TutorialAction) => {
+    console.log(action)
+
+    switch (action.type) {
+        case 'setSelectedQuestionIndex': {
+            return {
+                ...state,
+                selectedQuestionIndex: action.index,
+                isCurrentAnswerVisible: false,
+            }
+        }
+        case 'setSelectedQuestion': {
+            return {
+                ...state,
+                selectedQuestion: action.question,
+            }
+        }
+        case 'setIsCurrentAnswerVisible': {
+            return {
+                ...state,
+                isCurrentAnswerVisible: action.isVisible,
+            }
+        }
+        case 'setIsAnswersScreenVisible': {
+            return {
+                ...state,
+                isAnswersScreenVisible: action.isVisible,
+            }
+        }
+        default:
+            return state
+    }
+}
 
 type ProviderProps = {
     category: Category
@@ -35,10 +83,14 @@ export const TutorialProvider: React.FC<ProviderProps> = ({
     sessionType,
     children,
 }) => {
-    const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0)
-    const [selectedQuestion, setSelectedQuestion] = useState<Question>()
-    const [isCurrentAnswerVisible, setIsCurrentAnswerVisible] = useState(false)
-    const [isAnswersScreenVisible, setIsAnswersScreenVisible] = useState(false)
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    const {
+        selectedQuestionIndex,
+        selectedQuestion,
+        isCurrentAnswerVisible,
+        isAnswersScreenVisible,
+    } = state
 
     const {
         responseData: tutorial,
@@ -53,6 +105,13 @@ export const TutorialProvider: React.FC<ProviderProps> = ({
         DEFAULT_FETCH_CONFIG
     )
 
+    useEffect(() => {
+        dispatch({
+            type: 'setSelectedQuestion',
+            question: tutorial?.questions[selectedQuestionIndex],
+        })
+    }, [tutorial, selectedQuestionIndex, dispatch])
+
     return (
         <TutorialContext.Provider
             value={{
@@ -61,16 +120,25 @@ export const TutorialProvider: React.FC<ProviderProps> = ({
                 error,
                 sessionType,
                 selectedQuestionIndex,
-                setSelectedQuestionIndex,
                 selectedQuestion,
-                setSelectedQuestion,
                 isCurrentAnswerVisible,
-                setIsCurrentAnswerVisible,
                 isAnswersScreenVisible,
-                setIsAnswersScreenVisible,
+                dispatch,
             }}
         >
             {children}
         </TutorialContext.Provider>
     )
+}
+
+export const useTutorialContext = () => {
+    const context = React.useContext(TutorialContext)
+
+    if (context === undefined) {
+        throw new Error(
+            'useTutorialContext must be used within a TutorialProvider'
+        )
+    }
+
+    return context
 }

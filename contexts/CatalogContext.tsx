@@ -1,35 +1,81 @@
 import { Category, Species, UVCLevel } from '@prisma/client'
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useReducer } from 'react'
 import { useAllSpecies } from '../hooks/useAllSpecies'
 import { isUVCCategory } from '../utils/uvcDefinitions'
 
-export type CatalogContextProps = {
+type ReducerState = {
+    selectedCategory: Category
+    selectedUVCLevel: UVCLevel
+    selectedSpecies?: Species
+}
+
+export type CatalogState = ReducerState & {
     speciesList: Species[]
     isLoading: boolean
     error?: Error
-    selectedCategory: Category
-    setSelectedCategory: (category: Category) => void
-    selectedUVCLevel: UVCLevel
-    setSelectedUVCLevel: (uvcLevel: UVCLevel) => void
-    selectedSpecies?: Species
-    setSelectedSpecies: (species: Species) => void
+    dispatch: React.Dispatch<CatalogAction>
 }
 
-export const CatalogContext = createContext<CatalogContextProps | null>(null)
+const CatalogContext = createContext<CatalogState | undefined>(undefined)
+
+const initialState: ReducerState = {
+    selectedCategory: Category.Fish,
+    selectedUVCLevel: UVCLevel.Indicator,
+}
+
+type CatalogAction =
+    | { type: 'selectCategory'; category: Category }
+    | { type: 'selectUVCLevel'; uvcLevel: UVCLevel }
+    | { type: 'selectSpecies'; species: Species | undefined }
+
+const reducer = (state: ReducerState, action: CatalogAction) => {
+    console.log(action)
+
+    switch (action.type) {
+        case 'selectCategory': {
+            return {
+                ...state,
+                selectedCategory: action.category,
+            }
+        }
+        case 'selectUVCLevel': {
+            return {
+                ...state,
+                selectedUVCLevel: action.uvcLevel,
+            }
+        }
+        case 'selectSpecies': {
+            return {
+                ...state,
+                selectedSpecies: action.species,
+            }
+        }
+        default:
+            return state
+    }
+}
 
 export const CatalogProvider: React.FC = ({ children }) => {
-    const [selectedCategory, setSelectedCategory] = React.useState<Category>(
-        Category.Fish
-    )
-    const [selectedUVCLevel, setSelectedUVCLevel] = React.useState<UVCLevel>(
-        UVCLevel.Indicator
-    )
-    const [selectedSpecies, setSelectedSpecies] = useState<Species>()
+    const [state, dispatch] = useReducer(reducer, initialState)
+
+    const { selectedCategory, selectedUVCLevel, selectedSpecies } = state
 
     const { speciesList, isLoading, error } = useAllSpecies(
         selectedCategory,
         isUVCCategory(selectedCategory) ? selectedUVCLevel : UVCLevel.NA
     )
+
+    useEffect(() => {
+        if (
+            speciesList?.length &&
+            !speciesList.find((species) => species === selectedSpecies)
+        ) {
+            dispatch({
+                type: 'selectSpecies',
+                species: speciesList.length ? speciesList[0] : undefined,
+            })
+        }
+    }, [speciesList, selectedSpecies, dispatch])
 
     return (
         <CatalogContext.Provider
@@ -38,14 +84,24 @@ export const CatalogProvider: React.FC = ({ children }) => {
                 isLoading,
                 error,
                 selectedCategory,
-                setSelectedCategory,
                 selectedUVCLevel,
-                setSelectedUVCLevel,
                 selectedSpecies,
-                setSelectedSpecies,
+                dispatch,
             }}
         >
             {children}
         </CatalogContext.Provider>
     )
+}
+
+export const useCatalogContext = () => {
+    const context = React.useContext(CatalogContext)
+
+    if (context === undefined) {
+        throw new Error(
+            'useCatalogContext must be used within a CatalogProvider'
+        )
+    }
+
+    return context
 }

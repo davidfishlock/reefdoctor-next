@@ -1,16 +1,11 @@
 import { Heading, Stack } from '@chakra-ui/react'
-import React, { useContext } from 'react'
-import {
-    CatalogContext,
-    CatalogContextProps,
-} from '../../contexts/CatalogContext'
+import React from 'react'
+import { useCatalogContext } from '../../contexts/CatalogContext'
 import { getSpeciesDetails } from '../../utils/species'
 import SpeciesDetailsList from '../common/SpeciesDetailsList'
 
 const SpeciesDetails: React.FC = () => {
-    const { selectedSpecies } = useContext(
-        CatalogContext
-    ) as CatalogContextProps
+    const { selectedSpecies } = useCatalogContext()
 
     const details = selectedSpecies ? getSpeciesDetails(selectedSpecies) : []
 

@@ -6,12 +6,9 @@ import {
     Text,
     useDisclosure,
 } from '@chakra-ui/react'
-import React, { useContext } from 'react'
+import React from 'react'
 import { strings } from '../../constants/strings'
-import {
-    TutorialContext,
-    TutorialContextProps,
-} from '../../contexts/TutorialContext'
+import { useTutorialContext } from '../../contexts/TutorialContext'
 import { Question } from '../../types/tutorial'
 import { getSpeciesDetails, isNASpecies } from '../../utils/species'
 import { formatString } from '../../utils/strings'
@@ -29,12 +26,10 @@ const Tutorial: React.FC = () => {
         isLoading,
         error,
         isAnswersScreenVisible,
-        setIsCurrentAnswerVisible,
-        setSelectedQuestionIndex,
         selectedQuestion,
-        setSelectedQuestion,
         selectedQuestionIndex,
-    } = useContext(TutorialContext) as TutorialContextProps
+        dispatch,
+    } = useTutorialContext()
 
     const {
         isOpen: isInfoDialogOpen,
@@ -43,8 +38,7 @@ const Tutorial: React.FC = () => {
     } = useDisclosure()
 
     const onSelectedIndexChanged = (index: number) => {
-        setIsCurrentAnswerVisible(false)
-        setSelectedQuestionIndex(index)
+        dispatch({ type: 'setSelectedQuestionIndex', index })
     }
 
     if (isLoading) {
@@ -95,7 +89,6 @@ const Tutorial: React.FC = () => {
                             items={tutorial.questions}
                             onSelectedIndexChanged={onSelectedIndexChanged}
                             selectedIndex={selectedQuestionIndex}
-                            onSelectedItemChanged={setSelectedQuestion}
                             onRenderItem={(question, index) => (
                                 <TutorialItem
                                     key={`question-${index}`}

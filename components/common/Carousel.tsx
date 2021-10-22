@@ -1,5 +1,5 @@
 import { Box, Icon } from '@chakra-ui/react'
-import React, { ReactNode, useCallback, useEffect } from 'react'
+import React, { ReactNode, useCallback } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import { strings } from '../../constants/strings'
@@ -11,7 +11,6 @@ type Props<ItemType> = {
     selectedIndex: number
     onRenderItem: (item: ItemType, index: number) => ReactNode
     onSelectedIndexChanged: (index: number) => void
-    onSelectedItemChanged?: (item: ItemType) => void
 }
 
 function Carousel<ItemType>({
@@ -19,7 +18,6 @@ function Carousel<ItemType>({
     selectedIndex = 0,
     onRenderItem,
     onSelectedIndexChanged,
-    onSelectedItemChanged,
 }: Props<ItemType>) {
     const movePrevious = useCallback(() => {
         if (selectedIndex === 0) return
@@ -30,10 +28,6 @@ function Carousel<ItemType>({
         if (selectedIndex === items.length - 1) return
         onSelectedIndexChanged(selectedIndex + 1)
     }, [selectedIndex, onSelectedIndexChanged, items.length])
-
-    useEffect(() => {
-        onSelectedItemChanged?.(items[selectedIndex])
-    }, [selectedIndex, items, onSelectedItemChanged])
 
     useHotkeys('left', movePrevious, { keydown: true }, [movePrevious])
     useHotkeys('right', moveNext, { keydown: true }, [moveNext])
