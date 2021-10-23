@@ -18,7 +18,6 @@ const menuItemAnimations = {
         transition: {
             type: 'spring',
             duration: 0.3,
-            delay: 0.1,
         },
     },
 }
@@ -34,8 +33,6 @@ const MainMenuItem: React.FC<Props> = ({
             position="relative"
             bgColor="blackAlpha.600"
             variants={menuItemAnimations}
-            initial="hidden"
-            animate="show"
         >
             <NextImage
                 isAnimated

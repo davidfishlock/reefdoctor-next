@@ -13,6 +13,7 @@ import { HOMEPAGE } from '../../constants/clientRoutes'
 import { strings } from '../../constants/strings'
 import { useTutorialContext } from '../../contexts/TutorialContext'
 import { formatString } from '../../utils/strings'
+import { AnimatedHStack } from '../common/Animation'
 type Props = {
     onShowSpeciesInfo: () => void
 }
@@ -44,7 +45,13 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
     return (
         <>
             {!isAnswersScreenVisible && (
-                <HStack spacing={3}>
+                <AnimatedHStack
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                    direction="row"
+                    spacing={3}
+                >
                     {sessionType === 'Workshop' && (
                         <>
                             <Tooltip
@@ -97,7 +104,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                             </Button>
                         </Tooltip>
                     )}
-                </HStack>
+                </AnimatedHStack>
             )}
 
             {isAnswersScreenVisible && (

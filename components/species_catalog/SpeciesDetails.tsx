@@ -10,7 +10,7 @@ const SpeciesDetails: React.FC = () => {
     const details = selectedSpecies ? getSpeciesDetails(selectedSpecies) : []
 
     return (
-        <Stack spacing={3}>
+        <Stack key={`species-details${selectedSpecies?.id || 0}`} spacing={3}>
             <Heading as="h2" size="lg" marginBottom={3}>
                 {selectedSpecies?.name}
             </Heading>

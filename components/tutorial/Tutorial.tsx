@@ -1,17 +1,11 @@
-import {
-    Box,
-    Center,
-    Flex,
-    Spinner,
-    Text,
-    useDisclosure,
-} from '@chakra-ui/react'
+import { Box, Center, Spinner, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { strings } from '../../constants/strings'
 import { useTutorialContext } from '../../contexts/TutorialContext'
 import { Question } from '../../types/tutorial'
 import { getSpeciesDetails, isNASpecies } from '../../utils/species'
 import { formatString } from '../../utils/strings'
+import { AnimatedFlex } from '../common/Animation'
 import Carousel from '../common/Carousel'
 import Dialog from '../common/Dialog'
 import PageCommands from '../common/PageCommands'
@@ -83,7 +77,13 @@ const Tutorial: React.FC = () => {
             )}
 
             {!isAnswersScreenVisible && (
-                <Flex flexDirection="column" boxSize="full">
+                <AnimatedFlex
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 0.4 }}
+                    flexDirection="column"
+                    boxSize="full"
+                >
                     <Box flexGrow={1} minHeight={0}>
                         <Carousel<Question>
                             items={tutorial.questions}
@@ -107,7 +107,7 @@ const Tutorial: React.FC = () => {
                             )}
                         </Text>
                     </Center>
-                </Flex>
+                </AnimatedFlex>
             )}
 
             {isAnswersScreenVisible && <TutorialAnswers />}
