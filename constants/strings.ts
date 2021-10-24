@@ -24,6 +24,7 @@ export const strings = {
     TUTORIAL_LEVEL_DIALOG_BODY: 'Please select a UVC level for the {0}.',
     TUTORIAL_QUESTION_NUMBER: 'Question {0} of {1}',
     TUTORIAL_QUESTION_IMAGE: 'Question {0} Image',
+    TUTORIAL_ANSWERS: 'Answers',
     TUTORIAL_LOAD_ERROR: 'There was an error loading this tutorial session.',
     TUTORIAL_SPECIES_NA: 'This species is not a part of the UVC study.',
     COMMAND_SHOW_ANSWER: 'Show answer',

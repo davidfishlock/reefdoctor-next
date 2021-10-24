@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa'
 import { HOMEPAGE } from '../../constants/clientRoutes'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { useTutorialContext } from '../../contexts/TutorialContext'
 import { formatString } from '../../utils/strings'
 import { AnimatedHStack } from '../common/Animation'
@@ -59,6 +60,9 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                                 label={strings.COMMAND_SHOW_ANSWER}
                             >
                                 <Button
+                                    data-testid={
+                                        testId.TUTORIAL_SHOW_CURRENT_ANSWER
+                                    }
                                     {...commandButton}
                                     onClick={() =>
                                         dispatch({
@@ -76,6 +80,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                                 label={strings.COMMAND_SPECIES_INFO}
                             >
                                 <Button
+                                    data-testid={testId.TUTORIAL_SHOW_DETAILS}
                                     {...commandButton}
                                     onClick={onShowSpeciesInfo}
                                 >
@@ -92,6 +97,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                             label={strings.COMMAND_GO_TO_ANSWERS}
                         >
                             <Button
+                                data-testid={testId.TUTORIAL_SHOW_ALL_ANSWERS}
                                 {...commandButton}
                                 onClick={() =>
                                     dispatch({
@@ -114,6 +120,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                         label={strings.COMMAND_BACK_TO_QUESTIONS}
                     >
                         <Button
+                            data-testid={testId.TUTORIAL_BACK_TO_QUESTIONS}
                             {...commandButton}
                             onClick={() =>
                                 dispatch({
@@ -134,6 +141,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                             )}
                         >
                             <Button
+                                data-testid={testId.TUTORIAL_COMPLETE}
                                 {...commandButton}
                                 colorScheme="green"
                                 onClick={() => router.back()}

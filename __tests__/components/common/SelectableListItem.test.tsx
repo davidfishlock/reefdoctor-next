@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import SelectableListItem from '../../../components/common/SelectableListItem'
+import { testId } from '../../../constants/testId'
 
 const item = 'an item'
 const selectedHandler = jest.fn()
@@ -57,7 +58,7 @@ describe('SelectableListItem', () => {
                 </SelectableListItem>
             </List>
         )
-        const box = screen.getByTestId('selectable-list-item-root')
+        const box = screen.getByTestId(testId.SELECTABLE_LIST_ITEM)
         box.scrollIntoView = scrollMock
 
         rerender(

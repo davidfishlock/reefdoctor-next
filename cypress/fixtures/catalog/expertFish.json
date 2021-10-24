@@ -1,0 +1,346 @@
+[
+    {
+        "id": 62,
+        "name": "Dusky Surgeonfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 2,
+        "details": "Lighter body than A. thompsoni~Light head with some speckles~Dark spot on dorsal fin~Size: 21cm~Lagoon and seaward reefs~Often in large schools~Feeds on filamentous algae"
+    },
+    {
+        "id": 63,
+        "name": "Spotted Toby",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 2,
+        "details": "Longitudinal lines on nape and upper CP~More orange on snout and tail~Blue spots on sides~Reef flats, lagoon and seaward reefs to 36m~Feeds primarily on filamentous and coralline algae, to a lesser extent on corals and benthic invertebrates"
+    },
+    {
+        "id": 132,
+        "name": "Barred Thicklip Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Dark body with 4 vertical white bars~Pale head with orange markings~Lagoon and seaward reefs to 18m+~Adults in areas of mixed sand, rubble and coral and feed on benthic invertebrates~Juveniles usually among branching corals and feed on demersal planktonic crustaceans"
+    },
+    {
+        "id": 133,
+        "name": "Manyspined Angelfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Compressed ovoid body~Dark brown with bright blue dorsal and anal fin margins~Black spot behind operculum~Coral-rich and rubbly areas of lagoon and seaward reefs to 30m"
+    },
+    {
+        "id": 134,
+        "name": "Scissor-tail Sergeant",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Oval silvery fish (17cm)~4 vertical black bars~Forked tail with black stripes~Coral rich areas of lagoon and seaward reefs to 15m~Feeds on zooplankton and benthic algae"
+    },
+    {
+        "id": 135,
+        "name": "Striped Bristletooth",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Yellow spots on face and horizontal stripes along body~Size: 26cm~Reef flats, lagoon & seaward reefs down to 30m. Coral, rocky and rubble habitats~Herbivores: feed on detritus and algae films on the surface of seagrass and algae"
+    },
+    {
+        "id": 136,
+        "name": "Thompson's Surgeonfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Dark body colour~May have white or white-banded caudal fin~Size: 27cm~Steep outer reef slopes and dropoffs~Feeds on zooplankton~Often found in loose aggregations"
+    },
+    {
+        "id": 137,
+        "name": "Yellowbreasted Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Elongate brown fish~Pale tail~Dorsal and anal fin spots~Blue specks~Yellow breast~Areas of mixed coral, rubble or rock and sand to 30m"
+    },
+    {
+        "id": 138,
+        "name": "Yellowtop Fusilier",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 3,
+        "details": "Yellow tail and top of head and back, rest of body silver~Slim, forked tail, uniform body~In schools in mid-water in deep lagoons and along seaward reefs~Spawns in large numbers near the surface in the entrance of deep channels during outgoing tides on a lunar cycle"
+    },
+    {
+        "id": 176,
+        "name": "Black-saddled Toby",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "White body~2 black saddles~Small dorsal and anal fins~Lagoon and seaward reefs to 55m~Feeds on algae and sessile and mobile benthic invertebartes~Territorial and haremic"
+    },
+    {
+        "id": 177,
+        "name": "Blackstreak Surgeonfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Black stripe behind eye~Yellow margin to pectoral fin~Locally it often has blue margins on caudal fin~Capable of rapidly changing colour between light and dark~Clear lagoon and seaward reefs~Open sandy areas near coral or rocky outcrops"
+    },
+    {
+        "id": 178,
+        "name": "Bronze Soldierfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "The only bronze coloured soldierfish~Broad black margins on vertical fins~Found on reef and channel slopes with rich coral growth from 1-25m"
+    },
+    {
+        "id": 179,
+        "name": "Desjardin's Sailfin Tang",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Elongate dorsal & ventral fins with semi-circle yellow lines~Exact colourings varies greatly~White vertical yellow (thin) and white (thicker) stripes~Adults dark face, juv lighter~Size: 40cm~On coral rich areas of lagoon and seaward reefs – 1 -60m~Herbivorous browser"
+    },
+    {
+        "id": 180,
+        "name": "Dusky Parrotfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Purple body to 35cm~Green stripe behind eye~Coral rich areas of clear lagoons, channels and outer reef slopes to 15m~Usually solitary except during courtship"
+    },
+    {
+        "id": 181,
+        "name": "False-eye Sergeant",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Ovoid silvery fish~Black “false eye” on CP~Coral and rocky outcrops with moderate wave action to 12m~Solitary or in loose aggregations"
+    },
+    {
+        "id": 182,
+        "name": "Goldbar Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Blue-green body~Blue and orange markings on head~Crescent tail~Vertical gold bar behind operculum~Lagoon and seaward reefs to 30m"
+    },
+    {
+        "id": 183,
+        "name": "Goldring Bristletooth",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Yellow ring around eye, yellow tips to pectoral fins~Yellow spots around face and pale white keel~Size: 18cm~Lagoon & seaward reefs down to 46m. Coral, rocky and rubble habitats~Herbivores"
+    },
+    {
+        "id": 184,
+        "name": "Indian Ocean Bird Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Extended snout~Large pectoral fins used for swimming~Females tan, males blue-green~Coral rich areas of lagoon and seaward reefs to 30m"
+    },
+    {
+        "id": 185,
+        "name": "Sixline Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Small fish 7cm~Purple background with 6 horizontal orange stripes~Seaward reefs 2-35m~Hides among branches of live corals "
+    },
+    {
+        "id": 186,
+        "name": "Spotted Butterflyfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Spotted body, more spotted towards dorsal and tail fins~Yellow dorsal and anal fins~Size: 12cm~Found in lagoon and seaward reefs to 25m~In pairs or small groups~Feeds on polychaetes, coral polyps and algae"
+    },
+    {
+        "id": 187,
+        "name": "Sulphur Damsel",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Yellow body with black spot on underside of pectoral fin~Size: 11cm~Inshore coral reefs in areas of rich coral growth~Depth range 0.5 - 15m"
+    },
+    {
+        "id": 188,
+        "name": "Ternate Chromis",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Silvery body~Forked caudal fin with black margins~Upper margins of clear lagoon and seaward reefs to 36m~Aggregations above branching corals"
+    },
+    {
+        "id": 189,
+        "name": "Trumpetfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Two variations - block yellow and green striped~Slow moving fish, camouflaged predator~Size: 30cm~Rocky and coral areas of protected and seaward reefs~Feeds on small fishes and shrimps"
+    },
+    {
+        "id": 190,
+        "name": "Weber's Chromis",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 4,
+        "details": "Similar to Chromis ternatensis~Black tips to forked caudal fin~Channels and seaward reef slopes to 25m~Solitary or in small groups"
+    },
+    {
+        "id": 211,
+        "name": "Klein's Butterflyfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 5,
+        "details": "Orange / brown body, white stripes either side of black eye stripe~May have second white band in centre of body (as shown)~Size: 14cm~Lagoons and seawards reefs, 4-61m, usually below 10m~Feeds on soft corals, algae and zooplankton~Solitary, paired, or often in groups"
+    },
+    {
+        "id": 212,
+        "name": "Tailspot Squirrelfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 5,
+        "details": "Deep bodied fish~Forked caudal tail~Bright red with silvery rear and white spot on upper tail base~Found in outer reef slopes and drop-offs in areas of rich coral growth 6- 40+m~Feed on invertebrates and small fishes at night"
+    },
+    {
+        "id": 213,
+        "name": "Twospot Bristletooth",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 5,
+        "details": "Blue ring around eye, spots on face and stripy body~Size: 22cm~Coral and rubble areas of deep lagoon and seaward reefs~Herbivores: feed on detritus and unicellular algal films"
+    },
+    {
+        "id": 214,
+        "name": "Whitespotted Boxfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 5,
+        "details": "Up to 16cm~Males blue with yellow spots~Females brown with white spots~Clear lagoon and seaward reefs to 30m~Feeds on sponges and benthic invertebrates"
+    },
+    {
+        "id": 227,
+        "name": "Bloodspot Squirrelfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "More elongated body than Myripristis murdjan with dark horizontal stripes along lighter body~Dark red spot at front of spinous dorsal fin~Size: 25cm~Reef flats to 46m~Often found amongst acropora branches~Feeds primarily on crabs"
+    },
+    {
+        "id": 228,
+        "name": "Bullethead Parrotfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "Up to 40 cm~Females brown, may or may not have white spots or lighter CP~Males green-blue with green CP~Reef flats, lagoon and seaward reefs to 25+m~Coral rich and open pavement areas~Juveniles and IP may aggregate in large groups"
+    },
+    {
+        "id": 229,
+        "name": "Dick's Damsel",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "May be confused with Plectroglyphidodon lacrymatus~No electric blue “jewels”~Dark eye~Dorsal fin does not extent as far towards caudal fin~Often found close to reef surface, hiding amongst the structure"
+    },
+    {
+        "id": 230,
+        "name": "Humbug Dascyllus",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "White disc-like fish (8cm)~3 vertical black bars fused along tip of dorsal fin~White caudal fin and CP~Sheltered waters to 20m~Among branching corals on submerged reefs flats~Feeds on zooplankton, benthic invertebrates and crustaceans"
+    },
+    {
+        "id": 231,
+        "name": "Red Soldierfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "Large scales, body deep red~Outer portion of spinous dorsal fin red~White edges to anal and tail fins~Size: 27cm~Subtidal reef flats to 37m~In loose aggregations in or near shelter (usually under table coral, in holes or caves) during day~Nocturnal feeders (on large zooplankton)"
+    },
+    {
+        "id": 232,
+        "name": "Sixbar Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "6 vertical stripes~Brightly coloured head~Colour pattern changes little with growth and sex~Territorial males may have brighter colours~Shallow lagoon and seaward reefs to 15m~Feeds on benthic and planktonic crustaceans, small fish and foraminifera"
+    },
+    {
+        "id": 233,
+        "name": "Threadfin Butterflyfish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "Thick black band below and across eyes~Diagonal dark stripes across body~Black spot at rear of dorsal fin with �Threadfin� dorsal extension~Size: 23cm~Reef flats, lagoons, and seaward reefs to 30m~Mixed sand, coral and rubble~Feeds by tearing pieces from polychaetes, anemones, coral polyps and algae"
+    },
+    {
+        "id": 234,
+        "name": "Whitebelly Damsel",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 6,
+        "details": "Silvery-green ovoid body~Spiny dorsal fin~Elongate pelvic fin~White or yellow ventral surface~Singly or small groups~Coral rich areas of deep clear lagoons and seaward reefs to 34m"
+    },
+    {
+        "id": 245,
+        "name": "Checkerboard Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 7,
+        "details": "Black margins on scales creates chequerboard pattern~Sand patches of clear lagoon and seaward reefs 1-30+m~Feed on small invertebrates~Sleep buried in sand"
+    },
+    {
+        "id": 246,
+        "name": "Slingjaw Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 7,
+        "details": "Deep fish~Unique protractible jaw forms tube half length of body~Males yellow to brown, females with white head~Lagoon and seaward reefs in coral rich areas 1-42m~Tubular mouth used to catch small coral-dwelling crustaceans and fish"
+    },
+    {
+        "id": 265,
+        "name": "Two-tone Chromis",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 8,
+        "details": "Ovoid body~Dark head and body~White tail~Lagoon and seaward reefs to 36m~Abundant in large aggregation over reef tops and upper edges of reefs"
+    },
+    {
+        "id": 275,
+        "name": "Bigeye Emperor",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 9,
+        "details": "Continuous Dorsal~Emarginated to forked tail~Thickened lips ~Juveniles have distinctive black bands & one streak over eye ~1 to 100m~Nocturnal feeder of hard shelled invertebrates ~Juveniles solitary~Adults form aggregations"
+    },
+    {
+        "id": 300,
+        "name": "Brushtail Tang",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 11,
+        "details": "Juvenile to right, adults darker green~Elongate dorsal and ventral fins~Bright white keel~Size: 20cm~On coral rich areas of lagoon and seaward reefs – 1-60m depth~Herbivores – mainly plants and detritus"
+    },
+    {
+        "id": 301,
+        "name": "Skunk Anemonefish",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 11,
+        "details": "Elongate anemone fish (11cm)~Solid orange body~White dorsal stripe~Found up to 25m~Inhabits anemones"
+    },
+    {
+        "id": 332,
+        "name": "Three-spot Dascyllus",
+        "category": "Fish",
+        "uvcLevel": "Expert",
+        "imageCount": 13,
+        "details": "Disc shaped body~Juveniles are black with three spots ~Adults  have two spots and may appear whitish~Lagoon and seaward reefs to 55m~Juveniles share large anemones with Amphiprion spp.~Adults aggregate around coral heads or rocks"
+    }
+]

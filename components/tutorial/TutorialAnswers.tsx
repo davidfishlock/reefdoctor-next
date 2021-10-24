@@ -7,6 +7,7 @@ import {
     Text,
 } from '@chakra-ui/react'
 import React from 'react'
+import { strings } from '../../constants/strings'
 import { useTutorialContext } from '../../contexts/TutorialContext'
 import { isNASpecies } from '../../utils/species'
 import NABadge from './NABadge'
@@ -18,7 +19,7 @@ const TutorialAnswers: React.FC = () => {
 
     return (
         <Flex flexDirection="column" boxSize="full">
-            <Heading>Answers</Heading>
+            <Heading>{strings.TUTORIAL_ANSWERS}</Heading>
 
             <OrderedList
                 marginTop={6}

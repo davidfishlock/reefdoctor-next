@@ -3,6 +3,7 @@ import React, { ReactNode, useCallback } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { AnimatedFlex } from '../common/Animation'
 import CarouselNavigateButton from './CarouselNavigateButton'
 
@@ -34,7 +35,7 @@ function Carousel<ItemType>({
 
     return (
         <Box
-            data-testid="carousel-root"
+            data-testid={testId.CAROUSEL}
             position="relative"
             overflow="hidden"
             boxSize="full"
@@ -49,6 +50,7 @@ function Carousel<ItemType>({
             </AnimatedFlex>
 
             <CarouselNavigateButton
+                testId={testId.CAROUSEL_PREVIOUS}
                 icon={<Icon as={FaArrowLeft} />}
                 onClick={movePrevious}
                 left={0}
@@ -57,6 +59,7 @@ function Carousel<ItemType>({
             />
 
             <CarouselNavigateButton
+                testId={testId.CAROUSEL_NEXT}
                 icon={<Icon as={FaArrowRight} />}
                 onClick={moveNext}
                 right={0}

@@ -7,3 +7,7 @@ export function getSortedSpeciesByName(array: Species[]) {
 export function shuffle<T>(array: T[]) {
     return [...array].sort(() => 0.5 - Math.random())
 }
+
+export function repeat(times: number, callback: () => void) {
+    ;[...Array(times)].forEach(callback)
+}

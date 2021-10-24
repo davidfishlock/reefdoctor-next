@@ -3,6 +3,7 @@ import mockRouter from 'next-router-mock'
 import React from 'react'
 import RootLayout from '../../../components/frame/RootLayout'
 import { HOMEPAGE } from '../../../constants/clientRoutes'
+import { testId } from '../../../constants/testId'
 
 const childContent = 'A Child Component'
 
@@ -22,7 +23,7 @@ describe('RootLayout', () => {
     test('applies scrolling layout', () => {
         render(<RootLayout layout={'scrolling'}>{childContent}</RootLayout>)
 
-        const root = screen.getByTestId('rootlayout-root')
+        const root = screen.getByTestId(testId.ROOT_LAYOUT)
 
         expect(root).toHaveStyle({ height: 'auto' })
     })
@@ -30,7 +31,7 @@ describe('RootLayout', () => {
     test('applies full layout', () => {
         render(<RootLayout layout={'full'}>{childContent}</RootLayout>)
 
-        const root = screen.getByTestId('rootlayout-root')
+        const root = screen.getByTestId(testId.ROOT_LAYOUT)
 
         expect(root).toHaveStyle({ height: '100%' })
     })

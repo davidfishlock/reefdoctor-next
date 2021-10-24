@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import { CATALOG } from '../../constants/clientRoutes'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import MainMenuItem from './MainMenuItem'
 
 const SpeciesCatalogMenuItem: React.FC = () => {
@@ -13,7 +14,11 @@ const SpeciesCatalogMenuItem: React.FC = () => {
             title={strings.SPECIES_CATALOG}
             buttons={
                 <Link href={CATALOG} passHref>
-                    <Button size="sm" colorScheme="green">
+                    <Button
+                        data-testid={testId.MAIN_MENU_CATALOG_BUTTON}
+                        size="sm"
+                        colorScheme="green"
+                    >
                         {strings.BUTTON_BROWSE_CATALOG}
                     </Button>
                 </Link>

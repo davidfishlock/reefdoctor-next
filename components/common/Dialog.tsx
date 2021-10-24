@@ -8,6 +8,7 @@ import {
     ModalOverlay,
 } from '@chakra-ui/react'
 import React, { ReactNode } from 'react'
+import { testId } from '../../constants/testId'
 
 type Props = {
     isOpen: boolean
@@ -27,7 +28,7 @@ const Dialog: React.FC<Props> = ({ isOpen, onClose, header, body, footer }) => {
             scrollBehavior="inside"
         >
             <ModalOverlay />
-            <ModalContent>
+            <ModalContent data-testid={testId.MODAL}>
                 <ModalHeader fontSize="2xl">{header}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody marginBottom={3}>{body}</ModalBody>

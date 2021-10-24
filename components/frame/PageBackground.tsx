@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion'
 import React from 'react'
+import { testId } from '../../constants/testId'
 import { AnimatedBox } from '../common/Animation'
 import { NextImage } from '../common/NextImage'
 
@@ -21,7 +22,7 @@ export const PageBackground: React.FC<Props> = ({ src, isVisible }) => {
                     boxSize="full"
                 >
                     <NextImage
-                        data-testid="page-background-image"
+                        data-testid={testId.PAGE_BACKGROUND}
                         src={src}
                         alt=""
                         boxSize="full"
