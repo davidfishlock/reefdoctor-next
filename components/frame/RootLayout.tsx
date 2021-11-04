@@ -2,6 +2,7 @@ import { Box, chakra, Flex } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React, { ReactNode } from 'react'
 import { HOMEPAGE } from '../../constants/clientRoutes'
+import { testId } from '../../constants/testId'
 import { PageLayout } from '../../types/page'
 import { getRandomBackgroundImage } from '../../utils/imageSelectors'
 import Header from './Header'
@@ -25,7 +26,7 @@ const RootLayout: React.FC<Props> = ({ children, layout }) => {
             />
 
             <Flex
-                data-testid="rootlayout-root"
+                data-testid={testId.ROOT_LAYOUT}
                 id="content"
                 flexDir="column"
                 height={layout === 'full' ? '100%' : 'auto'}

@@ -10,6 +10,7 @@ import { mainMenuItems } from '../constants/menuItems'
 import { HAS_SEEN_FTU_KEY } from '../constants/storage'
 import { strings } from '../constants/strings'
 import { Page } from '../types/page'
+import { getStringForCategory } from '../utils/strings'
 
 const menuAnimations = {
     hidden: { opacity: 1 },
@@ -47,7 +48,7 @@ const Home: Page = () => {
                             <CategoryMenuItem
                                 key={item.category}
                                 image={item.image}
-                                title={item.title}
+                                title={getStringForCategory(item.category)}
                                 category={item.category}
                             />
                         )

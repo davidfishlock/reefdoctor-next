@@ -10,7 +10,9 @@ import {
 import { Category, Species, UVCLevel } from '@prisma/client'
 import React from 'react'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { useCatalogContext } from '../../contexts/CatalogContext'
+import { getStringForCategory } from '../../utils/strings'
 import { isUVCCategory } from '../../utils/uvcDefinitions'
 import SelectableList from '../common/SelectableList'
 
@@ -34,6 +36,7 @@ const SpeciesSelector: React.FC = () => {
                 <FormControl id="category">
                     <FormLabel>Category</FormLabel>
                     <Select
+                        data-testid={testId.CATALOG_CATEGORY_SELECT}
                         onChange={(event) => {
                             const category: Category =
                                 Category[
@@ -44,22 +47,22 @@ const SpeciesSelector: React.FC = () => {
                         value={selectedCategory}
                     >
                         <option value={Category.Fish}>
-                            {strings.CATEGORY_FISH}
+                            {getStringForCategory(Category.Fish)}
                         </option>
                         <option value={Category.Benthic}>
-                            {strings.CATEGORY_BENTHIC}
+                            {getStringForCategory(Category.Benthic)}
                         </option>
                         <option value={Category.Invertebrate}>
-                            {strings.CATEGORY_INVERTEBRATE}
+                            {getStringForCategory(Category.Invertebrate)}
                         </option>
                         <option value={Category.Coral}>
-                            {strings.CATEGORY_CORAL}
+                            {getStringForCategory(Category.Coral)}
                         </option>
                         <option value={Category.Seagrass}>
-                            {strings.CATEGORY_SEAGRASS}
+                            {getStringForCategory(Category.Seagrass)}
                         </option>
                         <option value={Category.FishFamily}>
-                            {strings.CATEGORY_FISH_FAMILIES}
+                            {getStringForCategory(Category.FishFamily)}
                         </option>
                     </Select>
                 </FormControl>
@@ -70,6 +73,7 @@ const SpeciesSelector: React.FC = () => {
                 >
                     <FormLabel>UVC Level</FormLabel>
                     <Select
+                        data-testid={testId.CATALOG_UVC_SELECT}
                         value={selectedUVCLevel}
                         onChange={(event) => {
                             const uvcLevel: UVCLevel =

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import SelectableList from '../../../components/common/SelectableList'
+import { testId } from '../../../constants/testId'
 
 const items = ['item 1', 'item 2']
 const renderSuffix = ' - some suffix'
@@ -55,7 +56,7 @@ describe('SelectableList', () => {
         )
 
         userEvent.type(
-            screen.getByTestId('selectable-list-root'),
+            screen.getByTestId(testId.SELECTABLE_LIST),
             '{arrowdown}'
         )
 
@@ -74,7 +75,7 @@ describe('SelectableList', () => {
             />
         )
 
-        userEvent.type(screen.getByTestId('selectable-list-root'), '{arrowup}')
+        userEvent.type(screen.getByTestId(testId.SELECTABLE_LIST), '{arrowup}')
 
         expect(mockOnSelectedItemChanged).toBeCalledTimes(1)
         expect(mockOnSelectedItemChanged).toBeCalledWith(items[0])

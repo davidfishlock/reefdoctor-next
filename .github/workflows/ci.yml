@@ -8,7 +8,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Cache Dependencies
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Code format check
@@ -25,3 +33,6 @@ jobs:
 
       - name: Next build
         run: npm run next:build
+
+      - name: Run integration tests
+        run: npm run e2e:headless

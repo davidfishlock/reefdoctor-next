@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import Carousel from '../../../components/common/Carousel'
 import { strings } from '../../../constants/strings'
+import { testId } from '../../../constants/testId'
 
 const items = ['item 1', 'item 2', 'item 3']
 
@@ -80,7 +81,7 @@ describe('Carousel', () => {
             />
         )
 
-        userEvent.type(screen.getByTestId('carousel-root'), '{arrowright}')
+        userEvent.type(screen.getByTestId(testId.CAROUSEL), '{arrowright}')
 
         await waitFor(() => {
             expect(mockOnSelectedIndexChanged).toBeCalledTimes(1)
@@ -100,7 +101,7 @@ describe('Carousel', () => {
             />
         )
 
-        userEvent.type(screen.getByTestId('carousel-root'), '{arrowleft}')
+        userEvent.type(screen.getByTestId(testId.CAROUSEL), '{arrowleft}')
 
         await waitFor(() => {
             expect(mockOnSelectedIndexChanged).toBeCalledTimes(1)

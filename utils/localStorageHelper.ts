@@ -8,6 +8,7 @@ export function getLocalStorageValue<T>(key: string, fallbackValue: T) {
 
     try {
         const item = window.localStorage.getItem(key)
+        console.log(item)
         return item ? JSON.parse(item) : fallbackValue
     } catch (error) {
         console.log(error)

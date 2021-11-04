@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { TUTORIAL } from '../../constants/clientRoutes'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { TutorialSessionType } from '../../types/tutorial'
 import { isUVCCategory } from '../../utils/uvcDefinitions'
 import MainMenuItem from './MainMenuItem'
@@ -64,6 +65,7 @@ const CategoryMenuItem: React.FC<Props> = ({ image, title, category }) => {
                 buttons={
                     <>
                         <Button
+                            data-testid={testId.MAIN_MENU_WORKSHOP_BUTTON}
                             {...smallButtonStyle}
                             onClick={() =>
                                 onSessionTypeSelected(
@@ -74,6 +76,7 @@ const CategoryMenuItem: React.FC<Props> = ({ image, title, category }) => {
                             {strings.BUTTON_WORKSHOP}
                         </Button>
                         <Button
+                            data-testid={testId.MAIN_MENU_QUIZ_BUTTON}
                             {...smallButtonStyle}
                             onClick={() =>
                                 onSessionTypeSelected(TutorialSessionType.Quiz)

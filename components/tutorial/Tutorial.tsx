@@ -1,6 +1,7 @@
 import { Box, Center, Spinner, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { useTutorialContext } from '../../contexts/TutorialContext'
 import { Question } from '../../types/tutorial'
 import { getSpeciesDetails, isNASpecies } from '../../utils/species'
@@ -99,7 +100,11 @@ const Tutorial: React.FC = () => {
                         />
                     </Box>
                     <Center>
-                        <Text fontSize="xl" marginTop={6}>
+                        <Text
+                            data-testid={testId.TUTORIAL_QUESTION_NUMBER}
+                            fontSize="xl"
+                            marginTop={6}
+                        >
                             {formatString(
                                 strings.TUTORIAL_QUESTION_NUMBER,
                                 selectedQuestionIndex + 1,

@@ -3,6 +3,7 @@ import { Species } from '@prisma/client'
 import React, { useState } from 'react'
 import usePortal from 'react-useportal'
 import urljoin from 'url-join'
+import { testId } from '../../constants/testId'
 import { useCatalogContext } from '../../contexts/CatalogContext'
 import useLockBodyScroll from '../../hooks/useLockBodyScroll'
 import { getImagePathForSpecies } from '../../utils/species'
@@ -50,6 +51,7 @@ const SpeciesThumbnails: React.FC = () => {
             )}
 
             <Grid
+                data-testid={testId.CATALOG_SPECIES_THUMBNAILS}
                 templateColumns={{
                     base: 'repeat(auto-fill, 100px)',
                     xl: '100px 100px 100px 100px',

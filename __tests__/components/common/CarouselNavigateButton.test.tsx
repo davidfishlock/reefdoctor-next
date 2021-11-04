@@ -5,6 +5,7 @@ import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
 import CarouselNavigateButton from '../../../components/common/CarouselNavigateButton'
 import { strings } from '../../../constants/strings'
+import { testId } from '../../../constants/testId'
 
 const mockOnClick = jest.fn()
 
@@ -18,6 +19,7 @@ describe('CarouselNavigateButton', () => {
                 onClick={mockOnClick}
                 isDisabled={false}
                 label={strings.CAROUSEL_NEXT_BUTTON}
+                testId={testId.CAROUSEL_NEXT}
             />
         )
 
@@ -33,6 +35,7 @@ describe('CarouselNavigateButton', () => {
                 onClick={mockOnClick}
                 isDisabled={true}
                 label={strings.CAROUSEL_NEXT_BUTTON}
+                testId={testId.CAROUSEL_NEXT}
             />
         )
 
@@ -48,6 +51,7 @@ describe('CarouselNavigateButton', () => {
                 onClick={mockOnClick}
                 isDisabled={false}
                 label={strings.CAROUSEL_NEXT_BUTTON}
+                testId={testId.CAROUSEL_NEXT}
             />
         )
 

@@ -1,5 +1,6 @@
 import { Box, ListItem } from '@chakra-ui/react'
 import React, { ReactNode, useEffect, useRef } from 'react'
+import { testId } from '../../constants/testId'
 
 type Props<ItemType> = {
     item: ItemType
@@ -24,7 +25,7 @@ function SelectableListItem<ItemType>({
 
     return (
         <Box
-            data-testid="selectable-list-item-root"
+            data-testid={testId.SELECTABLE_LIST_ITEM}
             ref={boxRef}
             background={isSelected ? 'blue.400' : undefined}
         >

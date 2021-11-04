@@ -1,6 +1,7 @@
 import { Box, Center, HStack, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { useTutorialContext } from '../../contexts/TutorialContext'
 import { Question } from '../../types/tutorial'
 import { isNASpecies } from '../../utils/species'
@@ -14,7 +15,8 @@ type Props = {
 }
 
 const TutorialItem: React.FC<Props> = ({ question, index }) => {
-    const { isCurrentAnswerVisible } = useTutorialContext()
+    const { isCurrentAnswerVisible, selectedQuestionIndex } =
+        useTutorialContext()
 
     return (
         <Box boxSize="full" flex="none" position="relative">
@@ -29,7 +31,7 @@ const TutorialItem: React.FC<Props> = ({ question, index }) => {
                     src={question.imageUri}
                 />
             </Center>
-            {isCurrentAnswerVisible && (
+            {isCurrentAnswerVisible && selectedQuestionIndex === index && (
                 <AnimatedCenter
                     initial={{ scale: 0.4, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
@@ -43,7 +45,12 @@ const TutorialItem: React.FC<Props> = ({ question, index }) => {
                         {isNASpecies(question.species) && (
                             <NABadge marginRight={1} />
                         )}
-                        <Text fontSize="2xl">{question.species.name}</Text>
+                        <Text
+                            data-testid={testId.TUTORIAL_CURRENT_ANSWER}
+                            fontSize="2xl"
+                        >
+                            {question.species.name}
+                        </Text>
                     </HStack>
                 </AnimatedCenter>
             )}

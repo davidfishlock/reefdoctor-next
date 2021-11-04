@@ -1,0 +1,162 @@
+[
+    {
+        "id": 129,
+        "name": "Bluespine Unicornfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 3,
+        "details": "Can grow to 70cm~Can be found from 1-80m~Usually in groups~Herbivorous fish, brown macroalgae (Sargassum, Turbinaria and Dictyota) Leafy brown algae~Susceptible to fishing pressure due to being a long-live species~Look for blue caudal spines~Thin, oval elongate bodies~Long, continuous dorsal and anal fins~Small, pointed terminal mouths"
+    },
+    {
+        "id": 130,
+        "name": "Yellowfin Surgeonfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 3,
+        "details": "Can grow to 56cm~Can be found from 0-90m~Ovate to elongate, compressed body~Continuous dorsal & anal fins~Small pointed mouth~Retractable blades located on the caudal peduncle~Feed on algae film on compact sand as well as filamentous algae on hard surfaces"
+    },
+    {
+        "id": 131,
+        "name": "Yellowstripe Goatfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 3,
+        "details": "Can grow to 43cm~Can be found down to 35m~Black blotch on yellow stripe beneath dorsal fin (this can be turned on and off so is not always visible)~Single pair of chemosensory barbels on the lower jaw~Often over sand; sometimes mixed with other species~Two dorsal fins~Forked tail~Feeds alone or in small groups by day and night"
+    },
+    {
+        "id": 174,
+        "name": "African White Spotted Rabbitfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 4,
+        "details": "Can grow to 50cm~Oval shaped~Small terminal mouths~Target species for the artisanal fishery~Grazers/detritivores~Play an important role in coral reef resilience by  - intensely grazing on the epilithic algal matrix, which can limit the establishment and growth of macroalgae."
+    },
+    {
+        "id": 175,
+        "name": "Picasso Triggerfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 4,
+        "details": "Can grow to 25cm~Can be found down to 4-5m~Related to high abundances of the sea urchin~Two-part dorsal fins~Eyes set high on the head~Abundant in sandy areas with rubble"
+    },
+    {
+        "id": 208,
+        "name": "Bicolor Parrotfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 5,
+        "details": "Can grow to 80cm~Can be found from 1-30m~Teeth fused into a beaklike plate~Often along upper reaches of coral slopes~Juveniles solitary, Adults in harems~Herbivores grazing on algae on rocks~Change sex during life; first ♀ or ♂; female is able to change in terminal ♂ phase (very colourful)"
+    },
+    {
+        "id": 209,
+        "name": "Lowfin Rudderfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 5,
+        "details": "Can grow to 61cm~Small heads~Slightly forked tails~Silvery grey with narrow bronzy stripes (adult phase)~Often in groups~Dominant browsers of Sargassum algae~Can be confused with Highfin Rudderfish"
+    },
+    {
+        "id": 210,
+        "name": "Onespot Snapper",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 5,
+        "details": "Can grow to 53cm~Found at depths between 1-60m ~Nocturnal predator of small fish~Continuous dorsal fin~Usually yellow on its fins~One black spot on its side~Can be confused with Emperors"
+    },
+    {
+        "id": 225,
+        "name": "Jewelled Damselfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 6,
+        "details": "Can grow to 10cm~Can be found from 1-40m~Small terminal mouths~Continuous dorsal fin & forked tail~Look for the electric blue ”jewells”~Can be found in mixed coral rubble areas. Often hiding in the rubble in algae covered areas"
+    },
+    {
+        "id": 226,
+        "name": "Peacock Grouper",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 6,
+        "details": "Can grow to 40cm~Depths 1-40m – esp. in coral rich areas~Target species for artisanal fisheries~Strong bodies~Large mouths with more than one row of teeth~Typically rounded tail~Lots of green/blue spots"
+    },
+    {
+        "id": 243,
+        "name": "Meyer's Butterflyfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 7,
+        "details": "Can grow to 18cm~Can be found down to 2-25m~Feeds exclusively on coral polyps~Black, white and yellow~Typically travel alone, or in pairs~Juveniles usually among branching corals"
+    },
+    {
+        "id": 244,
+        "name": "Thumbprint Emperor",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 7,
+        "details": "Can grow to 50cm~Can be found down to 20m~Target species for the artisanal fishery~Black ‘splodge’ on its side – looks like a thumbprint. May be pale and indistinct~Forked tail~One continuous dorsal fin~Found mainly on seagrass beds, and sandy shallow rubble areas~Solitary or in small groups"
+    },
+    {
+        "id": 262,
+        "name": "Bluebarred Parrotfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 8,
+        "details": "Can grow to 75cm~Can be found down to 30m~Often near sandy areas in silty environments~Usually solitary, but juveniles in groups"
+    },
+    {
+        "id": 263,
+        "name": "Chevron Butterflyfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 8,
+        "details": "Can grow to 18cm~Shallow lagoon and semi-protected seaward reefs to 30m~Associated with tabular and branching Acropora corals : feed exclusively on their polyps and mucus~Solitary or paired and highly territorial"
+    },
+    {
+        "id": 264,
+        "name": "Convict Surgeonfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 8,
+        "details": "Can grow to 26cm~Can be found from 0-90m~Ovate to elongate, compressed body~Continuous dorsal & anal fins~Small pointed mouth~Retractable blades located on the caudal peduncle~Often found in areas of hard substratum~Feeds on filamentous algae"
+    },
+    {
+        "id": 274,
+        "name": "Redfin Butterflyfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 9,
+        "details": "Can grow to 15cm~Can be found down 20m~Feeds exclusively on coral polyps~Disk shape body with continuous dorsal & anal fin~Black, white and yellow~Typically travel alone, or in pairs"
+    },
+    {
+        "id": 314,
+        "name": "Moorish Idol",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 12,
+        "details": "Opportunistic feeders that particularly love sponges~Sponges are an indicator of nutrient loaded waters~Also feed on coral polyps and tunicates~Easily confused with butterflyfish, but are actually in an entirely separate family!~Derive their name from the Moors who believe the fish to be a bringer of happiness"
+    },
+    {
+        "id": 331,
+        "name": "Bluestreak Cleaner Wrasse",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 13,
+        "details": "Can grow to 11cm~Found on nearly all coral reef habitats from inner lagoons, reef flats to seaward reefs as deep as 40m~Have terminal mouths, thick lips, and a single, continuous dorsal fin~Feed on external parasites, disease, damaged tissue of reef fish"
+    },
+    {
+        "id": 346,
+        "name": "Blackspotted Sweetlips",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 14,
+        "details": "Can grow to 45cm~Feeds nocturnally on benthic invertebrate~Low set mouths~Thickened lips, especially the upper lip~Continuous dorsal fins~Foreheads slope more steeply than groupers~Relatively shy~Sweetlips are common food fish, and targeted by the artisanal fishery"
+    },
+    {
+        "id": 347,
+        "name": "Orangestriped Triggerfish",
+        "category": "Fish",
+        "uvcLevel": "Indicator",
+        "imageCount": 14,
+        "details": "Can grow to 30cm~Can be found from 2-50m~Related to high abundances of the sea urchin~Two-part dorsal fins~Eyes set high on the head~Orange stripes on the body~Mature females lose most of the orange stripes on the snout"
+    }
+]

@@ -1,5 +1,6 @@
 import { Flex, HStack, Text } from '@chakra-ui/react'
 import React from 'react'
+import { testId } from '../../constants/testId'
 import { AnimatedBox } from '../common/Animation'
 import { NextImage } from '../common/NextImage'
 
@@ -30,6 +31,7 @@ const MainMenuItem: React.FC<Props> = ({
 }) => {
     return (
         <AnimatedBox
+            data-testid={testId.MAIN_MENU_ITEM}
             position="relative"
             bgColor="blackAlpha.600"
             variants={menuItemAnimations}

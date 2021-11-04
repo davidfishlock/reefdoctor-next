@@ -8,6 +8,7 @@ type CarouselNavigateButtonProps = {
     label: string
     left?: number
     right?: number
+    testId: string
 }
 
 const CarouselNavigateButton: React.FC<CarouselNavigateButtonProps> = ({
@@ -17,9 +18,11 @@ const CarouselNavigateButton: React.FC<CarouselNavigateButtonProps> = ({
     label,
     left,
     right,
+    testId,
 }) => {
     return (
         <Button
+            data-testid={testId}
             aria-label={label}
             disabled={isDisabled}
             onClick={onClick}

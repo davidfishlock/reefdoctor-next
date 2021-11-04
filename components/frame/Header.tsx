@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import { HOMEPAGE } from '../../constants/clientRoutes'
 import { strings } from '../../constants/strings'
+import { testId } from '../../constants/testId'
 import { NextImage } from '../common/NextImage'
 
 export const PAGE_COMMANDS_MOUNT_POINT = 'page-commands'
@@ -26,6 +27,7 @@ const Header: React.FC = () => {
         >
             <NextLink href={HOMEPAGE}>
                 <Box
+                    data-testid={testId.HOME_LINK}
                     display="inline-block"
                     {...(!isAtHomePage && homePageClickable)}
                 >

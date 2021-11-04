@@ -1,0 +1,338 @@
+[
+    {
+        "id": 61,
+        "name": "Oxypora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 1,
+        "details": "Only one species found here (O. lacera).~Easily confused with Echinopora; however, Oxypora has fewer septo-costae, forming an even more poorly defined wall."
+    },
+    {
+        "id": 122,
+        "name": "Caulastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 2,
+        "details": "Phaceloid.~Fleshy walls with septa of alternating prominence and colour, and the phaceloid character give the corallites an appearance of vases.~Paliform lobes are not noticeable.~Tentacles are rarely extended during the day."
+    },
+    {
+        "id": 123,
+        "name": "Cycloseris",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 2,
+        "details": "All of the Fungidae can move to some extent, but Cycloseris are particularly known for being able to right themselves if overturned and being able to move over obstacles. This ability also makes them able to extract themselves from sediment, making them very successful in areas of high sedimentation where others may not survive.~Solitary.~Usually don't grow larger than 8cm.~Septa have fine teeth and the underside is almost smooth."
+    },
+    {
+        "id": 124,
+        "name": "Diploastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 2,
+        "details": "Massive and dome shaped, attaining huge sizes (up to 2m high and 5m across) due to its very dense skeleton which is rarely attacked by boring organisms or grazed by fish. May form large flat colonies.~Corallites are plocoid.~Corallites are slightly raised and have a very distinctive shape. ~Septa are even and become thinner from the wall to the centre.~Polyps are extended only at night.~Only one species, Diploastrea heliopora."
+    },
+    {
+        "id": 125,
+        "name": "Favia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 2,
+        "details": "Encrusting to massive with plocoid corallites.~At times the corallites are highly compacted and may appear to be almost cerioid with only a groove running along the wall.~Tentacles are only extended at night.~Budding takes place via intratentacular budding, and distinctively, the cells subdivide equally."
+    },
+    {
+        "id": 126,
+        "name": "Herpolithia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 2,
+        "details": "Free-living, elongate with a central (axial) furrow.~They are colonial, with many mouths."
+    },
+    {
+        "id": 127,
+        "name": "Merulina",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 2,
+        "details": "Colonies are laminar with thickened, contorted branches rising from the plates in well developed colonies.~Colonies are meandroid which is more easily discernable on the plates. ~Usually pale brown or blue, which can photograph as pink. ~The valleys tend to fan out from the centre. ~Colonies can be composed almost exclusively of branches with an encrusting base although this is usually limited to shallow water."
+    },
+    {
+        "id": 173,
+        "name": "Physogyra",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 3,
+        "details": "Colonies are encrusting to massive and meandroid with short valleys.~Only one species in this genus (P. lictensteini).~Colonies are meandroid, although, like Plerogyra, this is hard to distinguish as they are covered throughout the day by the small grape-like vesicles distinctive to this genus. "
+    },
+    {
+        "id": 204,
+        "name": "Alveopora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 4,
+        "details": "Massive to branching-submassive with corallites 1mm - 7mm.~Similar to Goniopora, it is easily recognisable by large fleshy polyps and tentacles which are extended day and night.~The tentacle tips are often swollen.~Alveopora has 12 tentacles as opposed to Goniopora's 24."
+    },
+    {
+        "id": 241,
+        "name": "Fungia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 6,
+        "details": "Usually solitary and free living individuals, except for juveniles which develop on a stalk.~Usually circular and dome shaped to varying degrees, ranging between 15 and 30cm.~Have central mouths with septa radiating outward, and costa which radiate outwards from the centre of the underside.~Short, widely spaced tentacles may be extended during the day."
+    },
+    {
+        "id": 258,
+        "name": "Seriatopora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 7,
+        "details": "Colonies are compact bushes with thin, anastomosing branches.~Most species common here have branches that taper to a point. ~Corallites are immersed and arranged in neat rows along the branches. ~Like Pocillopora, the septa seem to form a slightly darker ring around the corallite."
+    },
+    {
+        "id": 259,
+        "name": "Symphyllia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 7,
+        "details": "Colonies are massive and either dome-shaped or flat topped.~Corallites are meandroid.~Polyp walls usually have a groove along the top.~No paliform lobes.~Walls and valleys are usually different colours."
+    },
+    {
+        "id": 260,
+        "name": "Turbinaria",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 7,
+        "details": "Submassive or laminar.~Tentacles mainly only extended at night.~Corallites are small and round and vary greatly from only slightly exsert to tubular.~Septa short and neat.~Coenosteum seems smooth and is often darker than the corallites."
+    },
+    {
+        "id": 272,
+        "name": "Goniopora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 8,
+        "details": "Usually encrusting to massive here, but can be branching or submassive.~Corallites range in size from 2mm - 10mm and polygonal, but are usually obscured by extended, long fleshy polyps and tentacles.~Polyps have 24 tentacles which are extended day and night.~Extendable pharynx and well developed oral cones.~The polyps are long and tubular an retract rapidly when disturbed."
+    },
+    {
+        "id": 273,
+        "name": "Lobophyllia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 8,
+        "details": "Massive to encrusting, with corallites phaceloid to flabello-meandroid.~Large corallites and valleys.~Large septa with long septal teeth and thick fleshy mantle.~Polyps and tentacles are only extended at night."
+    },
+    {
+        "id": 284,
+        "name": "Astreopora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 9,
+        "details": "Plocoid corallites, can be massive, encrusting, or laminar (the laminar form is rare here).~Small corallites can be immerserd or conical~Corallites are evenly distributed. ~Coenosteum is coarse/ granular, and the septa are evenly spaced."
+    },
+    {
+        "id": 285,
+        "name": "Gardineroseris",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 9,
+        "details": "Colonies are massive to encrusting, sometimes laminar margins.~There is only one species, Gardineroseris planulata.~Acute, geometric walls with fine, even septo-costae.~Corallites are shallow and rounded.~Can be confused with certain Goniastrea, but Gardineroseris has far finer septa, also, watch for the laminar edge (the edge is slightly lifted)."
+    },
+    {
+        "id": 286,
+        "name": "Leptoria",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 9,
+        "details": "Range from encrusting to submassive, with long, sinuous, meandroid valleys.~Colonies have very uniform valleys of often astounding length and sinuous complexity.~Septa are neat and evenly sized.~No paliform lobes.~The tentacles are only extended at night."
+    },
+    {
+        "id": 287,
+        "name": "Pachyseris",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 9,
+        "details": "Colonies are laminar to frond-like branching.~Corallite centres not easily noticeable.~Walls form long valleys of concentric ridges, parallel to the edge of the colony.~Septo-costae are fine and even; are visible running up and down the walls."
+    },
+    {
+        "id": 288,
+        "name": "Plerogyra",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 9,
+        "details": "Colonies are encrusting to massive.~Only one species is found here (P. sinuosa). ~The flabello-meandroid structure is hard to distinguish as they are usually covered with the large grape-like vesicles distinctive to this genus. ~Vesicles inflated with water when tentacles are retracted during the day~The vesicles (which contain nematocysts) will retract slowly if it is disturbed to reveal large, solid septa."
+    },
+    {
+        "id": 289,
+        "name": "Stylophora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 9,
+        "details": "Submassive to branching.~Branches are short with blunt ends. ~Branches are covered with fine spicules that can give them a fuzzy appearance. ~Part of the corallite extends slightly on some species giving it a hooded appearance."
+    },
+    {
+        "id": 313,
+        "name": "Echinophyllia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 11,
+        "details": "Encrusting or branching.~Corallites are immersed or tubular and tend to incline towards the colony margins.~Round or oval calice.~Coenosteum is pitted."
+    },
+    {
+        "id": 328,
+        "name": "Galaxea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 12,
+        "details": "Massive, submassive (dome, cushion shamed) laminar, or encrusting.~Each corallite is composed of spiny, exsert septa that give an prickly aspect to the colonies.~Granulated coensteoum.~Corallites are cylindrical (phaceloid)."
+    },
+    {
+        "id": 329,
+        "name": "Leptastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 12,
+        "details": "Thick encrusting plates to massive.~Corallites are small, 2mm - 5mm and are cerioid to sub-plocoid.~Corallites are very closely packed, and in some species may protrude unevenly.~Costae are very poorly developed (or non-existent) and as such the outside of the corallite, and the coenosteum if it is visible, often appears smooth.~Septa project strongly inwards and paliform lobes are rarely visible.~The surface of the corallites is usually pale and whitish, giving them an eroded appearance."
+    },
+    {
+        "id": 330,
+        "name": "Montipora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 12,
+        "details": "Submassive, laminar, (often foliose in character) encrusting, or branching. ~Smallest corallites of any genus. ~Corallite walls and coenosteum are very elaborate seeming like waxy droplets."
+    },
+    {
+        "id": 342,
+        "name": "Coscinaraea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 13,
+        "details": "Colonies are encrusting to laminar or massive and are rarely larger than 30 cm in diameter. Calices are 2 to 7 mm in diameter.~Corallites are ceroid or meandroid in short valleys.~Septa have serrated to heavily granulated margins and clearly visible. Large numbers of septa meet at the calice.~Walls may be flattened on top."
+    },
+    {
+        "id": 343,
+        "name": "Montastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 13,
+        "details": "Thick encrusting to flat or dome shaped massive structures.~Corallites range from 3mm - 15mm and are very clearly plocoid.~Septa are very neatly arranged and long and short alternate in a distinctive pattern in most species.~Corallite walls are very clearly defined.~Small paliform lobes are usually visible.~Septa are minutely toothed, often giving them a serrated edge visible on close inspection underwater.~New corallites are usually formed by extratentacular budding, although some species display both forms of budding."
+    },
+    {
+        "id": 344,
+        "name": "Oulophyllia",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 13,
+        "details": "Colonies are massive with meandroid valleys or sub-meandroid.~Colonies have broad, short, V-shaped valleys (up to 20mm from mid-wall to mid-wall).~Septa have a slightly toothed appearance (may appear 'bumpy' underwater).~The tops of the walls tend to be sharp.~May have paliform lobes."
+    },
+    {
+        "id": 345,
+        "name": "Pocillopora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 13,
+        "details": "Submassive to branching. Morphology is highly variable due to exposure of wave action. Ranging from fine, widely spaced branches to small compact clumps. The latter is more prominent here.~Corallites immersed.~Wart-like structures (verrucae).~The neatly arranged septa form a darker or different colored ring around the corallites."
+    },
+    {
+        "id": 355,
+        "name": "Acanthastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Massive to encrusting with ceroid or subplocoid corallites.~The most common distinguishing feature is the tall septal teeth, giving the walls a sharp, bumpy appearance.~Thick fleshy walls.~Corallite shapes range from circular to large and elongated, often having different coloured walls and calices.~Tentacles are only extended at night."
+    },
+    {
+        "id": 356,
+        "name": "Goniastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Massive or encrusting forming thick plates.~Corallites are cerioid to meandroid, with cerioid corallites generally quite small, 3.5mm - 10mm.~Commonly called honeycomb corals due to the angular shape of the colonies with cerioid corallites.~Well developed paliform crown visible underwater (Favities doesn't have this).~Fine, neat septa."
+    },
+    {
+        "id": 357,
+        "name": "Hydnophora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Colonies are massive, branching or encrusting to submassive.~Colonies are cerioid and almost uniquely, common walls intersect, thicken and form prominent conical mounds called monticules or hydnophores.~Tentacles will be extended from around the base of the monticules and the polyps in the pseudo valleys."
+    },
+    {
+        "id": 358,
+        "name": "Leptoseris",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Colonies are laminar (unifacial) or encrusting.~Corallites are small shallow depressions.~Interconnected by fine septo-costae."
+    },
+    {
+        "id": 359,
+        "name": "Mycedium",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Colonies are encrusting to laminar.~Lines formed by the costae radiating outward from the centre are distinct. ~Corallites are usually large (up to 15mm in diameter).~Corallites form a nose like shape which faces towards the exterior of the colony."
+    },
+    {
+        "id": 360,
+        "name": "Platygyra",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Colonies are massive, ranging from flat to large and dome-shaped.  ~Most species are meandroid with valleys of varying lengths.~Famously known as the large massive domes of 'brain coral' due to the convoluted valleys of mature colonies.~Paliform lobes are usually not developed.~Tentacles are only extended at night."
+    },
+    {
+        "id": 361,
+        "name": "Porites",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Porites shows enormous variety within the genus, displaying encrusting, laminar-branching, simple branching, submassive and massive growth forms.~Corallites are extremely small (1-1.5mm) and cerioid.~Corallites are small, immersed and filled with septa and other structures.~At a distance, massive colonies can take on a smooth, velvety appearance."
+    },
+    {
+        "id": 362,
+        "name": "Psammocora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 14,
+        "details": "Colonies are massive, submassive, laminar, or encrusting.~Calices are very small 1-2 mm in diameter.~Corallites are immersed, small and shallow, sometimes forming a valley.~Calice forms a distinctive black pit.~Septo-costae have granulated/serrated margins, which resolves any possible confusion with Pavona which have smooth (or at least only minutely ridged) septo-costae."
+    },
+    {
+        "id": 375,
+        "name": "Acropora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 15,
+        "details": "This genus displays all growth forms except massive~Colonies are most often branching or digitate~Polyps are usually extended at night~Cup-like corallites~One larger corallite cup at the growing point (axial)"
+    },
+    {
+        "id": 376,
+        "name": "Cyphastrea",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 15,
+        "details": "Massive or encrusting.~The most common species, Cyphastrea serailia, is often sub-massive. ~Corallites are well spaced, plocoid, sometimes slightly conical and have a very small calice, <3mm.~Septa are well developed and form a characteristic star pattern visible underwater.~Coenosteum heavily granulated.~Tentacles are only extended at night."
+    },
+    {
+        "id": 377,
+        "name": "Echinopora",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 15,
+        "details": "Wide variety of growth forms from encrusting through foliaceous and branching.~Corallite are plocoid and calices average 10mm with walls often the same size.~Coenosteum, septa and costae are toothed, giving colonies a very granulated appearance.~Paliform lobes can be well developed in some species.~Corallites may be oriented at odd angles, giving the colony an untidy appearance.~Tentacles are only extended at night.~Most similar to Cyphastrea, which is differentiated by smaller corallites, thinner walls, massive growth form, neater corallite orientation."
+    },
+    {
+        "id": 378,
+        "name": "Pavona",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 15,
+        "details": "Colonies are massive, submassive, encrusting, laminar, or frond-like (bushes of flattened irregular branches).~Corallites have poorly defined walls and are small shallow depressions.~Prominent septo-costae that extend into distinctive patterns connecting the corallites."
+    },
+    {
+        "id": 379,
+        "name": "Favites",
+        "category": "Coral",
+        "uvcLevel": "NA",
+        "imageCount": 17,
+        "details": "Massive - flat or dome shaped.~Corallites are cerioid, occasionally subplocoid.~Paliform lobes are rarely developed.~Tentacles are only extended at night.~Unequal intratentacular budding."
+    }
+]

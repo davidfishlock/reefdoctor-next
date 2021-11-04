@@ -1,6 +1,7 @@
 import { Box, List } from '@chakra-ui/react'
 import React, { ReactNode, useCallback, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
+import { testId } from '../../constants/testId'
 import SelectableListItem from './SelectableListItem'
 
 type Props<ItemType> = {
@@ -47,7 +48,7 @@ function SelectableList<ItemType>({
 
     return (
         <Box
-            data-testid="selectable-list-root"
+            data-testid={testId.SELECTABLE_LIST}
             boxSize="full"
             tabIndex={0}
             overflowY={'auto'}
