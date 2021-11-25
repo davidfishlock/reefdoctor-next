@@ -29,8 +29,6 @@ type CatalogAction =
     | { type: 'selectSpecies'; species: Species | undefined }
 
 const reducer = (state: ReducerState, action: CatalogAction) => {
-    console.log(action)
-
     switch (action.type) {
         case 'selectCategory': {
             return {

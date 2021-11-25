@@ -22,7 +22,6 @@ type Props = {
 const commandButton = {
     fontSize: '2xl',
     colorScheme: 'blue',
-    size: 'lg',
 }
 
 const commandTooltip = {

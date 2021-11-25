@@ -1,4 +1,4 @@
-import { createStandaloneToast } from '@chakra-ui/toast'
+import { createStandaloneToast } from '@chakra-ui/react'
 import { strings } from '../constants/strings'
 
 export function showErrorToast(key: string) {

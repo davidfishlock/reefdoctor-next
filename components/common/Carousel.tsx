@@ -1,7 +1,8 @@
 import { Box, Icon } from '@chakra-ui/react'
-import React, { ReactNode, useCallback } from 'react'
+import React, { ReactNode } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { useSwipeable } from 'react-swipeable'
 import { strings } from '../../constants/strings'
 import { testId } from '../../constants/testId'
 import { AnimatedFlex } from '../common/Animation'
@@ -20,18 +21,23 @@ function Carousel<ItemType>({
     onRenderItem,
     onSelectedIndexChanged,
 }: Props<ItemType>) {
-    const movePrevious = useCallback(() => {
+    const movePrevious = () => {
         if (selectedIndex === 0) return
         onSelectedIndexChanged(selectedIndex - 1)
-    }, [selectedIndex, onSelectedIndexChanged])
+    }
 
-    const moveNext = useCallback(() => {
+    const moveNext = () => {
         if (selectedIndex === items.length - 1) return
         onSelectedIndexChanged(selectedIndex + 1)
-    }, [selectedIndex, onSelectedIndexChanged, items.length])
+    }
 
     useHotkeys('left', movePrevious, { keydown: true }, [movePrevious])
     useHotkeys('right', moveNext, { keydown: true }, [moveNext])
+
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => moveNext(),
+        onSwipedRight: () => movePrevious(),
+    })
 
     return (
         <Box
@@ -45,6 +51,7 @@ function Carousel<ItemType>({
                 initial={{ translateX: `-${selectedIndex * 100}%` }}
                 animate={{ translateX: `-${selectedIndex * 100}%` }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                {...swipeHandlers}
             >
                 {items.map((item, index) => onRenderItem(item, index))}
             </AnimatedFlex>
