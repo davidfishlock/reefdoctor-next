@@ -37,8 +37,6 @@ type TutorialAction =
     | { type: 'setIsAnswersScreenVisible'; isVisible: boolean }
 
 const reducer = (state: ReducerState, action: TutorialAction) => {
-    console.log(action)
-
     switch (action.type) {
         case 'setSelectedQuestionIndex': {
             return {

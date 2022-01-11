@@ -19,16 +19,19 @@ const Header: React.FC = () => {
 
     return (
         <Flex
-            flexDirection={{ base: 'column', md: 'row' }}
+            flexDirection={'row'}
+            flexWrap={'wrap'}
             px={{ base: 6, md: 9 }}
             py={{ base: 6, md: 9 }}
+            sx={{ rowGap: 12 }}
             justifyContent="space-between"
-            alignItems={{ base: 'flex-start', md: 'center' }}
+            alignItems={{ base: 'flex-start', sm: 'center' }}
         >
             <NextLink href={HOMEPAGE}>
                 <Box
                     data-testid={testId.HOME_LINK}
                     display="inline-block"
+                    marginRight={6}
                     {...(!isAtHomePage && homePageClickable)}
                 >
                     <NextImage
@@ -45,10 +48,7 @@ const Header: React.FC = () => {
                 </Box>
             </NextLink>
 
-            <Box
-                id={PAGE_COMMANDS_MOUNT_POINT}
-                marginTop={{ base: 6, md: 0 }}
-            />
+            <Box id={PAGE_COMMANDS_MOUNT_POINT} marginTop={2} />
         </Flex>
     )
 }

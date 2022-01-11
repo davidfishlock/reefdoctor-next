@@ -1,4 +1,10 @@
-import { Button, HStack, Icon, Tooltip } from '@chakra-ui/react'
+import {
+    Button,
+    HStack,
+    Icon,
+    Tooltip,
+    useBreakpointValue,
+} from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -19,12 +25,6 @@ type Props = {
     onShowSpeciesInfo: () => void
 }
 
-const commandButton = {
-    fontSize: '2xl',
-    colorScheme: 'blue',
-    size: 'lg',
-}
-
 const commandTooltip = {
     hasArrow: true,
     openDelay: 500,
@@ -32,6 +32,12 @@ const commandTooltip = {
 
 const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
     const router = useRouter()
+
+    const commandButtonStyle = {
+        fontSize: '2xl',
+        colorScheme: 'blue',
+        size: useBreakpointValue({ base: 'md', md: 'lg' }),
+    }
 
     const {
         tutorial,
@@ -63,7 +69,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                                     data-testid={
                                         testId.TUTORIAL_SHOW_CURRENT_ANSWER
                                     }
-                                    {...commandButton}
+                                    {...commandButtonStyle}
                                     onClick={() =>
                                         dispatch({
                                             type: 'setIsCurrentAnswerVisible',
@@ -81,7 +87,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                             >
                                 <Button
                                     data-testid={testId.TUTORIAL_SHOW_DETAILS}
-                                    {...commandButton}
+                                    {...commandButtonStyle}
                                     onClick={onShowSpeciesInfo}
                                 >
                                     <Icon as={FaInfo} />
@@ -98,7 +104,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                         >
                             <Button
                                 data-testid={testId.TUTORIAL_SHOW_ALL_ANSWERS}
-                                {...commandButton}
+                                {...commandButtonStyle}
                                 onClick={() =>
                                     dispatch({
                                         type: 'setIsAnswersScreenVisible',
@@ -121,7 +127,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                     >
                         <Button
                             data-testid={testId.TUTORIAL_BACK_TO_QUESTIONS}
-                            {...commandButton}
+                            {...commandButtonStyle}
                             onClick={() =>
                                 dispatch({
                                     type: 'setIsAnswersScreenVisible',
@@ -142,7 +148,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                         >
                             <Button
                                 data-testid={testId.TUTORIAL_COMPLETE}
-                                {...commandButton}
+                                {...commandButtonStyle}
                                 colorScheme="green"
                                 onClick={() => router.back()}
                             >

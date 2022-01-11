@@ -17,6 +17,7 @@ export const strings = {
     CATEGORY_SEAGRASS: 'Seagrass',
     UVC_LEVEL_INDICATOR: 'Indicator',
     UVC_LEVEL_EXPERT: 'Expert',
+    UVC_LEVEL_NA: 'N/A',
     BUTTON_BROWSE_CATALOG: 'Browse Catalog',
     BUTTON_WORKSHOP: 'Workshop',
     BUTTON_QUIZ: 'Quiz',
