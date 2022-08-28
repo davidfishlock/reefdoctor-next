@@ -10,6 +10,6 @@ View the live version at: https://reefdoctor.davidfishlock.com
 -   [SWR](https://www.npmjs.com/package/swr)
 -   [Chakra UI](https://chakra-ui.com/)
 -   [Prisma](https://www.prisma.io/)
--   [PostgreSQL](https://www.postgresql.org/)
 -   [Framer Motion](https://github.com/framer/motion/)
 -   [Vercel](https://vercel.com/)
+-   [Planetscale](https://planetscale.com/)
