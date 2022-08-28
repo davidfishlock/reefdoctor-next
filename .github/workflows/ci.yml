@@ -17,7 +17,7 @@ jobs:
 
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Code format check
         run: npm run format:check
@@ -33,6 +33,3 @@ jobs:
 
       - name: Next build
         run: npm run next:build
-
-      - name: Run integration tests
-        run: npm run e2e:headless
