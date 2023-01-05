@@ -1,5 +1,5 @@
 import { Box, BoxProps } from '@chakra-ui/react'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import React, { useEffect, useState } from 'react'
 import { useIsMounted } from '../../hooks/useIsMounted'
 import { AnimatedBox } from './Animation'

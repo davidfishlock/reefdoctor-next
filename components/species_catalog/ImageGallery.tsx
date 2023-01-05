@@ -1,4 +1,4 @@
-import FocusLock from '@chakra-ui/focus-lock'
+import { FocusLock } from '@chakra-ui/focus-lock'
 import { Box, Center, Image, Text } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
 import React, { useState } from 'react'

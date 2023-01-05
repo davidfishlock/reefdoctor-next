@@ -44,7 +44,7 @@ describe('CarouselNavigateButton', () => {
         expect(button).toHaveAttribute('disabled')
     })
 
-    test('fires handler on click', () => {
+    test('fires handler on click', async () => {
         render(
             <CarouselNavigateButton
                 icon={<Icon as={FaArrowLeft} />}
@@ -56,7 +56,7 @@ describe('CarouselNavigateButton', () => {
         )
 
         const button = screen.getByLabelText(strings.CAROUSEL_NEXT_BUTTON)
-        userEvent.click(button)
+        await userEvent.click(button)
 
         expect(mockOnClick).toBeCalledTimes(1)
     })

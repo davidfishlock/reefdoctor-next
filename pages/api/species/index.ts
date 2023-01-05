@@ -1,9 +1,9 @@
 import { constants } from 'http2'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { strings } from '../../../constants/strings'
+import prisma from '../../../prisma/client'
 import { isSpeciesQuery } from '../../../types/queries'
 import { validateHttpMethod } from '../../../utils/requestHandlers'
-import prisma from "../../../prisma/client"
 
 export default async function handler(
     request: NextApiRequest,
