@@ -37,7 +37,7 @@ describe('OneTimeDialog', () => {
         expect(screen.queryByText(contentProps.header)).not.toBeInTheDocument()
     })
 
-    test('clicking close button sets key as seen and closes dialog', () => {
+    test('clicking close button sets key as seen and closes dialog', async () => {
         getStorageMock.mockImplementation(() => false)
 
         render(<OneTimeDialog {...contentProps} storageKey={storageKey} />)
@@ -46,7 +46,7 @@ describe('OneTimeDialog', () => {
             name: contentProps.closeButtonLabel,
         })
 
-        userEvent.click(closeButton)
+        await userEvent.click(closeButton)
 
         expect(setStorageMock).toBeCalledTimes(1)
         expect(setStorageMock).toBeCalledWith(storageKey, true)

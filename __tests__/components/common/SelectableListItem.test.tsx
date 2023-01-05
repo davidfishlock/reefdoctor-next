@@ -25,7 +25,7 @@ describe('SelectableListItem', () => {
         expect(screen.getByText(item)).toBeInTheDocument()
     })
 
-    test('calls onSelected with item when clicked', () => {
+    test('calls onSelected with item when clicked', async () => {
         render(
             <List>
                 <SelectableListItem<string>
@@ -37,7 +37,7 @@ describe('SelectableListItem', () => {
                 </SelectableListItem>
             </List>
         )
-        userEvent.click(screen.getByText(item))
+        await userEvent.click(screen.getByText(item))
 
         expect(selectedHandler).toBeCalledTimes(1)
         expect(selectedHandler).toBeCalledWith(item)

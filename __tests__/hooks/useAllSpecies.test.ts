@@ -1,5 +1,5 @@
 import { Category, UVCLevel } from '@prisma/client'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import * as useSWR from 'swr'
 import { SWRResponse } from 'swr'
 import { SPECIES } from '../../constants/apiRoutes'

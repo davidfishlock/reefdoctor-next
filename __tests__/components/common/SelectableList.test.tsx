@@ -29,7 +29,7 @@ describe('SelectableList', () => {
         })
     })
 
-    test('calls onSelectedItemChanged when item is clicked', () => {
+    test('calls onSelectedItemChanged when item is clicked', async () => {
         render(
             <SelectableList<string>
                 items={items}
@@ -38,13 +38,13 @@ describe('SelectableList', () => {
             />
         )
 
-        userEvent.click(screen.getByText(mockRenderFunction(items[0])))
+        await userEvent.click(screen.getByText(mockRenderFunction(items[0])))
 
         expect(mockOnSelectedItemChanged).toBeCalledTimes(1)
         expect(mockOnSelectedItemChanged).toBeCalledWith(items[0])
     })
 
-    test('selects next item when down key pressed', () => {
+    test('selects next item when down key pressed', async () => {
         Element.prototype.scrollIntoView = jest.fn()
         render(
             <SelectableList<string>
@@ -55,16 +55,16 @@ describe('SelectableList', () => {
             />
         )
 
-        userEvent.type(
+        await userEvent.type(
             screen.getByTestId(testId.SELECTABLE_LIST),
-            '{arrowdown}'
+            '[ArrowDown]'
         )
 
         expect(mockOnSelectedItemChanged).toBeCalledTimes(1)
         expect(mockOnSelectedItemChanged).toBeCalledWith(items[1])
     })
 
-    test('selects previous item when up key pressed', () => {
+    test('selects previous item when up key pressed', async () => {
         Element.prototype.scrollIntoView = jest.fn()
         render(
             <SelectableList<string>
@@ -75,7 +75,10 @@ describe('SelectableList', () => {
             />
         )
 
-        userEvent.type(screen.getByTestId(testId.SELECTABLE_LIST), '{arrowup}')
+        await userEvent.type(
+            screen.getByTestId(testId.SELECTABLE_LIST),
+            '[ArrowUp]'
+        )
 
         expect(mockOnSelectedItemChanged).toBeCalledTimes(1)
         expect(mockOnSelectedItemChanged).toBeCalledWith(items[0])

@@ -21,13 +21,13 @@ describe('Header', () => {
         ).not.toBeInTheDocument()
     })
 
-    test('renders backward link when not on homepage', () => {
+    test('renders backward link when not on homepage', async () => {
         mockRouter.setCurrentUrl(CATALOG)
         mockRouter.back = jest.fn()
 
         render(<Header />)
 
-        userEvent.click(screen.getByAltText(strings.HOMEPAGE_LINK))
+        await userEvent.click(screen.getByAltText(strings.HOMEPAGE_LINK))
 
         expect(mockRouter.back).toBeCalledTimes(1)
     })

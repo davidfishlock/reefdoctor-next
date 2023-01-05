@@ -28,10 +28,10 @@ describe('Dialog', () => {
         expect(screen.queryByText(contentProps.footer)).not.toBeInTheDocument()
     })
 
-    test('calls close function on close button click ', () => {
+    test('calls close function on close button click ', async () => {
         render(<Dialog {...contentProps} isOpen={true} onClose={mockClose} />)
 
-        userEvent.click(screen.getByLabelText('Close'))
+        await userEvent.click(screen.getByLabelText('Close'))
 
         expect(mockClose).toBeCalledTimes(1)
     })

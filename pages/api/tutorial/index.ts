@@ -4,13 +4,13 @@ import { constants } from 'http2'
 import { NextApiRequest, NextApiResponse } from 'next'
 import urljoin from 'url-join'
 import { strings } from '../../../constants/strings'
+import prisma from '../../../prisma/client'
 import { isTutorialQuery } from '../../../types/queries'
 import { TutorialSessionType } from '../../../types/tutorial'
 import { shuffle } from '../../../utils/array'
 import { validateHttpMethod } from '../../../utils/requestHandlers'
 import { getImagePathForSpecies } from '../../../utils/species'
 import { hasNAItems } from '../../../utils/uvcDefinitions'
-import prisma from "../../../prisma/client"
 
 export const QUESTION_COUNT = 25
 export const MAX_NA_ITEMS_COUNT = 5

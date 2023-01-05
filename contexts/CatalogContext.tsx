@@ -1,5 +1,5 @@
 import { Category, Species, UVCLevel } from '@prisma/client'
-import React, { createContext, useEffect, useReducer } from 'react'
+import React, { createContext, ReactNode, useEffect, useReducer } from 'react'
 import { useAllSpecies } from '../hooks/useAllSpecies'
 import { isUVCCategory } from '../utils/uvcDefinitions'
 
@@ -53,7 +53,11 @@ const reducer = (state: ReducerState, action: CatalogAction) => {
     }
 }
 
-export const CatalogProvider: React.FC = ({ children }) => {
+type Props = {
+    children: ReactNode
+}
+
+export const CatalogProvider: React.FC<Props> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const { selectedCategory, selectedUVCLevel, selectedSpecies } = state
