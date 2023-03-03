@@ -1,78 +1,84 @@
-import { Box, List } from '@chakra-ui/react'
-import React, { ReactNode, useCallback, useState } from 'react'
-import { useHotkeys } from 'react-hotkeys-hook'
+import { List } from '@chakra-ui/react'
+import React, { KeyboardEvent, ReactNode } from 'react'
 import { testId } from '../../constants/testId'
 import SelectableListItem from './SelectableListItem'
 
 type Props<ItemType> = {
+    label: string
     items: ItemType[]
     selectedItem?: ItemType
-    onSelectedItemChanged: (item: ItemType) => void
-    onRenderItem: (item: ItemType, index: number) => ReactNode
+    onSelectedItemChanged: (item: ItemType | undefined) => void
+    onRenderItem: (item: ItemType) => ReactNode
+    getItemId: (item: ItemType) => string
 }
 
 function SelectableList<ItemType>({
+    label,
     items,
     selectedItem,
     onSelectedItemChanged,
     onRenderItem,
+    getItemId,
 }: Props<ItemType>) {
-    const [hasFocus, setHasFocus] = useState(false)
+    const onKeyDown = (e: KeyboardEvent): void => {
+        if (!selectedItem) {
+            return
+        }
 
-    const movePrevious = useCallback(
-        (event: KeyboardEvent) => {
-            if (!hasFocus || !selectedItem) return
-            const currentIndex = items.indexOf(selectedItem)
-            if (currentIndex <= 0) return
+        const currentSelectedIndex = items.indexOf(selectedItem)
 
-            onSelectedItemChanged(items[currentIndex - 1])
-            event.preventDefault()
-        },
-        [hasFocus, selectedItem, onSelectedItemChanged, items]
-    )
-
-    const moveNext = useCallback(
-        (event: KeyboardEvent) => {
-            if (!hasFocus || !selectedItem) return
-            const currentIndex = items.indexOf(selectedItem)
-            if (currentIndex < 0 || currentIndex === items.length - 1) return
-
-            onSelectedItemChanged(items[currentIndex + 1])
-            event.preventDefault()
-        },
-        [hasFocus, selectedItem, onSelectedItemChanged, items]
-    )
-
-    useHotkeys('up', movePrevious, { keydown: true }, [movePrevious])
-    useHotkeys('down', moveNext, { keydown: true }, [moveNext])
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+            e.preventDefault()
+            onSelectedItemChanged(
+                items[
+                    currentSelectedIndex === items.length - 1
+                        ? 0
+                        : currentSelectedIndex + 1
+                ]
+            )
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+            e.preventDefault()
+            onSelectedItemChanged(
+                items[
+                    currentSelectedIndex === 0
+                        ? items.length - 1
+                        : currentSelectedIndex - 1
+                ]
+            )
+        }
+    }
 
     return (
-        <Box
+        <List
+            onKeyDown={onKeyDown}
+            aria-label={label}
             data-testid={testId.SELECTABLE_LIST}
+            role="listbox"
+            aria-activedescendant={
+                selectedItem ? getItemId(selectedItem) : undefined
+            }
             boxSize="full"
             tabIndex={0}
             overflowY={'auto'}
             borderRadius={6}
             borderColor={'whiteAlpha.300'}
             borderWidth="1px"
-            onFocus={() => setHasFocus(true)}
-            onBlur={() => setHasFocus(false)}
         >
-            <List>
-                {items.map((item, index) => {
-                    return (
-                        <SelectableListItem
-                            key={`selectable-item-${index}`}
-                            item={item}
-                            isSelected={selectedItem === item}
-                            onSelected={onSelectedItemChanged}
-                        >
-                            {onRenderItem(item, index)}
-                        </SelectableListItem>
-                    )
-                })}
-            </List>
-        </Box>
+            {items.map((item) => {
+                const id = getItemId(item)
+                return (
+                    <SelectableListItem
+                        id={id}
+                        key={id}
+                        item={item}
+                        isSelected={selectedItem === item}
+                        onSelected={onSelectedItemChanged}
+                    >
+                        {onRenderItem(item)}
+                    </SelectableListItem>
+                )
+            })}
+        </List>
     )
 }
 

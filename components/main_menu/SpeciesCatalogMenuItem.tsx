@@ -13,8 +13,9 @@ const SpeciesCatalogMenuItem: React.FC = () => {
             imageFit="contain"
             title={strings.SPECIES_CATALOG}
             buttons={
-                <Link href={CATALOG} passHref>
+                <Link href={CATALOG} passHref legacyBehavior>
                     <Button
+                        as="a"
                         data-testid={testId.MAIN_MENU_CATALOG_BUTTON}
                         size="sm"
                         colorScheme="green"

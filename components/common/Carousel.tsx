@@ -9,17 +9,23 @@ import { AnimatedFlex } from '../common/Animation'
 import CarouselNavigateButton from './CarouselNavigateButton'
 
 type Props<ItemType> = {
+    label: string
     items: ItemType[]
     selectedIndex: number
     onRenderItem: (item: ItemType, index: number) => ReactNode
     onSelectedIndexChanged: (index: number) => void
+    nextButtonLabel?: string
+    previousButtonLabel?: string
 }
 
 function Carousel<ItemType>({
+    label,
     items,
     selectedIndex = 0,
     onRenderItem,
     onSelectedIndexChanged,
+    nextButtonLabel = strings.CAROUSEL_NEXT_BUTTON,
+    previousButtonLabel = strings.CAROUSEL_PREVIOUS_BUTTON,
 }: Props<ItemType>) {
     const movePrevious = () => {
         if (selectedIndex === 0) return
@@ -41,6 +47,11 @@ function Carousel<ItemType>({
 
     return (
         <Box
+            aria-live="polite"
+            aria-label={label}
+            aria-atomic={false}
+            role="group"
+            aria-roledescription="carousel"
             data-testid={testId.CAROUSEL}
             position="relative"
             overflow="hidden"
@@ -53,7 +64,20 @@ function Carousel<ItemType>({
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 {...swipeHandlers}
             >
-                {items.map((item, index) => onRenderItem(item, index))}
+                {items.map((item, index) => (
+                    <Box
+                        key={`carousel-item-${index}`}
+                        aria-hidden={selectedIndex != index}
+                        role="group"
+                        aria-roledescription="slide"
+                        tabIndex={-1}
+                        boxSize="full"
+                        flex="none"
+                        position="relative"
+                    >
+                        {onRenderItem(item, index)}
+                    </Box>
+                ))}
             </AnimatedFlex>
 
             <CarouselNavigateButton
@@ -62,7 +86,7 @@ function Carousel<ItemType>({
                 onClick={movePrevious}
                 left={0}
                 isDisabled={selectedIndex === 0}
-                label={strings.CAROUSEL_PREVIOUS_BUTTON}
+                label={previousButtonLabel}
             />
 
             <CarouselNavigateButton
@@ -71,7 +95,7 @@ function Carousel<ItemType>({
                 onClick={moveNext}
                 right={0}
                 isDisabled={selectedIndex === items.length - 1}
-                label={strings.CAROUSEL_NEXT_BUTTON}
+                label={nextButtonLabel}
             />
         </Box>
     )

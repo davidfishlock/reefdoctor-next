@@ -2,6 +2,7 @@ import { FocusLock } from '@chakra-ui/focus-lock'
 import { Box, Center, Image, Text } from '@chakra-ui/react'
 import { Species } from '@prisma/client'
 import React, { useState } from 'react'
+import { strings } from '../../constants/strings'
 import Carousel from '../common/Carousel'
 
 type GalleryProps = {
@@ -32,6 +33,9 @@ const ImageGallery: React.FC<GalleryProps> = ({
                 bg="blackAlpha.800"
             >
                 <Carousel<string>
+                    label={strings.IMAGE_GALLERY_CAROUSEL}
+                    nextButtonLabel={strings.IMAGE_GALLERY_NEXT}
+                    previousButtonLabel={strings.IMAGE_GALLERY_PREVIOUS}
                     items={images}
                     selectedIndex={selectedIndex}
                     onSelectedIndexChanged={(index) => setSelectedIndex(index)}
@@ -60,13 +64,14 @@ const ImageGallery: React.FC<GalleryProps> = ({
 
                 <Center pos="absolute" w="full" bottom="0" p={5}>
                     <Text
+                        aria-live="polite"
                         borderRadius={3}
                         bg="blackAlpha.600"
                         p={3}
                         color="white"
                         fontSize="xs"
                     >
-                        {selectedIndex + 1} / {images.length}
+                        Image {selectedIndex + 1} of {images.length}
                     </Text>
                 </Center>
             </Box>

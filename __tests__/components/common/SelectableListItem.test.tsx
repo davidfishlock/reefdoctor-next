@@ -5,7 +5,7 @@ import React from 'react'
 import SelectableListItem from '../../../components/common/SelectableListItem'
 import { testId } from '../../../constants/testId'
 
-const item = 'an item'
+const item = 'item-1'
 const selectedHandler = jest.fn()
 
 describe('SelectableListItem', () => {
@@ -13,6 +13,7 @@ describe('SelectableListItem', () => {
         render(
             <List>
                 <SelectableListItem<string>
+                    id={item}
                     item={item}
                     isSelected={false}
                     onSelected={selectedHandler}
@@ -29,6 +30,7 @@ describe('SelectableListItem', () => {
         render(
             <List>
                 <SelectableListItem<string>
+                    id={item}
                     item={item}
                     isSelected={false}
                     onSelected={selectedHandler}
@@ -44,12 +46,12 @@ describe('SelectableListItem', () => {
     })
 
     test('scrolls self into view when selected changes to true', () => {
-        const item = 'an item'
         const scrollMock = jest.fn()
 
         const { rerender } = render(
             <List>
                 <SelectableListItem<string>
+                    id={item}
                     item={item}
                     isSelected={false}
                     onSelected={selectedHandler}
@@ -64,6 +66,7 @@ describe('SelectableListItem', () => {
         rerender(
             <List>
                 <SelectableListItem<string>
+                    id={item}
                     item={item}
                     isSelected={true}
                     onSelected={jest.fn()}

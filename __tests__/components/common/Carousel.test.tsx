@@ -19,6 +19,7 @@ describe('Carousel', () => {
     test('renders children items according to render function', () => {
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={0}
                 onRenderItem={mockRenderFunction}
@@ -35,6 +36,7 @@ describe('Carousel', () => {
     test('previous button disabled when no previous item', () => {
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={0}
                 onRenderItem={mockRenderFunction}
@@ -53,6 +55,7 @@ describe('Carousel', () => {
     test('next button disabled when no next item', () => {
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={items.length - 1}
                 onRenderItem={mockRenderFunction}
@@ -73,6 +76,7 @@ describe('Carousel', () => {
 
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
@@ -93,6 +97,7 @@ describe('Carousel', () => {
 
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
@@ -113,6 +118,7 @@ describe('Carousel', () => {
 
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
@@ -120,7 +126,9 @@ describe('Carousel', () => {
             />
         )
 
-        userEvent.click(screen.getByLabelText(strings.CAROUSEL_NEXT_BUTTON))
+        await userEvent.click(
+            screen.getByLabelText(strings.CAROUSEL_NEXT_BUTTON)
+        )
 
         await waitFor(() => {
             expect(mockOnSelectedIndexChanged).toBeCalledTimes(1)
@@ -133,6 +141,7 @@ describe('Carousel', () => {
 
         render(
             <Carousel<string>
+                label="My Carousel"
                 items={items}
                 selectedIndex={startIndex}
                 onRenderItem={mockRenderFunction}
@@ -140,7 +149,9 @@ describe('Carousel', () => {
             />
         )
 
-        userEvent.click(screen.getByLabelText(strings.CAROUSEL_PREVIOUS_BUTTON))
+        await userEvent.click(
+            screen.getByLabelText(strings.CAROUSEL_PREVIOUS_BUTTON)
+        )
 
         await waitFor(() => {
             expect(mockOnSelectedIndexChanged).toBeCalledTimes(1)

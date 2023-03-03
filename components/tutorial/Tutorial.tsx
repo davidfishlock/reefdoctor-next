@@ -85,8 +85,26 @@ const Tutorial: React.FC = () => {
                     flexDirection="column"
                     boxSize="full"
                 >
+                    <Center marginBottom={6}>
+                        <Text
+                            aria-live="polite"
+                            data-testid={testId.TUTORIAL_QUESTION_NUMBER}
+                            fontSize="xl"
+                        >
+                            {formatString(
+                                strings.TUTORIAL_QUESTION_NUMBER,
+                                selectedQuestionIndex + 1,
+                                tutorial.questions.length
+                            )}
+                        </Text>
+                    </Center>
                     <Box flexGrow={1} minHeight={0}>
                         <Carousel<Question>
+                            label={strings.TUTORIAL_QUESTIONS_CAROUSEL}
+                            nextButtonLabel={strings.TUTORIAL_NEXT_QUESTION}
+                            previousButtonLabel={
+                                strings.TUTORIAL_PREVIOUS_QUESTION
+                            }
                             items={tutorial.questions}
                             onSelectedIndexChanged={onSelectedIndexChanged}
                             selectedIndex={selectedQuestionIndex}
@@ -99,19 +117,6 @@ const Tutorial: React.FC = () => {
                             )}
                         />
                     </Box>
-                    <Center>
-                        <Text
-                            data-testid={testId.TUTORIAL_QUESTION_NUMBER}
-                            fontSize="xl"
-                            marginTop={6}
-                        >
-                            {formatString(
-                                strings.TUTORIAL_QUESTION_NUMBER,
-                                selectedQuestionIndex + 1,
-                                tutorial.questions.length
-                            )}
-                        </Text>
-                    </Center>
                 </AnimatedFlex>
             )}
 

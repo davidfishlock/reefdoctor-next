@@ -69,6 +69,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                                     data-testid={
                                         testId.TUTORIAL_SHOW_CURRENT_ANSWER
                                     }
+                                    aria-label={strings.COMMAND_SHOW_ANSWER}
                                     {...commandButtonStyle}
                                     onClick={() =>
                                         dispatch({
@@ -87,6 +88,7 @@ const TutorialCommands: React.FC<Props> = ({ onShowSpeciesInfo }) => {
                             >
                                 <Button
                                     data-testid={testId.TUTORIAL_SHOW_DETAILS}
+                                    aria-label={strings.COMMAND_SPECIES_INFO}
                                     {...commandButtonStyle}
                                     onClick={onShowSpeciesInfo}
                                 >

@@ -8,7 +8,7 @@ import {
     useBreakpointValue,
 } from '@chakra-ui/react'
 import { Category, Species, UVCLevel } from '@prisma/client'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { strings } from '../../constants/strings'
 import { testId } from '../../constants/testId'
 import { useCatalogContext } from '../../contexts/CatalogContext'
@@ -17,6 +17,7 @@ import { isUVCCategory } from '../../utils/uvcDefinitions'
 import SelectableList from '../common/SelectableList'
 
 const SpeciesSelector: React.FC = () => {
+    const categorySelectRef = useRef<HTMLSelectElement>(null)
     const {
         speciesList,
         selectedSpecies,
@@ -30,12 +31,19 @@ const SpeciesSelector: React.FC = () => {
         md: false,
     })
 
+    useEffect(() => {
+        if (categorySelectRef.current) {
+            categorySelectRef.current.focus()
+        }
+    }, [categorySelectRef])
+
     return (
         <Stack spacing={3} w={'100%'} boxSize="full">
             <HStack spacing={3}>
                 <FormControl id="category">
-                    <FormLabel>Category</FormLabel>
+                    <FormLabel>{strings.CATEGORY}</FormLabel>
                     <Select
+                        ref={categorySelectRef}
                         data-testid={testId.CATALOG_CATEGORY_SELECT}
                         onChange={(event) => {
                             const category: Category =
@@ -71,7 +79,7 @@ const SpeciesSelector: React.FC = () => {
                     id="uvcLevel"
                     isDisabled={!isUVCCategory(selectedCategory)}
                 >
-                    <FormLabel>UVC Level</FormLabel>
+                    <FormLabel>{strings.UVC_LEVEL}</FormLabel>
                     <Select
                         data-testid={testId.CATALOG_UVC_SELECT}
                         value={selectedUVCLevel}
@@ -95,7 +103,7 @@ const SpeciesSelector: React.FC = () => {
 
             {isMobileView === true && speciesList && (
                 <FormControl width="100%">
-                    <FormLabel marginTop={1}>Species</FormLabel>
+                    <FormLabel marginTop={1}>{strings.SPECIES}</FormLabel>
                     <Select
                         value={selectedSpecies?.id}
                         onChange={(event) => {
@@ -123,12 +131,14 @@ const SpeciesSelector: React.FC = () => {
 
             {isMobileView === false && speciesList && (
                 <SelectableList<Species>
+                    label={strings.SPECIES}
                     items={speciesList}
                     selectedItem={selectedSpecies}
                     onSelectedItemChanged={(species) =>
                         dispatch({ type: 'selectSpecies', species })
                     }
                     onRenderItem={(species) => <Text>{species.name}</Text>}
+                    getItemId={(item) => `species-${item.id}`}
                 />
             )}
         </Stack>

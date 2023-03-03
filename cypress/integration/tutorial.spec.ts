@@ -17,7 +17,7 @@ function goToLastQuestion() {
 }
 
 function assertQuestionPresented(questionNumber: number) {
-    cy.get(`[alt="Question ${questionNumber} Image"]`).should('be.visible')
+    cy.get(`[alt="Question ${questionNumber} Species"]`).should('be.visible')
 
     cy.testId(testId.TUTORIAL_QUESTION_NUMBER).should(
         'have.text',

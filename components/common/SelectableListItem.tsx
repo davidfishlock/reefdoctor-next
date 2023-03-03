@@ -1,8 +1,9 @@
-import { Box, ListItem } from '@chakra-ui/react'
+import { ListItem } from '@chakra-ui/react'
 import React, { ReactNode, useEffect, useRef } from 'react'
 import { testId } from '../../constants/testId'
 
 type Props<ItemType> = {
+    id: string
     item: ItemType
     isSelected: boolean
     onSelected: (item: ItemType) => void
@@ -10,35 +11,36 @@ type Props<ItemType> = {
 }
 
 function SelectableListItem<ItemType>({
+    id,
     item,
     isSelected,
     onSelected,
     children,
 }: Props<ItemType>) {
-    const boxRef = useRef<HTMLDivElement>(null)
+    const itemRef = useRef<HTMLLIElement>(null)
 
     useEffect(() => {
-        if (isSelected && boxRef.current) {
-            boxRef.current.scrollIntoView({ block: 'nearest' })
+        if (isSelected && itemRef.current) {
+            itemRef.current.scrollIntoView({ block: 'nearest' })
         }
     }, [isSelected])
 
     return (
-        <Box
+        <ListItem
+            id={id}
+            role="option"
             data-testid={testId.SELECTABLE_LIST_ITEM}
-            ref={boxRef}
             background={isSelected ? 'blue.400' : undefined}
+            ref={itemRef}
+            userSelect="none"
+            aria-selected={isSelected}
+            px={4}
+            py={1}
+            _hover={{ backgroundColor: 'whiteAlpha.300' }}
+            onClick={() => onSelected(item)}
         >
-            <ListItem
-                userSelect="none"
-                px={4}
-                py={1}
-                _hover={{ backgroundColor: 'whiteAlpha.300' }}
-                onClick={() => onSelected(item)}
-            >
-                {children}
-            </ListItem>
-        </Box>
+            {children}
+        </ListItem>
     )
 }
 
