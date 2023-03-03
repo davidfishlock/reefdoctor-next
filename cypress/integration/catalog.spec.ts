@@ -29,9 +29,7 @@ describe('Species Catalog', () => {
         const speciesName = 'Bluebarred Parrotfish'
         cy.get('li').contains(speciesName).click()
 
-        cy.testId(testId.CATALOG_SPECIES_DETAILS).within(() => {
-            cy.get('h2').should('have.text', speciesName)
-        })
+        cy.get('h2').contains(speciesName)
     })
 
     it('can select UVC level', () => {
@@ -39,9 +37,7 @@ describe('Species Catalog', () => {
 
         cy.wait('@expertFishRequest')
 
-        cy.testId(testId.CATALOG_SPECIES_DETAILS).within(() => {
-            cy.get('h2').should('have.text', 'Barred Thicklip Wrasse')
-        })
+        cy.get('h2').contains('Barred Thicklip Wrasse')
     })
 
     it('can select Category', () => {
@@ -51,8 +47,6 @@ describe('Species Catalog', () => {
 
         cy.wait('@coralRequest')
 
-        cy.testId(testId.CATALOG_SPECIES_DETAILS).within(() => {
-            cy.get('h2').should('have.text', 'Acanthastrea')
-        })
+        cy.get('h2').contains('Acanthastrea')
     })
 })

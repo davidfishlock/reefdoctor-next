@@ -8,6 +8,6 @@ export function shuffle<T>(array: T[]) {
     return [...array].sort(() => 0.5 - Math.random())
 }
 
-export function repeat(times: number, callback: () => void) {
-    ;[...Array(times)].forEach(callback)
+export function repeat(times: number, callback: (index: number) => void) {
+    ;[...Array(times)].forEach((_, index) => callback(index))
 }
