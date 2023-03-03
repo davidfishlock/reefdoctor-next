@@ -35,9 +35,8 @@ jobs:
       - name: Run unit tests
         run: npm run test
 
+      - name: Next build
+        run: npm run next:build
+
       - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          build: npm run next:build
-          start: npm run next:start
-          wait-on: http://127.0.0.1:3000
+        run: npm run e2e:headless
