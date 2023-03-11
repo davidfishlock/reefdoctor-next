@@ -11,11 +11,7 @@ const SpeciesDetails: React.FC = () => {
     const details = selectedSpecies ? getSpeciesDetails(selectedSpecies) : []
 
     return (
-        <Stack
-            data-testid={testId.CATALOG_SPECIES_DETAILS}
-            key={`species-details${selectedSpecies?.id || 0}`}
-            spacing={3}
-        >
+        <Stack data-testid={testId.CATALOG_SPECIES_DETAILS} spacing={3}>
             <Heading as="h2" size="lg" marginBottom={3}>
                 {selectedSpecies?.name}
             </Heading>

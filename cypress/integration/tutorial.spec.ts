@@ -12,17 +12,19 @@ import { setupTutorialStubs } from '../fixtures/tutorial/tutorialStubs'
 const QUESTION_COUNT = 20
 
 function goToLastQuestion() {
-    repeat(QUESTION_COUNT - 1, () => cy.testId(testId.CAROUSEL_NEXT).click())
-    assertQuestionPresented(QUESTION_COUNT)
+    repeat(QUESTION_COUNT - 1, (index) => {
+        cy.testId(testId.CAROUSEL_NEXT).click()
+        assertQuestionPresented(index + 2)
+    })
 }
 
 function assertQuestionPresented(questionNumber: number) {
-    cy.get(`[alt="Question ${questionNumber} Image"]`).should('be.visible')
-
     cy.testId(testId.TUTORIAL_QUESTION_NUMBER).should(
         'have.text',
         `Question ${questionNumber} of 20`
     )
+
+    cy.get(`[alt="Question ${questionNumber} Species"]`).should('be.visible')
 }
 
 describe('Tutorial', () => {
@@ -95,7 +97,7 @@ describe('Tutorial', () => {
         assertQuestionPresented(QUESTION_COUNT)
     })
 
-    it('can complete tutorial by navigating back', () => {
+    it('can complete tutorial', () => {
         goToLastQuestion()
 
         cy.testId(testId.TUTORIAL_SHOW_ALL_ANSWERS).click()

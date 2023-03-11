@@ -4,20 +4,24 @@ import React from 'react'
 import SelectableList from '../../../components/common/SelectableList'
 import { testId } from '../../../constants/testId'
 
-const items = ['item 1', 'item 2']
+const items = ['item-1', 'item-2', 'item-3']
 const renderSuffix = ' - some suffix'
 const mockRenderFunction = jest
     .fn()
     .mockImplementation((item: string) => `${item}${renderSuffix}`)
 const mockOnSelectedItemChanged = jest.fn()
+Element.prototype.scrollIntoView = jest.fn()
 
 describe('SelectableList', () => {
-    test('renders children items according to render function', () => {
+    test('renders child items according to render function', () => {
         render(
             <SelectableList<string>
+                label="My List"
                 items={items}
+                selectedItem={items[1]}
                 onRenderItem={mockRenderFunction}
                 onSelectedItemChanged={mockOnSelectedItemChanged}
+                getItemId={(item) => item}
             />
         )
 
@@ -32,9 +36,12 @@ describe('SelectableList', () => {
     test('calls onSelectedItemChanged when item is clicked', async () => {
         render(
             <SelectableList<string>
+                label="My List"
                 items={items}
+                selectedItem={items[1]}
                 onRenderItem={mockRenderFunction}
                 onSelectedItemChanged={mockOnSelectedItemChanged}
+                getItemId={(item) => item}
             />
         )
 
@@ -45,39 +52,63 @@ describe('SelectableList', () => {
     })
 
     test('selects next item when down key pressed', async () => {
-        Element.prototype.scrollIntoView = jest.fn()
-        render(
+        const { rerender } = render(
             <SelectableList<string>
+                label="My List"
                 items={items}
+                selectedItem={items[1]}
                 onRenderItem={mockRenderFunction}
-                selectedItem={items[0]}
                 onSelectedItemChanged={mockOnSelectedItemChanged}
+                getItemId={(item) => item}
+            />
+        )
+        // rerender to ensure DOM key events are applied (populate refs)
+        await rerender(
+            <SelectableList<string>
+                label="My List"
+                items={items}
+                selectedItem={items[1]}
+                onRenderItem={mockRenderFunction}
+                onSelectedItemChanged={mockOnSelectedItemChanged}
+                getItemId={(item) => item}
             />
         )
 
         await userEvent.type(
             screen.getByTestId(testId.SELECTABLE_LIST),
-            '[ArrowDown]'
+            '{ArrowDown}'
         )
 
         expect(mockOnSelectedItemChanged).toBeCalledTimes(1)
-        expect(mockOnSelectedItemChanged).toBeCalledWith(items[1])
+        expect(mockOnSelectedItemChanged).toBeCalledWith(items[2])
     })
 
     test('selects previous item when up key pressed', async () => {
-        Element.prototype.scrollIntoView = jest.fn()
-        render(
+        const { rerender } = render(
             <SelectableList<string>
+                label="My List"
                 items={items}
-                onRenderItem={mockRenderFunction}
                 selectedItem={items[1]}
+                onRenderItem={mockRenderFunction}
                 onSelectedItemChanged={mockOnSelectedItemChanged}
+                getItemId={(item) => item}
+            />
+        )
+        // rerender to ensure DOM key events are applied (populate refs)
+        await rerender(
+            <SelectableList<string>
+                label="My List"
+                items={items}
+                selectedItem={items[1]}
+                onRenderItem={mockRenderFunction}
+                onSelectedItemChanged={mockOnSelectedItemChanged}
+                getItemId={(item) => item}
             />
         )
 
         await userEvent.type(
             screen.getByTestId(testId.SELECTABLE_LIST),
-            '[ArrowUp]'
+            '{ArrowUp}'
         )
 
         expect(mockOnSelectedItemChanged).toBeCalledTimes(1)

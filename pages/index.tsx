@@ -33,7 +33,7 @@ const Home: Page = () => {
                     content={strings.HOMEPAGE_DESCRIPTION}
                 />
             </Head>
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode="wait">
                 <AnimatedSimpleGrid
                     variants={menuAnimations}
                     initial="hidden"

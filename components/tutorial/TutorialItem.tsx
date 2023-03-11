@@ -1,4 +1,4 @@
-import { Box, Center, HStack, Image, Text } from '@chakra-ui/react'
+import { Center, HStack, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import { strings } from '../../constants/strings'
 import { testId } from '../../constants/testId'
@@ -19,8 +19,8 @@ const TutorialItem: React.FC<Props> = ({ question, index }) => {
         useTutorialContext()
 
     return (
-        <Box boxSize="full" flex="none" position="relative">
-            <Center key={`image-${index}`} boxSize="full">
+        <>
+            <Center boxSize="full">
                 <Image
                     boxSize="full"
                     objectFit="contain"
@@ -46,6 +46,7 @@ const TutorialItem: React.FC<Props> = ({ question, index }) => {
                             <NABadge marginRight={1} />
                         )}
                         <Text
+                            aria-live="polite"
                             data-testid={testId.TUTORIAL_CURRENT_ANSWER}
                             fontSize="2xl"
                         >
@@ -54,7 +55,7 @@ const TutorialItem: React.FC<Props> = ({ question, index }) => {
                     </HStack>
                 </AnimatedCenter>
             )}
-        </Box>
+        </>
     )
 }
 

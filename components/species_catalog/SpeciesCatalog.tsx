@@ -43,7 +43,7 @@ const SpeciesCatalog: React.FC = ({}) => {
                     <Spinner size="xl" />
                 </Center>
             ) : (
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence mode="wait">
                     <Flex
                         flexDir={{ base: 'column', xl: 'row' }}
                         flexGrow={1}

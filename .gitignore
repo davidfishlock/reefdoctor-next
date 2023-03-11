@@ -48,3 +48,7 @@ workbox*.js.map
 
 # cypress
 /cypress/videos
+/cypress/screenshots
+
+# typescript
+tsconfig.tsbuildinfo
