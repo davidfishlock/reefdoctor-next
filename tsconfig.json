@@ -16,6 +16,11 @@
         "types": ["cypress", "node", "jest", "@testing-library/jest-dom"],
         "incremental": true
     },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "commonjs"
+        }
+    },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules"]
 }
